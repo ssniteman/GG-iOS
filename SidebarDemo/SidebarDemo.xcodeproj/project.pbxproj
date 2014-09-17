@@ -14,7 +14,6 @@
 		601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */; };
 		604DC51819C7DEEA00E6A3BD /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */; };
 		604DC51A19C7E1BA00E6A3BD /* avatarcopy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 604DC51919C7E1BA00E6A3BD /* avatarcopy.jpg */; };
-		604DC51D19C7E8D400E6A3BD /* FXForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 604DC51C19C7E8D400E6A3BD /* FXForm.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */; };
 		F4EECF12177C99F400778578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF11177C99F400778578 /* UIKit.framework */; };
 		F4EECF14177C99F400778578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF13177C99F400778578 /* Foundation.framework */; };
@@ -61,8 +60,6 @@
 		601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = getagiglanding.jpg; path = ../../../../getagiglanding.jpg; sourceTree = "<group>"; };
 		604DC51919C7E1BA00E6A3BD /* avatarcopy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = avatarcopy.jpg; path = "../../../../theironyard/javascript-two/get-a-gig/app/images/avatarcopy.jpg"; sourceTree = "<group>"; };
-		604DC51B19C7E8D400E6A3BD /* FXForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForm.h; sourceTree = "<group>"; };
-		604DC51C19C7E8D400E6A3BD /* FXForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForm.m; sourceTree = "<group>"; };
 		F4D9AD1D1871725500E2D912 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F4EECF0E177C99F400778578 /* SidebarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SidebarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,8 +172,6 @@
 				601441A619BCF1E900BC3CC8 /* SearchViewController.m */,
 				601441A819BCF20F00BC3CC8 /* EditProfileViewController.h */,
 				601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */,
-				604DC51B19C7E8D400E6A3BD /* FXForm.h */,
-				604DC51C19C7E8D400E6A3BD /* FXForm.m */,
 				601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */,
 				601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */,
 				F4EECF34177C9A1E00778578 /* Library */,
@@ -317,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				604DC51D19C7E8D400E6A3BD /* FXForm.m in Sources */,
 				F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */,
 				F4EECF1E177C99F400778578 /* main.m in Sources */,
 				F4EECF22177C99F400778578 /* AppDelegate.m in Sources */,
