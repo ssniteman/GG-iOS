@@ -13,7 +13,7 @@
 		601441AA19BCF20F00BC3CC8 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */; };
 		601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */; };
 		604DC51819C7DEEA00E6A3BD /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */; };
-		604DC51A19C7E1BA00E6A3BD /* avatarcopy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 604DC51919C7E1BA00E6A3BD /* avatarcopy.jpg */; };
+		60D37D8019CA1309006FB596 /* avatarcopy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60D37D7F19CA1309006FB596 /* avatarcopy.jpg */; };
 		F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */; };
 		F4EECF12177C99F400778578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF11177C99F400778578 /* UIKit.framework */; };
 		F4EECF14177C99F400778578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF13177C99F400778578 /* Foundation.framework */; };
@@ -59,7 +59,7 @@
 		601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = getagiglanding.jpg; path = ../../../../getagiglanding.jpg; sourceTree = "<group>"; };
-		604DC51919C7E1BA00E6A3BD /* avatarcopy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = avatarcopy.jpg; path = "../../../../theironyard/javascript-two/get-a-gig/app/images/avatarcopy.jpg"; sourceTree = "<group>"; };
+		60D37D7F19CA1309006FB596 /* avatarcopy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatarcopy.jpg; sourceTree = "<group>"; };
 		F4D9AD1D1871725500E2D912 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F4EECF0E177C99F400778578 /* SidebarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SidebarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,7 @@
 		604DC51619C7DED600E6A3BD /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				604DC51919C7E1BA00E6A3BD /* avatarcopy.jpg */,
+				60D37D7F19CA1309006FB596 /* avatarcopy.jpg */,
 				604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */,
 			);
 			name = Images;
@@ -284,6 +284,7 @@
 				F4EECF26177C99F400778578 /* Default@2x.png in Resources */,
 				F4EECF28177C99F400778578 /* Default-568h@2x.png in Resources */,
 				F4EECF2B177C99F400778578 /* MainStoryboard.storyboard in Resources */,
+				60D37D8019CA1309006FB596 /* avatarcopy.jpg in Resources */,
 				F4EECF5B177F384900778578 /* bookmark.png in Resources */,
 				F4EECF5C177F384900778578 /* calendar.png in Resources */,
 				F4EECF5D177F384900778578 /* comments.png in Resources */,
@@ -297,7 +298,6 @@
 				F4EECF6A177F4C0200778578 /* menu.png in Resources */,
 				F4EECF6B177F4C0200778578 /* menu@2x.png in Resources */,
 				F4FE87FB1780081300CB3DA8 /* comments_photo.jpg in Resources */,
-				604DC51A19C7E1BA00E6A3BD /* avatarcopy.jpg in Resources */,
 				F4FE87FC1780081300CB3DA8 /* wishlist_photo.jpg in Resources */,
 				F4FE87FF178010F000CB3DA8 /* bookmark_photo.jpg in Resources */,
 				F4FE8800178010F000CB3DA8 /* calendar_photo.jpg in Resources */,
