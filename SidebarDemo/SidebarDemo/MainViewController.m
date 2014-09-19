@@ -35,20 +35,33 @@
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    UIButton * signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 200, 300, 45)];
+    UIButton * signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 200, 300, 50)];
     
     signUpButton.backgroundColor = [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f];
-//    
+    [signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
+    [signUpButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
+    signUpButton.layer.cornerRadius = 5;
+    
+    [self.view addSubview:signUpButton];
+//
 //    signUpButton.backgroundColor = [UIColor clearColor];
 //    
 //    [signUpButton.layer setBorderColor:[[UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] CGColor]];
 //    [signUpButton.layer setBorderWidth:2];
     
-    [signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
-    [signUpButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
-//    signUpButton.layer.cornerRadius = 20.0;
     
-    [self.view addSubview:signUpButton];
+    UIButton * loginButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, 300, 50)];
+    
+    loginButton.backgroundColor = [UIColor clearColor];
+    [loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    [loginButton setTitleColor: [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] forState:UIControlStateNormal];
+    loginButton.layer.cornerRadius = 5;
+    [loginButton.layer setBorderColor:[[UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] CGColor]];
+    [loginButton.layer setBorderWidth:2];
+    
+    [self.view addSubview:loginButton]
+    
+  ;
 
 }
 
