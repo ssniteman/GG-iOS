@@ -12,6 +12,7 @@
 		601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A619BCF1E900BC3CC8 /* SearchViewController.m */; };
 		601441AA19BCF20F00BC3CC8 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */; };
 		601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */; };
+		6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6027C5A619CF896D00CDD988 /* SignUpViewController.m */; };
 		604DC51819C7DEEA00E6A3BD /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */; };
 		60D37D8019CA1309006FB596 /* avatarcopy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60D37D7F19CA1309006FB596 /* avatarcopy.jpg */; };
 		F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */; };
@@ -58,6 +59,8 @@
 		601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		6027C5A519CF896D00CDD988 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		6027C5A619CF896D00CDD988 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = getagiglanding.jpg; path = ../../../../getagiglanding.jpg; sourceTree = "<group>"; };
 		60D37D7F19CA1309006FB596 /* avatarcopy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatarcopy.jpg; sourceTree = "<group>"; };
 		F4D9AD1D1871725500E2D912 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				F4EECF29177C99F400778578 /* MainStoryboard.storyboard */,
 				F4EECF2C177C99F400778578 /* MainViewController.h */,
 				F4EECF2D177C99F400778578 /* MainViewController.m */,
+				6027C5A519CF896D00CDD988 /* SignUpViewController.h */,
+				6027C5A619CF896D00CDD988 /* SignUpViewController.m */,
 				F4EECF48177DF87700778578 /* SidebarViewController.h */,
 				F4EECF49177DF87700778578 /* SidebarViewController.m */,
 				601441A219BCF14000BC3CC8 /* ProfileViewController.h */,
@@ -321,6 +326,7 @@
 				F4EECF4A177DF87700778578 /* SidebarViewController.m in Sources */,
 				601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */,
 				601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */,
+				6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */,
 				601441A119BCE80100BC3CC8 /* InboxViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,11 +412,14 @@
 		F4EECF32177C99F400778578 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SidebarDemo/SidebarDemo-Prefix.pch";
 				INFOPLIST_FILE = "SidebarDemo/SidebarDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -418,10 +427,12 @@
 		F4EECF33177C99F400778578 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SidebarDemo/SidebarDemo-Prefix.pch";
 				INFOPLIST_FILE = "SidebarDemo/SidebarDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

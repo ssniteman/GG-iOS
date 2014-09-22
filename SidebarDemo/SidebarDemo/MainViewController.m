@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "SWRevealViewController.h"
+#import "SignUpViewController.h"
 
 
 
@@ -42,9 +43,12 @@
     signUpButton.backgroundColor = [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f];
     [signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
     [signUpButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
+    signUpButton.titleLabel.font = [UIFont systemFontOfSize:18];
     signUpButton.layer.cornerRadius = 5;
     
     [self.view addSubview:signUpButton];
+    
+    [signUpButton addTarget:self action:@selector(signUpTouched) forControlEvents:UIControlEventTouchUpInside];
     
     // LOGIN BUTTON
     
@@ -55,10 +59,18 @@
     [loginButton setTitleColor: [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] forState:UIControlStateNormal];
     loginButton.layer.cornerRadius = 5;
     [loginButton.layer setBorderColor:[[UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] CGColor]];
+    loginButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [loginButton.layer setBorderWidth:1];
     
     [self.view addSubview:loginButton];
 
+}
+
+- (void)signUpTouched
+{
+   SignUpViewController * signUpTVC =[[SignUpViewController alloc] init];
+    
+    [self presentViewController:signUpTVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
