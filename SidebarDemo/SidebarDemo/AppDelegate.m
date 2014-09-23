@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -15,7 +16,21 @@
     // Override point for customization after application launch.
 
     // Change the background color of navigation bar
+    
+    
+    [Parse setApplicationId:@"3iYwTMywkleelnVUpiZdaXPPqVpvDsxw5qsJ1pev"
+                            clientKey:@"urfBXQFyT2Ur3bYuIZYAaqBppcmnY1buRw7EDOKU"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
+    
     [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    
+    
+
+    
+    
     
     // Change the font style of the navigation bar
     NSShadow *shadow = [[NSShadow alloc] init];
