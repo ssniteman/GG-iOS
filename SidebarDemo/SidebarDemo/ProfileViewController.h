@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *genreBandLable;
 
 //Profile Picture
-@property (weak, nonatomic) IBOutlet UIImageView *picture;
+@property (weak, nonatomic) IBOutlet UIButton *profilePicture;
 
 //City and State Label
 @property (weak, nonatomic) IBOutlet UILabel *cityAndStateLabel;
@@ -33,6 +33,8 @@
 
 
 //Profile Social Accounts
+
+//Button Actions
 
 //Profile SoundCloud Button
 - (IBAction)soundcloudButton:(id)sender;
@@ -43,5 +45,12 @@
 //Profile Instagram Button
 - (IBAction)instagramButton:(id)sender;
 
+//Button Properties
+
+@property (weak, nonatomic) IBOutlet UIButton *photosButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *soundButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *videoButton;
 
 @end

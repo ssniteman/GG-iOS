@@ -14,6 +14,7 @@
 		601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */; };
 		6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6027C5A619CF896D00CDD988 /* SignUpViewController.m */; };
 		604DC51819C7DEEA00E6A3BD /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */; };
+		60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */; };
 		60D37D8019CA1309006FB596 /* avatarcopy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60D37D7F19CA1309006FB596 /* avatarcopy.jpg */; };
 		60D7967619D0AE790009CDB2 /* g.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D7967519D0AE790009CDB2 /* g.png */; };
 		60D7967819D0B61F0009CDB2 /* bigG.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D7967719D0B61F0009CDB2 /* bigG.png */; };
@@ -75,6 +76,7 @@
 		6027C5A519CF896D00CDD988 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6027C5A619CF896D00CDD988 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = getagiglanding.jpg; path = ../../../../getagiglanding.jpg; sourceTree = "<group>"; };
+		60A420DB19D2039C007738D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = SidebarDemo/en.lproj/MainStoryboardTwo.storyboard; sourceTree = "<group>"; };
 		60D37D7F19CA1309006FB596 /* avatarcopy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatarcopy.jpg; sourceTree = "<group>"; };
 		60D7967519D0AE790009CDB2 /* g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g.png; sourceTree = "<group>"; };
 		60D7967719D0B61F0009CDB2 /* bigG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigG.png; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		F4EECF17177C99F400778578 /* SidebarDemo */ = {
 			isa = PBXGroup;
 			children = (
+				60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */,
 				F4EECF20177C99F400778578 /* AppDelegate.h */,
 				F4EECF21177C99F400778578 /* AppDelegate.m */,
 				F4EECF29177C99F400778578 /* MainStoryboard.storyboard */,
@@ -339,6 +342,7 @@
 				F4EECF24177C99F400778578 /* Default.png in Resources */,
 				F4EECF26177C99F400778578 /* Default@2x.png in Resources */,
 				F4EECF28177C99F400778578 /* Default-568h@2x.png in Resources */,
+				60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */,
 				F4EECF2B177C99F400778578 /* MainStoryboard.storyboard in Resources */,
 				60D37D8019CA1309006FB596 /* avatarcopy.jpg in Resources */,
 				F4EECF5B177F384900778578 /* bookmark.png in Resources */,
@@ -386,6 +390,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60A420DB19D2039C007738D4 /* en */,
+			);
+			name = MainStoryboardTwo.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		F4EECF1A177C99F400778578 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
