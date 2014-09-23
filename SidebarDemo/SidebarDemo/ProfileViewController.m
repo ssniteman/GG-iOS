@@ -27,6 +27,8 @@
         style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
+    
+    self.profileBackground.frame = CGRectMake(0, 20, self.view.frame.size.width, 100);
 
 }
 
@@ -45,4 +47,12 @@
 }
 */
 
+- (IBAction)soundcloudButton:(id)sender {
+}
+
+- (IBAction)facebookButton:(id)sender {
+}
+
+- (IBAction)instagramButton:(id)sender {
+}
 @end
