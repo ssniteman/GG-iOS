@@ -34,7 +34,17 @@
     _sidebarButton.action = @selector(revealToggle:);
     
     // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];\
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    UIImageView * gLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigG.png"]];
+    
+    gLogo.center = CGPointMake(self.view.center.x, 200);
+    
+    
+    [self.view addSubview:gLogo];
+    
+    
+    
     
     // SIGN UP BUTTON
     
