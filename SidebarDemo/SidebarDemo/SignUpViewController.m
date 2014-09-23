@@ -12,7 +12,13 @@
 
 @end
 
-@implementation SignUpViewController
+@implementation SignUpViewController {
+    UITextField * usernameTextField;
+    UITextField * passwordTextField;
+    UITextField * verifyPasswordTextField;
+    UISegmentedControl * segmentControl;
+    NSString * usernameText;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +34,7 @@
     
     // USERNAME TEXT FIELD
     
-    UITextField * usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 360, SCREEN_WIDTH - 40, 50)];
+    usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 360, SCREEN_WIDTH - 40, 50)];
     usernameTextField.backgroundColor = [UIColor whiteColor];
     usernameTextField.layer.cornerRadius = 5;
     usernameTextField.font = [UIFont systemFontOfSize:18];
@@ -40,10 +46,10 @@
     usernameTextField.leftViewMode = UITextFieldViewModeAlways;
 
     [self.view addSubview:usernameTextField];
-    
+        
     // PASSWORD TEXT FIELD
     
-    UITextField * passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 290, SCREEN_WIDTH - 40, 50)];
+    passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 290, SCREEN_WIDTH - 40, 50)];
     passwordTextField.backgroundColor = [UIColor whiteColor];
     passwordTextField.layer.cornerRadius = 5;
     passwordTextField.font = [UIFont systemFontOfSize:18];
@@ -58,7 +64,7 @@
     
     // VERIFY PASSWORD TEXT FIELD
     
-    UITextField * verifyPasswordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 220, SCREEN_WIDTH - 40, 50)];
+    verifyPasswordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 220, SCREEN_WIDTH - 40, 50)];
     verifyPasswordTextField.backgroundColor = [UIColor whiteColor];
     verifyPasswordTextField.layer.cornerRadius = 5;
     verifyPasswordTextField.font = [UIFont systemFontOfSize:18];
@@ -72,7 +78,7 @@
     
     // USERTYPE
     
-    UISegmentedControl * segmentControl = [[UISegmentedControl alloc]initWithItems:@[@"Musician / Band",@"Bar / Venue"]];
+    segmentControl = [[UISegmentedControl alloc]initWithItems:@[@"Musician / Band",@"Bar / Venue"]];
     [segmentControl setSegmentedControlStyle:UISegmentedControlStyleBar];
     segmentControl.frame = CGRectMake(20, SCREEN_HEIGHT - 150, SCREEN_WIDTH - 40, 50);
     
@@ -105,16 +111,15 @@
     [signUpFinalButton addTarget:self action:@selector(signUpFinalTouched) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:signUpFinalButton];
-    
-    
-    
-    
+
 }
 
 
 - (void)signUpFinalTouched {
     
-  
+    NSLog(@"%@",usernameTextField.text);
+    
+    NSLog(@"SignUpFinal Tappedity Tapped");
     
 }
 
