@@ -1,82 +1,137 @@
 //
+
 //  ProfileViewController.m
+
 //  SidebarDemo
-//
-//  Created by Shane Sniteman on 9/7/14.
-//  Copyright (c) 2014 Appcoda. All rights reserved.
+
+
 //
 
+
 #import "ProfileViewController.h"
+
 #import "SWRevealViewController.h"
 
 
 // WIDTH & HEIGHT
 
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
 
 @interface ProfileViewController ()
 
+
 @end
 
-@implementation ProfileViewController
+@implementation ProfileViewController{
+    UIButton * theProfilePicture;
+    
+}
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     SWRevealViewController *revealController = [self revealViewController];
-    
-    //[self.navigationController.navigationBar addGestureRecognizer:revealController.panGestureRecognizer];
-    
-    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"]
-        style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
-    //Setting the Profile Background color
     
-    self.profileBackground.backgroundColor = [UIColor colorWithRed:0.753f green:0.251f blue:0.208f alpha:1.0f];
-
-    //Setting the profile picture to be round
-    self.profilePicture.layer.cornerRadius = 50;
-    self.profilePicture.clipsToBounds = YES;
     
     //Position for the Photos Button
+    
     self.photosButton.frame = CGRectMake(10, SCREEN_HEIGHT-105, 95, 95);
+    
     self.photosButton.backgroundColor = [UIColor colorWithRed:0.753f green:0.251f blue:0.208f alpha:1.0f];
     
+    
+    
     //Position for the Sound Button
+    
     self.soundButton.frame = CGRectMake(SCREEN_WIDTH/2.0-47.5, SCREEN_HEIGHT-105, 95, 95);
+    
     self.soundButton.backgroundColor = [UIColor colorWithRed:0.753f green:0.251f blue:0.208f alpha:1.0f];
-
-    //Position for the video Button
+    
+    
+    
+ //Position for the video Button
+    
     self.videoButton.frame = CGRectMake(SCREEN_WIDTH-105, SCREEN_HEIGHT-105, 95, 95);
+    
     self.videoButton.backgroundColor = [UIColor colorWithRed:0.753f green:0.251f blue:0.208f alpha:1.0f];
+    
+    
+    
+ // TOP VIEW BACKGROUND
+    
+    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT -200)];
+    
+    topView.backgroundColor = [UIColor colorWithRed:0.753f green:0.251f blue:0.208f alpha:1.0f];
+    
+    [self.view addSubview:topView];
+    
+ //Setting the profile picture to be round
+    
+    theProfilePicture = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-70, 90, 140, 140)];
+    UIImage *profileImage = [UIImage imageNamed:@"avatarcopy.jpg"];
+    [theProfilePicture setBackgroundImage:profileImage forState:UIControlStateNormal];
+    theProfilePicture.layer.cornerRadius = 70;
+    theProfilePicture.userInteractionEnabled = false;
+    theProfilePicture.clipsToBounds = YES;
+
+//BAND NAME LABEL
+    
+    UILabel * nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-100, 200, 21)];
+    [nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
+    
+    nameLabel.textColor = [UIColor whiteColor];
+    nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.text = @"Band Name";
+    
+// Genre LABEL
+    
+    UILabel * genreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-75, 200, 21)];
+    [genreLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:20]];
+    
+    genreLabel.textColor = [UIColor whiteColor];
+    genreLabel.textAlignment = NSTextAlignmentCenter;
+    genreLabel.text = @"Genre";
+    
+ //City & State LABEL
+    
+    UILabel * stateLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-50, 200, 21)];
+    [stateLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:20]];
+    
+    stateLabel.textColor = [UIColor whiteColor];
+    stateLabel.textAlignment = NSTextAlignmentCenter;
+    stateLabel.text = @"Atlanta, GA";
+    
+    [topView addSubview:nameLabel];
+    [topView addSubview:genreLabel];
+    [topView addSubview:stateLabel];
+    
+    [topView addSubview:theProfilePicture];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)soundcloudButton:(id)sender {
+    
 }
+
+
 
 - (IBAction)facebookButton:(id)sender {
+    
 }
 
+
+
 - (IBAction)instagramButton:(id)sender {
+    
 }
+
 @end

@@ -10,24 +10,6 @@
 
 @interface ProfileViewController : UIViewController
 
-//================================================================
-
-//Top of Profile Page Content
-
-//Top Profile Background
-@property (weak, nonatomic) IBOutlet UIView *profileBackground;
-
-//Band Name Label
-@property (weak, nonatomic) IBOutlet UILabel *bandNameLabel;
-
-//Profile Genre
-@property (weak, nonatomic) IBOutlet UILabel *genreBandLable;
-
-//Profile Picture
-@property (weak, nonatomic) IBOutlet UIButton *profilePicture;
-
-//City and State Label
-@property (weak, nonatomic) IBOutlet UILabel *cityAndStateLabel;
 
 //----------------------------------------------------------------
 
