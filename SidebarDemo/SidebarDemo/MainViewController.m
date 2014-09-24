@@ -18,7 +18,9 @@
 
 @end
 
-@implementation MainViewController
+@implementation MainViewController {
+//    UIImageView * gLogo;
+}
 
 - (void)viewDidLoad
 {
@@ -36,15 +38,16 @@
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    UIImageView * gLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigG.png"]];
+//    gLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigG.png"]];
+//    gLogo.center = CGPointMake(self.view.center.x, 200);
+//    [self.view addSubview:gLogo];
     
+    CGRect myImageRect = CGRectMake(0.0f, 0.0f, 80.0f, 140.0f);
+    UIImageView *gLogo = [[UIImageView alloc] initWithFrame:myImageRect];
+    [gLogo setImage:[UIImage imageNamed:@"bigG.png"]];
     gLogo.center = CGPointMake(self.view.center.x, 200);
-    
-    
+
     [self.view addSubview:gLogo];
-    
-    
-    
     
     // SIGN UP BUTTON
     
@@ -75,6 +78,7 @@
     [self.view addSubview:loginButton];
 
 }
+
 
 - (void)signUpTouched
 {

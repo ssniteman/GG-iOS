@@ -26,9 +26,13 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f];
     // Do any additional setup after loading the view.
     
-    UIImageView * gLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigG.png"]];
+//    UIImageView * gLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigG.png"]];
+//    gLogo.center = CGPointMake(self.view.center.x, 150);
+//    [self.view addSubview:gLogo];
     
-    gLogo.center = CGPointMake(self.view.center.x, 150);
+    UIImageView *gLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 80.0f, 140.0f)];
+    [gLogo setImage:[UIImage imageNamed:@"bigG.png"]];
+    gLogo.center = CGPointMake(self.view.center.x, 110);
     
     [self.view addSubview:gLogo];
     
