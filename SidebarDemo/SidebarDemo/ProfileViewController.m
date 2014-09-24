@@ -34,13 +34,17 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    //LEFT MENU BUTTON
     SWRevealViewController *revealController = [self revealViewController];
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
+    //RIGHT MENU BUTTON
     
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
+    
+    self.navigationItem.rightBarButtonItem = editButton;
     
     //Position for the Photos Button
     
