@@ -12,9 +12,12 @@
 		601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A619BCF1E900BC3CC8 /* SearchViewController.m */; };
 		601441AA19BCF20F00BC3CC8 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */; };
 		601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */; };
+<<<<<<< HEAD
 		6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6027C5A619CF896D00CDD988 /* SignUpViewController.m */; };
 		604DC51819C7DEEA00E6A3BD /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */; };
 		60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */; };
+=======
+>>>>>>> Profile-Page
 		60D37D8019CA1309006FB596 /* avatarcopy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60D37D7F19CA1309006FB596 /* avatarcopy.jpg */; };
 		60D7967619D0AE790009CDB2 /* g.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D7967519D0AE790009CDB2 /* g.png */; };
 		60D7967819D0B61F0009CDB2 /* bigG.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D7967719D0B61F0009CDB2 /* bigG.png */; };
@@ -73,10 +76,13 @@
 		601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		6027C5A519CF896D00CDD988 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6027C5A619CF896D00CDD988 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = getagiglanding.jpg; path = ../../../../getagiglanding.jpg; sourceTree = "<group>"; };
 		60A420DB19D2039C007738D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = SidebarDemo/en.lproj/MainStoryboardTwo.storyboard; sourceTree = "<group>"; };
+=======
+>>>>>>> Profile-Page
 		60D37D7F19CA1309006FB596 /* avatarcopy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatarcopy.jpg; sourceTree = "<group>"; };
 		60D7967519D0AE790009CDB2 /* g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g.png; sourceTree = "<group>"; };
 		60D7967719D0B61F0009CDB2 /* bigG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigG.png; sourceTree = "<group>"; };
@@ -164,7 +170,6 @@
 				60D7967719D0B61F0009CDB2 /* bigG.png */,
 				60D7967519D0AE790009CDB2 /* g.png */,
 				60D37D7F19CA1309006FB596 /* avatarcopy.jpg */,
-				604DC51719C7DEEA00E6A3BD /* getagiglanding.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -352,7 +357,6 @@
 				F4EECF5F177F384900778578 /* news.png in Resources */,
 				F4EECF60177F384900778578 /* photo.png in Resources */,
 				F4EECF61177F384900778578 /* wishlist.png in Resources */,
-				604DC51819C7DEEA00E6A3BD /* getagiglanding.jpg in Resources */,
 				F4EECF63177F3CAB00778578 /* tag.png in Resources */,
 				60D7967619D0AE790009CDB2 /* g.png in Resources */,
 				F4EECF67177F4AB000778578 /* nav_bg.png in Resources */,
