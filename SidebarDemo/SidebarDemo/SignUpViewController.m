@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "ProfileViewController.h"
 
 @interface SignUpViewController ()
 
@@ -125,7 +126,45 @@
     
     NSLog(@"SignUpFinal Tappedity Tapped");
     
+    PFUser *user = [PFUser user];
+    user.username = usernameTextField.text;
+    user.password = passwordTextField.text;
+    
+    if (segmentControl.selectedSegmentIndex==0)
+    {
+        user[@"userType"] = @"musician";
+    }
+    else {
+        
+        user[@"userType"] = @"bar";
+    }
+
+   
+    // other fields can be set just like with PFObject
+//    user[@"phone"] = @"415-392-0202";
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // Hooray! Let them use the app now.
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            // Show the errorString somewhere and let the user try again.
+        }
+    }];
+    
+//    ProfileViewController * profileView = [[ProfileViewController alloc] init];
+    
+//    [self presentViewController:profileView animated:YES completion:nil];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+
+    
+     //    user.email = @"email@example.com";
+    
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
