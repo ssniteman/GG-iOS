@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f];
+    self.view.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     // Do any additional setup after loading the view.
     
 //    UIImageView * gLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigG.png"]];
@@ -44,7 +44,7 @@
     usernameTextField.layer.cornerRadius = 5;
     usernameTextField.font = [UIFont systemFontOfSize:18];
     usernameTextField.placeholder = @"Username";
-    [usernameTextField setValue:[UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+    [usernameTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
     UIView * paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     usernameTextField.leftView = paddingView;
@@ -59,7 +59,7 @@
     passwordTextField.layer.cornerRadius = 5;
     passwordTextField.font = [UIFont systemFontOfSize:18];
     passwordTextField.placeholder = @"Password";
-    [passwordTextField setValue:[UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+    [passwordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
     UIView * paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     passwordTextField.leftView = paddingView2;
@@ -74,7 +74,7 @@
     verifyPasswordTextField.layer.cornerRadius = 5;
     verifyPasswordTextField.font = [UIFont systemFontOfSize:18];
     verifyPasswordTextField.placeholder = @"Verify Password";
-    [verifyPasswordTextField setValue:[UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+    [verifyPasswordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     UIView * paddingView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     verifyPasswordTextField.leftView = paddingView3;
     verifyPasswordTextField.leftViewMode = UITextFieldViewModeAlways;
@@ -105,7 +105,7 @@
     
     UIButton * signUpFinalButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 80, SCREEN_WIDTH - 40, 50)];
     
-    signUpFinalButton.backgroundColor = [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f];
+    signUpFinalButton.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     signUpFinalButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [signUpFinalButton setTitle:@"Sign Up" forState:UIControlStateNormal];
     [signUpFinalButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];

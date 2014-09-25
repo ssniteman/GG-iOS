@@ -13,6 +13,7 @@
 		601441AA19BCF20F00BC3CC8 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */; };
 		601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */; };
 		6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6027C5A619CF896D00CDD988 /* SignUpViewController.m */; };
+		6077825C19D35A3400AE62C1 /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6077825B19D35A3400AE62C1 /* getagiglanding.jpg */; };
 		60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */; };
 		60D37D8019CA1309006FB596 /* avatarcopy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60D37D7F19CA1309006FB596 /* avatarcopy.jpg */; };
 		60D7967619D0AE790009CDB2 /* g.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D7967519D0AE790009CDB2 /* g.png */; };
@@ -73,6 +74,7 @@
 		601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		6027C5A519CF896D00CDD988 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6027C5A619CF896D00CDD988 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		6077825B19D35A3400AE62C1 /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = getagiglanding.jpg; sourceTree = "<group>"; };
 		60A420DB19D2039C007738D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = SidebarDemo/en.lproj/MainStoryboardTwo.storyboard; sourceTree = "<group>"; };
 		60D37D7F19CA1309006FB596 /* avatarcopy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatarcopy.jpg; sourceTree = "<group>"; };
 		60D7967519D0AE790009CDB2 /* g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g.png; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				60D7967719D0B61F0009CDB2 /* bigG.png */,
 				60D7967519D0AE790009CDB2 /* g.png */,
 				60D37D7F19CA1309006FB596 /* avatarcopy.jpg */,
+				6077825B19D35A3400AE62C1 /* getagiglanding.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				F4EECF6B177F4C0200778578 /* menu@2x.png in Resources */,
 				F4FE87FB1780081300CB3DA8 /* comments_photo.jpg in Resources */,
 				F4FE87FC1780081300CB3DA8 /* wishlist_photo.jpg in Resources */,
+				6077825C19D35A3400AE62C1 /* getagiglanding.jpg in Resources */,
 				F4FE87FF178010F000CB3DA8 /* bookmark_photo.jpg in Resources */,
 				F4FE8800178010F000CB3DA8 /* calendar_photo.jpg in Resources */,
 				F4FE8802178010FA00CB3DA8 /* tag_photo.jpg in Resources */,
