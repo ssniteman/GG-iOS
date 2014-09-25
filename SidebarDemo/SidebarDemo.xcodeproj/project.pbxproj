@@ -10,7 +10,6 @@
 		601441A119BCE80100BC3CC8 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A019BCE80100BC3CC8 /* InboxViewController.m */; };
 		601441A419BCF14000BC3CC8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A319BCF14000BC3CC8 /* ProfileViewController.m */; };
 		601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A619BCF1E900BC3CC8 /* SearchViewController.m */; };
-		601441AA19BCF20F00BC3CC8 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */; };
 		601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */; };
 		6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6027C5A619CF896D00CDD988 /* SignUpViewController.m */; };
 		60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */; };
@@ -28,6 +27,7 @@
 		60D7968A19D1074F0009CDB2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D7968919D1074F0009CDB2 /* Security.framework */; };
 		60D7968C19D107560009CDB2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D7968B19D107560009CDB2 /* StoreKit.framework */; };
 		60D7968E19D1075E0009CDB2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D7968D19D1075E0009CDB2 /* SystemConfiguration.framework */; };
+		8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */; };
 		F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */; };
 		F4EECF12177C99F400778578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF11177C99F400778578 /* UIKit.framework */; };
 		F4EECF14177C99F400778578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF13177C99F400778578 /* Foundation.framework */; };
@@ -67,8 +67,6 @@
 		601441A319BCF14000BC3CC8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		601441A519BCF1E900BC3CC8 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		601441A619BCF1E900BC3CC8 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		601441A819BCF20F00BC3CC8 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
-		601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		6027C5A519CF896D00CDD988 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -88,6 +86,8 @@
 		60D7968919D1074F0009CDB2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		60D7968B19D107560009CDB2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		60D7968D19D1075E0009CDB2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8A40C58B19D36B6700A50D85 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		F4D9AD1D1871725500E2D912 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F4EECF0E177C99F400778578 /* SidebarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SidebarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,10 +222,10 @@
 				601441A019BCE80100BC3CC8 /* InboxViewController.m */,
 				601441A519BCF1E900BC3CC8 /* SearchViewController.h */,
 				601441A619BCF1E900BC3CC8 /* SearchViewController.m */,
-				601441A819BCF20F00BC3CC8 /* EditProfileViewController.h */,
-				601441A919BCF20F00BC3CC8 /* EditProfileViewController.m */,
 				601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */,
 				601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */,
+				8A40C58B19D36B6700A50D85 /* EditProfileViewController.h */,
+				8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */,
 				F4EECF34177C9A1E00778578 /* Library */,
 				604DC51619C7DED600E6A3BD /* Images */,
 				F4EECF18177C99F400778578 /* Supporting Files */,
@@ -370,9 +370,9 @@
 				F4EECF22177C99F400778578 /* AppDelegate.m in Sources */,
 				F4EECF2E177C99F400778578 /* MainViewController.m in Sources */,
 				601441A419BCF14000BC3CC8 /* ProfileViewController.m in Sources */,
-				601441AA19BCF20F00BC3CC8 /* EditProfileViewController.m in Sources */,
 				F4EECF4A177DF87700778578 /* SidebarViewController.m in Sources */,
 				601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */,
+				8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */,
 				601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */,
 				6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */,
 				601441A119BCE80100BC3CC8 /* InboxViewController.m in Sources */,

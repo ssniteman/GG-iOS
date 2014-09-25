@@ -23,6 +23,8 @@
     
     //[self.navigationController.navigationBar addGestureRecognizer:revealController.panGestureRecognizer];
     
+    self.textLabel.text = @"hahahahahaha";
+    
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"]
         style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     
