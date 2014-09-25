@@ -53,7 +53,7 @@
     
     UIButton * signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 80, SCREEN_WIDTH - 40, 50)];
     
-    signUpButton.backgroundColor = [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f];
+    signUpButton.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     [signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
     [signUpButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
     signUpButton.titleLabel.font = [UIFont systemFontOfSize:18];
@@ -69,9 +69,9 @@
     
     loginButton.backgroundColor = [UIColor clearColor];
     [loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    [loginButton setTitleColor: [UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] forState:UIControlStateNormal];
+    [loginButton setTitleColor: [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forState:UIControlStateNormal];
     loginButton.layer.cornerRadius = 5;
-    [loginButton.layer setBorderColor:[[UIColor colorWithRed:0.694f green:0.165f blue:0.161f alpha:1.0f] CGColor]];
+    [loginButton.layer setBorderColor:[[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] CGColor]];
     loginButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [loginButton.layer setBorderWidth:1];
     

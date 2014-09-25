@@ -13,7 +13,14 @@
 
 @end
 
-@implementation SearchViewController
+@implementation SearchViewController {
+   
+    UISegmentedControl * searchSegmentControl;
+    UIView * locationSearch;
+    UIView * genreSearch;
+    UIView * availabilitySearch;
+    UIButton * searchButton;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,8 +34,62 @@
         style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
+    
+    self.view.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
+    
+    searchSegmentControl = [[UISegmentedControl alloc]initWithItems:@[@"Musician / Band",@"Bar / Venue"]];
+    [searchSegmentControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+    searchSegmentControl.frame = CGRectMake(-10, 80, SCREEN_WIDTH + 30, 70);
+    searchSegmentControl.layer.borderWidth = 0;
+    UIColor *newTintColor = [UIColor whiteColor];
+    searchSegmentControl.tintColor = newTintColor;
+    UIFont * font = [UIFont boldSystemFontOfSize:16.0f];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    [searchSegmentControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    //    [segmentControl addTarget:self action:@selector(segmentedControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
+    [searchSegmentControl setSelectedSegmentIndex:0];
+    [self.view addSubview:searchSegmentControl];
+    //    [segmentControl release];
 
+
+    locationSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 150, SCREEN_WIDTH + 30, 70)];
+    locationSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
+    locationSearch.layer.borderWidth = 1;
+    locationSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
+    [self.view addSubview:locationSearch];
+    
+    genreSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 220, SCREEN_WIDTH + 30, 70)];
+    genreSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
+    genreSearch.layer.borderWidth = 1;
+    genreSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
+    [self.view addSubview:genreSearch];
+    
+    availabilitySearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 290, SCREEN_WIDTH + 30, 70)];
+    availabilitySearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
+    availabilitySearch.layer.borderWidth = 1;
+    availabilitySearch.layer.borderColor = [[UIColor whiteColor]CGColor];
+    [self.view addSubview:availabilitySearch];
+    
+    
+    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 100, SCREEN_WIDTH - 40, 50)];
+    searchButton.backgroundColor = [UIColor whiteColor];
+    searchButton.titleLabel.font = [UIFont systemFontOfSize:18];
+    [searchButton setTitle:@"Search" forState:UIControlStateNormal];
+    [searchButton setTitleColor: [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forState:UIControlStateNormal];
+    searchButton.layer.cornerRadius = 5;
+    searchButton.layer.borderWidth = 1;
+    searchButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+//    [searchButton addTarget:self action:@selector(signUpFinalTouched) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:searchButton];
+    
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
