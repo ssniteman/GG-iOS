@@ -29,6 +29,7 @@
 		60D7968C19D107560009CDB2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D7968B19D107560009CDB2 /* StoreKit.framework */; };
 		60D7968E19D1075E0009CDB2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D7968D19D1075E0009CDB2 /* SystemConfiguration.framework */; };
 		8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */; };
+		8AC3C87D19D57FEA00ADB934 /* AvailabilityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3C87C19D57FEA00ADB934 /* AvailabilityTVC.m */; };
 		F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */; };
 		F4EECF12177C99F400778578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF11177C99F400778578 /* UIKit.framework */; };
 		F4EECF14177C99F400778578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF13177C99F400778578 /* Foundation.framework */; };
@@ -90,6 +91,8 @@
 		60D7968D19D1075E0009CDB2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8A40C58B19D36B6700A50D85 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		8AC3C87B19D57FEA00ADB934 /* AvailabilityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailabilityTVC.h; sourceTree = "<group>"; };
+		8AC3C87C19D57FEA00ADB934 /* AvailabilityTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailabilityTVC.m; sourceTree = "<group>"; };
 		F4D9AD1D1871725500E2D912 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F4EECF0E177C99F400778578 /* SidebarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SidebarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,14 +224,16 @@
 				F4EECF49177DF87700778578 /* SidebarViewController.m */,
 				601441A219BCF14000BC3CC8 /* ProfileViewController.h */,
 				601441A319BCF14000BC3CC8 /* ProfileViewController.m */,
+				8A40C58B19D36B6700A50D85 /* EditProfileViewController.h */,
+				8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */,
+				8AC3C87B19D57FEA00ADB934 /* AvailabilityTVC.h */,
+				8AC3C87C19D57FEA00ADB934 /* AvailabilityTVC.m */,
 				6014419F19BCE80100BC3CC8 /* InboxViewController.h */,
 				601441A019BCE80100BC3CC8 /* InboxViewController.m */,
 				601441A519BCF1E900BC3CC8 /* SearchViewController.h */,
 				601441A619BCF1E900BC3CC8 /* SearchViewController.m */,
 				601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */,
 				601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */,
-				8A40C58B19D36B6700A50D85 /* EditProfileViewController.h */,
-				8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */,
 				F4EECF34177C9A1E00778578 /* Library */,
 				604DC51619C7DED600E6A3BD /* Images */,
 				F4EECF18177C99F400778578 /* Supporting Files */,
@@ -369,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC3C87D19D57FEA00ADB934 /* AvailabilityTVC.m in Sources */,
 				F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */,
 				F4EECF1E177C99F400778578 /* main.m in Sources */,
 				F4EECF22177C99F400778578 /* AppDelegate.m in Sources */,

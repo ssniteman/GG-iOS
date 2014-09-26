@@ -8,8 +8,10 @@
 
 #import "EditProfileViewController.h"
 #import "SWRevealViewController.h"
+#import "AvailabilityTVC.h"
 
 @interface EditProfileViewController ()
+@property (weak, nonatomic) IBOutlet UITableViewCell *availabilityCell;
 
 @end
 
@@ -23,14 +25,33 @@
     
     //[self.navigationController.navigationBar addGestureRecognizer:revealController.panGestureRecognizer];
     
-    self.textLabel.text = @"hahahahahaha";
     
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"]
         style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
+    
+    
 
 }
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (theCellClicked == self.availabilityCell) {
+    
+        AvailabilityTVC * openAvailability = [[AvailabilityTVC alloc] init];
+        
+        UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:openAvailability];
+
+        
+        [self presentViewController:navController animated:YES completion:nil];
+
+
+    }
+
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

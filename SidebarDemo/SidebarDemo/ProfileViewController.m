@@ -12,6 +12,7 @@
 
 #import "SWRevealViewController.h"
 
+#import "AvailabilityTVC.h"
 
 // WIDTH & HEIGHT
 
