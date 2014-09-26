@@ -9,9 +9,8 @@
 
 
 #import "ProfileViewController.h"
-
 #import "SWRevealViewController.h"
-
+#import <Parse/Parse.h>
 
 // WIDTH & HEIGHT
 
@@ -33,6 +32,8 @@
 
 - (void)viewDidLoad {
     
+    PFUser * user = [PFUser currentUser];
+ 
     [super viewDidLoad];
     //LEFT MENU BUTTON
     SWRevealViewController *revealController = [self revealViewController];
@@ -94,7 +95,7 @@
     
     nameLabel.textColor = [UIColor whiteColor];
     nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.text = @"Band Name";
+    nameLabel.text = user[@"bandName"];
     
 // Genre LABEL
     

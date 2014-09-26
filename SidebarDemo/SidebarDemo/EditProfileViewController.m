@@ -8,6 +8,7 @@
 
 #import "EditProfileViewController.h"
 #import "SWRevealViewController.h"
+#import <Parse/Parse.h>
 
 @interface EditProfileViewController ()
 
@@ -18,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    PFUser * user = [PFUser currentUser];
+
+    self.textLabel.text = user[@"name"];
     
     SWRevealViewController *revealController = [self revealViewController];
     

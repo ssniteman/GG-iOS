@@ -57,18 +57,39 @@
     locationSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     locationSearch.layer.borderWidth = 1;
     locationSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
+    
+    UILabel * searchLocationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationSearch.bounds.size.width/2-40, locationSearch.bounds.size.height/2-20, 80, 40)];
+    searchLocationLabel.text = @"Location";
+    [searchLocationLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
+    searchLocationLabel.textColor = [UIColor whiteColor];
+    [locationSearch addSubview:searchLocationLabel];
+    
     [self.view addSubview:locationSearch];
     
     genreSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 220, SCREEN_WIDTH + 30, 70)];
     genreSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     genreSearch.layer.borderWidth = 1;
     genreSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
+    
+    UILabel * genreLocationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationSearch.bounds.size.width/2-40, locationSearch.bounds.size.height/2-20, 80, 40)];
+    genreLocationLabel.text = @"Genre";
+    [genreLocationLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
+    genreLocationLabel.textColor = [UIColor whiteColor];
+    [genreSearch addSubview:genreLocationLabel];
+    
     [self.view addSubview:genreSearch];
     
     availabilitySearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 290, SCREEN_WIDTH + 30, 70)];
     availabilitySearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     availabilitySearch.layer.borderWidth = 1;
     availabilitySearch.layer.borderColor = [[UIColor whiteColor]CGColor];
+    
+    UILabel * availabilityLocationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationSearch.bounds.size.width/2-50, locationSearch.bounds.size.height/2-20, 100, 40)];
+    availabilityLocationLabel.text = @"Availability";
+    [availabilityLocationLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
+    availabilityLocationLabel.textColor = [UIColor whiteColor];
+    [availabilitySearch addSubview:availabilityLocationLabel];
+    
     [self.view addSubview:availabilitySearch];
     
     

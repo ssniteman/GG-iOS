@@ -25,11 +25,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
-    // Do any additional setup after loading the view.
     
-//    UIImageView * gLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigG.png"]];
-//    gLogo.center = CGPointMake(self.view.center.x, 150);
-//    [self.view addSubview:gLogo];
+    // Do any additional setup after loading the view.
     
     UIImageView *gLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 80.0f, 140.0f)];
     [gLogo setImage:[UIImage imageNamed:@"bigG.png"]];
@@ -152,9 +149,9 @@
         }
     }];
     
-//    ProfileViewController * profileView = [[ProfileViewController alloc] init];
+    ProfileViewController * profileView = [[ProfileViewController alloc] init];
     
-//    [self presentViewController:profileView animated:YES completion:nil];
+    [self presentViewController:profileView animated:YES completion:nil];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 

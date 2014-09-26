@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "SWRevealViewController.h"
 #import "SignUpViewController.h"
+#import "LoginViewController.h"
 
 
 
@@ -76,6 +77,8 @@
     [loginButton.layer setBorderWidth:1];
     
     [self.view addSubview:loginButton];
+    
+       [loginButton addTarget:self action:@selector(loginTouched) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
@@ -86,6 +89,14 @@
     
     [self presentViewController:signUpTVC animated:YES completion:nil];
 }
+
+- (void)loginTouched
+{
+    LoginViewController * loginTVC =[[LoginViewController alloc] init];
+    
+    [self presentViewController:loginTVC animated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

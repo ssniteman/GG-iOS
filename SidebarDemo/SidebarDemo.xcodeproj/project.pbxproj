@@ -11,6 +11,7 @@
 		601441A419BCF14000BC3CC8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A319BCF14000BC3CC8 /* ProfileViewController.m */; };
 		601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441A619BCF1E900BC3CC8 /* SearchViewController.m */; };
 		601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */; };
+		60186EDD19D58DBC00AE331A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60186EDC19D58DBC00AE331A /* LoginViewController.m */; };
 		6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6027C5A619CF896D00CDD988 /* SignUpViewController.m */; };
 		6077825C19D35A3400AE62C1 /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6077825B19D35A3400AE62C1 /* getagiglanding.jpg */; };
 		60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */; };
@@ -70,6 +71,8 @@
 		601441A619BCF1E900BC3CC8 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		60186EDB19D58DBC00AE331A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		60186EDC19D58DBC00AE331A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6027C5A519CF896D00CDD988 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6027C5A619CF896D00CDD988 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6077825B19D35A3400AE62C1 /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = getagiglanding.jpg; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				F4EECF21177C99F400778578 /* AppDelegate.m */,
 				F4EECF2C177C99F400778578 /* MainViewController.h */,
 				F4EECF2D177C99F400778578 /* MainViewController.m */,
+				60186EDB19D58DBC00AE331A /* LoginViewController.h */,
+				60186EDC19D58DBC00AE331A /* LoginViewController.m */,
 				6027C5A519CF896D00CDD988 /* SignUpViewController.h */,
 				6027C5A619CF896D00CDD988 /* SignUpViewController.m */,
 				F4EECF48177DF87700778578 /* SidebarViewController.h */,
@@ -377,6 +382,7 @@
 				F4EECF4A177DF87700778578 /* SidebarViewController.m in Sources */,
 				601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */,
 				8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */,
+				60186EDD19D58DBC00AE331A /* LoginViewController.m in Sources */,
 				601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */,
 				6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */,
 				601441A119BCE80100BC3CC8 /* InboxViewController.m in Sources */,
