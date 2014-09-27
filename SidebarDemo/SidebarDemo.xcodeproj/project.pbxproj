@@ -29,6 +29,8 @@
 		60D7968A19D1074F0009CDB2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D7968919D1074F0009CDB2 /* Security.framework */; };
 		60D7968C19D107560009CDB2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D7968B19D107560009CDB2 /* StoreKit.framework */; };
 		60D7968E19D1075E0009CDB2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D7968D19D1075E0009CDB2 /* SystemConfiguration.framework */; };
+		60F4242F19D7078D001D8B0E /* genre.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F4242E19D7078C001D8B0E /* genre.storyboard */; };
+		60F4243219D70A8E001D8B0E /* EditGenreTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F4243119D70A8E001D8B0E /* EditGenreTVC.m */; };
 		8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */; };
 		F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9AD1E1871725500E2D912 /* SWRevealViewController.m */; };
 		F4EECF12177C99F400778578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EECF11177C99F400778578 /* UIKit.framework */; };
@@ -91,6 +93,9 @@
 		60D7968919D1074F0009CDB2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		60D7968B19D107560009CDB2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		60D7968D19D1075E0009CDB2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		60F4242E19D7078C001D8B0E /* genre.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = genre.storyboard; sourceTree = "<group>"; };
+		60F4243019D70A8E001D8B0E /* EditGenreTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditGenreTVC.h; sourceTree = "<group>"; };
+		60F4243119D70A8E001D8B0E /* EditGenreTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditGenreTVC.m; sourceTree = "<group>"; };
 		8A40C58B19D36B6700A50D85 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		F4D9AD1D1871725500E2D912 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -234,6 +239,9 @@
 				601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */,
 				8A40C58B19D36B6700A50D85 /* EditProfileViewController.h */,
 				8A40C58C19D36B6700A50D85 /* EditProfileViewController.m */,
+				60F4242E19D7078C001D8B0E /* genre.storyboard */,
+				60F4243019D70A8E001D8B0E /* EditGenreTVC.h */,
+				60F4243119D70A8E001D8B0E /* EditGenreTVC.m */,
 				F4EECF34177C9A1E00778578 /* Library */,
 				604DC51619C7DED600E6A3BD /* Images */,
 				F4EECF18177C99F400778578 /* Supporting Files */,
@@ -359,6 +367,7 @@
 				F4EECF6A177F4C0200778578 /* menu.png in Resources */,
 				F4EECF6B177F4C0200778578 /* menu@2x.png in Resources */,
 				F4FE87FB1780081300CB3DA8 /* comments_photo.jpg in Resources */,
+				60F4242F19D7078D001D8B0E /* genre.storyboard in Resources */,
 				F4FE87FC1780081300CB3DA8 /* wishlist_photo.jpg in Resources */,
 				6077825C19D35A3400AE62C1 /* getagiglanding.jpg in Resources */,
 				F4FE87FF178010F000CB3DA8 /* bookmark_photo.jpg in Resources */,
@@ -382,6 +391,7 @@
 				F4EECF4A177DF87700778578 /* SidebarViewController.m in Sources */,
 				601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */,
 				8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */,
+				60F4243219D70A8E001D8B0E /* EditGenreTVC.m in Sources */,
 				60186EDD19D58DBC00AE331A /* LoginViewController.m in Sources */,
 				601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */,
 				6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */,
