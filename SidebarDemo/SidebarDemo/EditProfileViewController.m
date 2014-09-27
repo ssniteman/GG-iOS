@@ -10,16 +10,40 @@
 #import "SWRevealViewController.h"
 #import "AvailabilityTVC.h"
 
-@interface EditProfileViewController ()
+@interface EditProfileViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableViewCell *availabilityCell;
 
 @end
 
-@implementation EditProfileViewController
+@implementation EditProfileViewController{
+
+}
+
+-(void)setDaysAvailable:(NSString *)daysAvailable{
+    _daysAvailable = daysAvailable;
+    
+    
+    //self.daysAvailableLabel.text = self.daysAvailable;
+    
+    NSLog(@"%@",self.daysAvailable);
+    
+    [self.tableView reloadData];
+    
+    self.navigationController.title = self.daysAvailable;
+}
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.tableView.delegate = self;
+    
+    self.tableView.dataSource =self;
+    
     
     SWRevealViewController *revealController = [self revealViewController];
     
@@ -30,17 +54,19 @@
         style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
-    
-    
-
+   self.daysAvailableLabel.text = self.daysAvailable;
 }
+
+
+
+
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
     if (theCellClicked == self.availabilityCell) {
     
         AvailabilityTVC * openAvailability = [[AvailabilityTVC alloc] init];
-        
+    
         UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:openAvailability];
 
         
@@ -52,20 +78,5 @@
 
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

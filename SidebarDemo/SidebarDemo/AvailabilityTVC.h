@@ -10,6 +10,7 @@
 
 @interface AvailabilityTVC : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray * available;
 
 
 @end

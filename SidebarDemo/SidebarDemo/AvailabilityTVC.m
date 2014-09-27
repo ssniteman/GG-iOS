@@ -7,23 +7,26 @@
 //
 
 #import "AvailabilityTVC.h"
-
+#import "EditProfileViewController.h"
 @interface AvailabilityTVC ()
 @end
 
 @implementation AvailabilityTVC{
     NSMutableArray * daysOfTheWeek;
-    
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.available=[@[@"",
+                 @"",
+                 @"",
+                 @"",
+                 @"",
+                 @"",
+                 @""]mutableCopy];
     
     daysOfTheWeek=[@[
                      @"Sunday",
@@ -39,19 +42,47 @@
     
     //RIGHT MENU BUTTON
     
-  UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(saveAvailability:)];
+  UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(saveButton)];
     
     self.navigationItem.rightBarButtonItem = saveButton;
     
     
     //Left MENU BUTTON
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(saveAvailability:)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButton)];
     
     self.navigationItem.leftBarButtonItem = cancelButton;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
+}
+
+-(void) saveButton{
+    
+    
+    NSMutableString *string = [[NSMutableString alloc] init];
+    
+    //Getting each day and appending it to one string
+    for (NSString * days in self.available) {
+        
+        [string appendFormat:@"%@ ", days];
+        
+    }
+    
+  EditProfileViewController * editProfile = [[EditProfileViewController alloc] init];
+    
+    editProfile.daysAvailable = string;
+    
+//    editProfile.daysAvailableLabel.text = string;
+//    
+//    [editProfile.tableView reloadData];
+
+    [self cancelButton];
+}
+
+
+- (void) cancelButton{
+ [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,10 +93,13 @@
     if (thisCell.accessoryType == UITableViewCellAccessoryNone) {
         thisCell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-
         
+        
+    [self.available insertObject:[daysOfTheWeek[indexPath.row] substringToIndex:3] atIndex:indexPath.row];
     }else{
         thisCell.accessoryType = UITableViewCellAccessoryNone;
+       [self.available removeObjectAtIndex: indexPath.row];
+
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     }
@@ -77,10 +111,6 @@
     return UITableViewCellAccessoryNone;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -103,59 +133,11 @@
     
     cell.textLabel.text = daysOfTheWeek[indexPath.row];
     
-    
-//    if(indexPath.section == 0)
-//        cell.textLabel.text = [daysOfTheWeek objectAtIndex:indexPath.row];
-    
-    
-    
     return cell;
     
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

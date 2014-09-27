@@ -11,7 +11,8 @@
 @interface EditProfileViewController : UITableViewController
 
 
-
-
+@property (weak, nonatomic) IBOutlet UILabel *daysAvailableLabel;
+@property (nonatomic, strong) NSString * daysAvailable;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
