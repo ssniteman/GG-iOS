@@ -26,4 +26,7 @@
 
 - (IBAction)zipButton:(id)sender;
 
+- (void)uploadImage:(NSData *)imageData;
+
+
 @end

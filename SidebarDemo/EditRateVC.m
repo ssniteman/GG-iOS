@@ -34,12 +34,13 @@
     self.navigationItem.rightBarButtonItem = saveButton;
     
     
-    //Left MENU BUTTON
+    //LEFT MENU BUTTON
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButton)];
     
     self.navigationItem.leftBarButtonItem = cancelButton;
-
+    
+    // SEGMENT CONTROL
     
     segmentControl = [[UISegmentedControl alloc]initWithItems:@[@"Nightly",@"Hourly"]];
     [segmentControl setSegmentedControlStyle:UISegmentedControlStyleBar];
@@ -55,7 +56,6 @@
     //    [segmentControl addTarget:self action:@selector(segmentedControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [segmentControl setSelectedSegmentIndex:0];
     [self.view addSubview:segmentControl];
-    //    [segmentControl release];
     
     rateTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 360, SCREEN_WIDTH - 40, 50)];
     rateTextField.backgroundColor = [UIColor whiteColor];
@@ -73,9 +73,7 @@
 }
 
 - (void) cancelButton{
-    
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 
 -(void)saveButton{

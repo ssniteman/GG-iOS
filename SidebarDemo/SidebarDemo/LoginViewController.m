@@ -10,7 +10,7 @@
 #import "ProfileViewController.h"
 #import <Parse/Parse.h>
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 
 @end
 
@@ -49,6 +49,7 @@
     UIView * paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     loginUsernameTextField.leftView = paddingView;
     loginUsernameTextField.leftViewMode = UITextFieldViewModeAlways;
+    loginUsernameTextField.delegate = self;
     
     [self.view addSubview:loginUsernameTextField];
     
@@ -62,6 +63,7 @@
     [loginPasswordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
     loginPasswordTextField.secureTextEntry = YES;
+    loginPasswordTextField.delegate = self;
     
     UIView * paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     loginPasswordTextField.leftView = paddingView2;
@@ -82,6 +84,7 @@
     loginFinalButton.layer.cornerRadius = 5;
     loginFinalButton.layer.borderWidth = 1;
     loginFinalButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
     
     [loginFinalButton addTarget:self action:@selector(loginFinalTouched) forControlEvents:UIControlEventTouchUpInside];
     
@@ -116,6 +119,13 @@
             
         }
     }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 

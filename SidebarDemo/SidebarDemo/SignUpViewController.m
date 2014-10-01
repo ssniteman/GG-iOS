@@ -9,7 +9,7 @@
 #import "SignUpViewController.h"
 #import "ProfileViewController.h"
 
-@interface SignUpViewController ()
+@interface SignUpViewController () <UITextFieldDelegate>
 
 @end
 
@@ -46,6 +46,7 @@
     UIView * paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     usernameTextField.leftView = paddingView;
     usernameTextField.leftViewMode = UITextFieldViewModeAlways;
+    usernameTextField.delegate = self;
 
     [self.view addSubview:usernameTextField];
         
@@ -58,13 +59,14 @@
     passwordTextField.placeholder = @"Password";
     
     passwordTextField.secureTextEntry = YES;
-
+    
     
     [passwordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
     UIView * paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     passwordTextField.leftView = paddingView2;
     passwordTextField.leftViewMode = UITextFieldViewModeAlways;
+    passwordTextField.delegate = self;
 
     [self.view addSubview:passwordTextField];
     
@@ -80,6 +82,7 @@
     verifyPasswordTextField.leftView = paddingView3;
     verifyPasswordTextField.leftViewMode = UITextFieldViewModeAlways;
     verifyPasswordTextField.secureTextEntry = YES;
+    verifyPasswordTextField.delegate = self;
 
     [self.view addSubview:verifyPasswordTextField];
     
@@ -166,6 +169,22 @@
     
      //    user.email = @"email@example.com";
     
+}
+
+
+
+
+
+
+
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 

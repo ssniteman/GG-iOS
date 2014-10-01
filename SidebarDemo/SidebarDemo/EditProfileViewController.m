@@ -7,6 +7,7 @@
 //
 
 #import "EditProfileViewController.h"
+#import "ProfileViewController.h"
 #import "SWRevealViewController.h"
 #import "AvailabilityTVC.h"
 #import "EditGenreTVC.h"
@@ -20,30 +21,28 @@
 UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AvailableTVCDelegate,RateDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *availabilityCell;
-
 @property (weak, nonatomic) IBOutlet UITableViewCell *editGenreCell;
-
 @property (weak, nonatomic) IBOutlet UITextField *nameCell;
-
 @property (weak, nonatomic) IBOutlet UIView *rateCell;
+
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+
 
 @end
 
-@implementation EditProfileViewController{
-
+@implementation EditProfileViewController {
+   
     UIImagePickerController * picker;
+    UIImage *image;
     
-    
+    NSDictionary * location;
 }
 
 -(void)setRate:(NSString *)rate{
     _rate = rate;
     
-    //self.daysAvailableLabel.text = daysAvailable;
-    
     self.rateLabel.text = self.rate;
 }
-
 
 
 -(void)setDaysAvailable:(NSString *)daysAvailable {
@@ -53,15 +52,6 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
 }
     
-    
-    //self.daysAvailableLabel.text = self.daysAvailable;
-    
-//    NSLog(@"%@",self.daysAvailable);
-//    
-//    [self.tableView reloadData];
-//    
-//    self.navigationController.title = self.daysAvailable;
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,6 +65,7 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     PFUser * user = [PFUser currentUser];
    
     self.nameCell.text = user[@"bandName"];
+    self.emailTextField.text = user[@"musicianemail"];
 
     self.tableView.delegate = self;
     
@@ -129,20 +120,6 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
 }
 
--(void)editSaveButton {
-    
-    
-    PFUser * user = [PFUser currentUser];
-    
-    user[@"bandName"] = self.nameCell.text;
-
-    [[PFUser currentUser] saveInBackground];
-    
-    NSLog(@"Oh heyyy");
-    
-    
-}
-
 
 - (IBAction)zipButton:(id)sender {
     
@@ -163,16 +140,40 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
     NSLog(@"address: %@",address[@"formatted_address"]);
 
-    
-    NSDictionary * location = resultsInfo[@"results"][0][@"geometry"][@"location"];
+    location = resultsInfo[@"results"][0][@"geometry"][@"location"];
 
     NSLog(@"lat %@, long %@",location[@"lat"],location[@"lng"]);
     
-
-    
-    
-    //
 }
+
+
+
+-(void)editSaveButton {
+    
+    PFUser * user = [PFUser currentUser];
+    
+    user[@"bandName"] = self.nameCell.text;
+    user[@"email"] = self.emailTextField.text;
+    
+    PFGeoPoint * point = [PFGeoPoint geoPointWithLatitude:location[@"lat"] longitude:location[@"lng"]];
+    
+    placeObject[@"location"] = point;
+    
+    [[PFUser currentUser] saveInBackground];
+    
+    
+    
+    
+    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
+    //    ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+    //    [self presentViewController:profileView animated:YES completion:nil];
+    
+    
+}
+
+
+
+
 - (IBAction)editPhotoButton:(id)sender {
     
     UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Photo option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
@@ -228,7 +229,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [self dismissViewControllerAnimated:YES completion:nil];
     
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
-        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        image = info[UIImagePickerControllerOriginalImage];
         
         [self.profileImageEdit setBackgroundImage:image forState:UIControlStateNormal];
         
@@ -242,6 +243,53 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     {
         // Code here to support video if enabled
     }
+//    
+//    NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
+//    [self uploadImage:imageData];
+    
+//    
+//    PFFile *imageFile = [PFFile fileWithData:image contentType:image];
+//    
+//    //HUD creation here (see example for code)
+//    
+//    // Save PFFile
+//    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            // Hide old HUD, show completed HUD (see example for code)
+//            
+//            // Create a PFObject around a PFFile and associate it with the current user
+//            PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+//            [userPhoto setObject:imageFile forKey:@"imageFile"];
+//            
+//            // Set the access control list to current user for security purposes
+//            userPhoto.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//            
+//            PFUser *user = [PFUser currentUser];
+//            [userPhoto setObject:user forKey:@"user"];
+//            
+//            [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (!error) {
+//                    //                        [self refresh:nil];
+//                }
+//                else{
+//                    // Log details of the failure
+//                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+//                }
+//            }];
+//        }
+//        else{
+//            //                [HUD hide:YES];
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    } progressBlock:^(int percentDone) {
+//        // Update your progress spinner here. percentDone will be between 0 and 100.
+//        
+//        
+//    }];
+    
+    
+    
     
 }
 

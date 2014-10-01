@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="FUu-XX-1jG">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -114,9 +115,9 @@
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hcb-HO-rva">
-                                                    <rect key="frame" x="31" y="91" width="30" height="30"/>
+                                                    <rect key="frame" x="8" y="91" width="72" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Edit">
+                                                    <state key="normal" title="Edit Photo">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -124,7 +125,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" minimumFontSize="17" id="GMo-9s-uXy">
-                                                    <rect key="frame" x="98" y="27" width="214" height="44"/>
+                                                    <rect key="frame" x="102" y="39" width="214" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -158,7 +159,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5FT-MA-y0Y">
-                                                    <rect key="frame" x="255" y="13" width="46" height="30"/>
+                                                    <rect key="frame" x="247" y="13" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,38 +171,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="EMn-di-la3">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EMn-di-la3" id="5Dc-nz-uWS">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" id="d3Z-Jm-p8T">
-                                                    <rect key="frame" x="8" y="14" width="304" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Work Info" id="OKK-38-6F5">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="yr4-vF-Km7">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yr4-vF-Km7" id="wZQ-8G-h2P">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Band Name" minimumFontSize="17" id="wTP-3Y-YPh">
-                                                    <rect key="frame" x="8" y="14" width="304" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="gvQ-ko-v4B">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gvQ-ko-v4B" id="wjb-3T-DaS">
@@ -319,10 +292,11 @@
                     <connections>
                         <outlet property="availabilityCell" destination="sBg-PU-kMv" id="s6C-1A-9IB"/>
                         <outlet property="daysAvailableLabel" destination="iIi-LT-fko" id="ymc-Ba-TAW"/>
-                        <outlet property="editGenreCell" destination="gvQ-ko-v4B" id="J60-eZ-65W"/>
+                        <outlet property="editGenreCell" destination="gvQ-ko-v4B" id="yOM-lJ-PAr"/>
+                        <outlet property="emailTextField" destination="YE7-Ns-bCF" id="izH-Kw-DLv"/>
                         <outlet property="nameCell" destination="GMo-9s-uXy" id="sxB-LN-8wh"/>
                         <outlet property="profileImageEdit" destination="n1a-gK-O5F" id="zd2-Ms-0OF"/>
-                        <outlet property="rateCell" destination="qV0-5v-Bvs" id="taN-91-J0z"/>
+                        <outlet property="rateCell" destination="qV0-5v-Bvs" id="Hkq-3i-GZu"/>
                         <outlet property="rateLabel" destination="BnV-Ll-dID" id="6wy-yn-9KJ"/>
                         <outlet property="tableView" destination="gIs-JP-XH3" id="vwe-u9-Fen"/>
                         <outlet property="zipTextBox" destination="Eqw-5r-KLb" id="IIs-VS-EPe"/>
