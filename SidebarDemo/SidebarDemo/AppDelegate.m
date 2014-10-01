@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <Accelerate/Accelerate.h>
 
 @implementation AppDelegate
 
@@ -17,16 +19,15 @@
 
     // Change the background color of navigation bar
     
+    [GMSServices provideAPIKey:@"AIzaSyB4ofpcgXU4uuuyHpADlh2xsvx26emV3qg"];
+
     
     [Parse setApplicationId:@"3iYwTMywkleelnVUpiZdaXPPqVpvDsxw5qsJ1pev"
                             clientKey:@"urfBXQFyT2Ur3bYuIZYAaqBppcmnY1buRw7EDOKU"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    
-    
     [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
-    
     
 
     

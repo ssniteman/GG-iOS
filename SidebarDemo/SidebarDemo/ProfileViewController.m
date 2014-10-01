@@ -92,9 +92,9 @@
     
     UILabel * nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-100, 200, 21)];
     [nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
-    
     nameLabel.textColor = [UIColor whiteColor];
     nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.text = @"Your Band Name ";
     nameLabel.text = user[@"bandName"];
     
 // Genre LABEL
@@ -104,7 +104,7 @@
     
     genreLabel.textColor = [UIColor whiteColor];
     genreLabel.textAlignment = NSTextAlignmentCenter;
-    genreLabel.text = @"Genre";
+    genreLabel.text = user[@"genre"];
     
  //City & State LABEL
     
@@ -113,7 +113,7 @@
     
     stateLabel.textColor = [UIColor whiteColor];
     stateLabel.textAlignment = NSTextAlignmentCenter;
-    stateLabel.text = @"Atlanta, GA";
+    stateLabel.text = @"City, State";
     
     [topView addSubview:nameLabel];
     [topView addSubview:genreLabel];

@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SearchGenreTVCDelegate;
+
 @interface SearchGenreTVC : UITableViewController
+
+@property (nonatomic,assign) id<SearchGenreTVCDelegate> delegate;
+
+@end
+
+@protocol SearchGenreTVCDelegate <NSObject>
+
+- (void)setSavedSearchGenres:(NSString *)savedSearchGenres;
 
 @end

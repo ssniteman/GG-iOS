@@ -10,6 +10,9 @@
 
 @interface SearchViewController : UIViewController
 
+@property (nonatomic,strong) NSString * savedSearchGenres;
+@property (nonatomic,strong) NSString * savedSearchAvailability;
+
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height

@@ -8,48 +8,267 @@
 
 #import "EditProfileViewController.h"
 #import "SWRevealViewController.h"
+#import "AvailabilityTVC.h"
+#import "EditGenreTVC.h"
 #import <Parse/Parse.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <Accelerate/Accelerate.h>
+#import "EditRateVC.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
-@interface EditProfileViewController ()
+@interface EditProfileViewController ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AvailableTVCDelegate,RateDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *availabilityCell;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *editGenreCell;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameCell;
+
+@property (weak, nonatomic) IBOutlet UIView *rateCell;
 
 @end
 
-@implementation EditProfileViewController
+@implementation EditProfileViewController{
+
+    UIImagePickerController * picker;
+    
+    
+}
+
+-(void)setRate:(NSString *)rate{
+    _rate = rate;
+    
+    //self.daysAvailableLabel.text = daysAvailable;
+    
+    self.rateLabel.text = self.rate;
+}
+
+
+
+-(void)setDaysAvailable:(NSString *)daysAvailable {
+    _daysAvailable = daysAvailable;
+  
+    self.daysAvailableLabel.text = daysAvailable;
+    
+}
+    
+    
+    //self.daysAvailableLabel.text = self.daysAvailable;
+    
+//    NSLog(@"%@",self.daysAvailable);
+//    
+//    [self.tableView reloadData];
+//    
+//    self.navigationController.title = self.daysAvailable;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(editSaveButton)];
+    
+    self.navigationItem.rightBarButtonItem = saveButton;
+    
+    
     PFUser * user = [PFUser currentUser];
+   
+    self.nameCell.text = user[@"bandName"];
 
-    self.textLabel.text = user[@"name"];
+    self.tableView.delegate = self;
+    
+    self.tableView.dataSource =self;
+    
     
     SWRevealViewController *revealController = [self revealViewController];
     
     //[self.navigationController.navigationBar addGestureRecognizer:revealController.panGestureRecognizer];
     
-    self.textLabel.text = @"hahahahahaha";
     
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"]
         style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
-
+   self.daysAvailableLabel.text = self.daysAvailable;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    UITableViewCell *theCellClicked = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (theCellClicked == self.availabilityCell) {
+    
+        AvailabilityTVC * openAvailability = [[AvailabilityTVC alloc] init];
+    
+        UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:openAvailability];
+        
+        openAvailability.delegate = self;
+
+        [self.navigationController pushViewController:openAvailability animated:YES];
+        
+    } else if (theCellClicked == self.editGenreCell) {
+    
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"genre" bundle: nil];
+        
+        EditGenreTVC * editGenre = [storyboard instantiateViewControllerWithIdentifier:@"editGenreID"];
+        
+        [self.navigationController pushViewController:editGenre animated:YES];
+        NSLog(@"Hey");
+        
+    } else if (theCellClicked == self.rateCell) {
+        
+        EditRateVC * editRate = [[EditRateVC alloc] init];
+        
+        editRate.delegate = self;
+        
+        [self.navigationController pushViewController:editRate animated:YES];
+        
+    }
+    
 }
 
-/*
-#pragma mark - Navigation
+-(void)editSaveButton {
+    
+    
+    PFUser * user = [PFUser currentUser];
+    
+    user[@"bandName"] = self.nameCell.text;
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [[PFUser currentUser] saveInBackground];
+    
+    NSLog(@"Oh heyyy");
+    
+    
 }
-*/
+
+
+- (IBAction)zipButton:(id)sender {
+    
+    NSString * urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",self.zipTextBox.text];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLResponse * response = nil;
+    
+    NSError * error = nil;
+    NSData * responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSDictionary *resultsInfo = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+    
+    NSDictionary * address =resultsInfo[@"results"][0];
+    
+    NSLog(@"address: %@",address[@"formatted_address"]);
+
+    
+    NSDictionary * location = resultsInfo[@"results"][0][@"geometry"][@"location"];
+
+    NSLog(@"lat %@, long %@",location[@"lat"],location[@"lng"]);
+    
+
+    
+}
+- (IBAction)editPhotoButton:(id)sender {
+    
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Photo option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                            @"Take Photo",
+                            @"Choose Existing",
+                            nil];
+    popup.tag = 1;
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+    
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (popup.tag) {
+        case 1: {
+            switch (buttonIndex) {
+                case 0:
+                    
+                    if ([UIImagePickerController isSourceTypeAvailable:
+                         UIImagePickerControllerSourceTypeCamera])
+                    {
+                        UIImagePickerController *imagePicker =
+                        [[UIImagePickerController alloc] init];
+                        imagePicker.delegate = self;
+                        imagePicker.sourceType =
+                        UIImagePickerControllerSourceTypeCamera;
+                        imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+                        imagePicker.allowsEditing = NO;
+                        [self presentViewController:imagePicker animated:YES completion:nil];
+                        _newMedia = YES;
+                    }
+                    break;
+                case 1:
+                    [self pickImage];
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSString *mediaType = info[UIImagePickerControllerMediaType];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        
+        [self.profileImageEdit setBackgroundImage:image forState:UIControlStateNormal];
+        
+        if (_newMedia)
+            UIImageWriteToSavedPhotosAlbum(image,
+                                           self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+    }
+    else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
+    {
+        // Code here to support video if enabled
+    }
+    
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo {
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void) pickImage {
+    picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    
+    //    if((UIButton *) sender == choosePhotoBtn) {
+    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    //    } else {
+    //        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    //    }
+    
+    [self presentModalViewController:picker animated:YES];
+}
+
 
 @end

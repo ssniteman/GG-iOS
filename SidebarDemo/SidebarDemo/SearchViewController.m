@@ -8,8 +8,11 @@
 
 #import "SearchViewController.h"
 #import "SWRevealViewController.h"
+#import "SearchGenreTVC.h"
+#import "SearchAvailabilityTVC.h"
+#import <Parse/Parse.h>
 
-@interface SearchViewController ()
+@interface SearchViewController () <SearchGenreTVCDelegate, SearchAvailabilityTVCDelegate>
 
 @end
 
@@ -17,14 +20,45 @@
    
     UISegmentedControl * searchSegmentControl;
     UIView * locationSearch;
+    UIButton * searchLocationButton;
     UIView * genreSearch;
+    UIButton * genreSearchButton;
     UIView * availabilitySearch;
     UIButton * searchButton;
+    UIButton * availabilitySearchButton;
+    UIView * rateSearch;
+    UIButton * rateSearchButton;
+    UILabel * genreSearchs;
+    UILabel * availabilitySearchs;
+
+
 }
+
+- (void)setSavedSearchGenres:(NSString *)savedSearchGenres {
+    
+    _savedSearchGenres = savedSearchGenres;
+    
+    NSLog(savedSearchGenres);
+    
+    genreSearchs.text = savedSearchGenres;
+
+}
+
+
+- (void)setSavedSearchAvailability:(NSString *)savedSearchAvailability {
+    
+    _savedSearchAvailability = savedSearchAvailability;
+    
+    NSLog(savedSearchAvailability);
+    
+    availabilitySearchs.text = savedSearchAvailability;
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional "setup after loading the view.
     
     SWRevealViewController *revealController = [self revealViewController];
     
@@ -53,44 +87,108 @@
     //    [segmentControl release];
 
 
-    locationSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 150, SCREEN_WIDTH + 30, 70)];
+    locationSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 150, SCREEN_WIDTH + 30, 100)];
     locationSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     locationSearch.layer.borderWidth = 1;
     locationSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
     
-    UILabel * searchLocationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationSearch.bounds.size.width/2-40, locationSearch.bounds.size.height/2-20, 80, 40)];
-    searchLocationLabel.text = @"Location";
-    [searchLocationLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
-    searchLocationLabel.textColor = [UIColor whiteColor];
-    [locationSearch addSubview:searchLocationLabel];
+    searchLocationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, locationSearch.bounds.size.width, locationSearch.bounds.size.height)];
+
+    [searchLocationButton setTitle:@"Location" forState:UIControlStateNormal];
+    [searchLocationButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    [searchLocationButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
+    [searchLocationButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [locationSearch addSubview:searchLocationButton];
+    
+    [searchLocationButton addTarget:self action:@selector(searchLocationTapped) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:locationSearch];
     
-    genreSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 220, SCREEN_WIDTH + 30, 70)];
+    
+
+    
+    // GENRE VIEW
+    
+    genreSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 250, SCREEN_WIDTH + 30, 100)];
     genreSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     genreSearch.layer.borderWidth = 1;
     genreSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
     
-    UILabel * genreLocationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationSearch.bounds.size.width/2-40, locationSearch.bounds.size.height/2-20, 80, 40)];
-    genreLocationLabel.text = @"Genre";
-    [genreLocationLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
-    genreLocationLabel.textColor = [UIColor whiteColor];
-    [genreSearch addSubview:genreLocationLabel];
+    // LABEL
+    
+    
+    genreSearchs = [[UILabel alloc] initWithFrame:CGRectMake(60, 60, 200, 60)];
+    genreSearchs.backgroundColor = [UIColor greenColor];
+    genreSearchs.textColor = [UIColor blackColor];
+    
+    
+    // BUTTON
+    
+    genreSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, genreSearch.bounds.size.width, genreSearch.bounds.size.height)];
+    [genreSearchButton setTitle:@"Genre" forState:UIControlStateNormal];
+    [genreSearchButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    [genreSearchButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
+    [genreSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [genreSearch addSubview:genreSearchButton];
+    
+    [genreSearchButton addTarget:self action:@selector(genreSearchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    [genreSearch addSubview:genreSearchs];
     
     [self.view addSubview:genreSearch];
     
-    availabilitySearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 290, SCREEN_WIDTH + 30, 70)];
+    
+    availabilitySearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 350, SCREEN_WIDTH + 30, 100)];
     availabilitySearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     availabilitySearch.layer.borderWidth = 1;
     availabilitySearch.layer.borderColor = [[UIColor whiteColor]CGColor];
     
-    UILabel * availabilityLocationLabel = [[UILabel alloc] initWithFrame:CGRectMake(locationSearch.bounds.size.width/2-50, locationSearch.bounds.size.height/2-20, 100, 40)];
-    availabilityLocationLabel.text = @"Availability";
-    [availabilityLocationLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
-    availabilityLocationLabel.textColor = [UIColor whiteColor];
-    [availabilitySearch addSubview:availabilityLocationLabel];
+    
+    // LABEL
+    
+    
+    availabilitySearchs = [[UILabel alloc] initWithFrame:CGRectMake(60, 60, 200, 60)];
+    availabilitySearchs.backgroundColor = [UIColor greenColor];
+    availabilitySearchs.textColor = [UIColor blackColor];
+    
+    availabilitySearchButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, availabilitySearch.bounds.size.width, availabilitySearch.bounds.size.height)];
+    
+    [availabilitySearchButton setTitle:@"Availability" forState:UIControlStateNormal];
+    [availabilitySearchButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    [availabilitySearchButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
+    [availabilitySearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [availabilitySearch addSubview:availabilitySearchButton];
+    
+    [availabilitySearchButton addTarget:self action:@selector(availabilitySearchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    [availabilitySearch addSubview:availabilitySearchs];
+
     
     [self.view addSubview:availabilitySearch];
+    
+    ////
+    
+    rateSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 450, SCREEN_WIDTH + 30, 100)];
+    rateSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
+    rateSearch.layer.borderWidth = 1;
+    rateSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
+    
+    rateSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, rateSearch.bounds.size.width, rateSearch.bounds.size.height)];
+    
+    [rateSearchButton setTitle:@"Rate" forState:UIControlStateNormal];
+    [rateSearchButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    [rateSearchButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
+    [rateSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rateSearch addSubview:rateSearchButton];
+    
+    [rateSearchButton addTarget:self action:@selector(rateSearchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:rateSearch];
+    
+
+    
+    // SEARCH BUTTON BOTTOM
     
     
     searchButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 100, SCREEN_WIDTH - 40, 50)];
@@ -102,11 +200,86 @@
     searchButton.layer.borderWidth = 1;
     searchButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     
-//    [searchButton addTarget:self action:@selector(signUpFinalTouched) forControlEvents:UIControlEventTouchUpInside];
+    [searchButton addTarget:self action:@selector(searchButtonTickled) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:searchButton];
     
 }
+
+
+-(void)genreSearchButtonTapped {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"searchGenre" bundle: nil];
+    
+    SearchGenreTVC * searchGenre = [storyboard instantiateViewControllerWithIdentifier:@"searchGenreID"];
+    
+    searchGenre.delegate = self;
+    
+    [self.navigationController pushViewController:searchGenre animated:YES];
+    NSLog(@"Hey");
+    
+}
+
+-(void)availabilitySearchButtonTapped {
+    
+    
+    SearchAvailabilityTVC * searchAvailability = [[SearchAvailabilityTVC alloc] init];
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:searchAvailability];
+    
+    searchAvailability.delegate = self;
+    
+    [self.navigationController pushViewController:searchAvailability animated:YES];
+    
+}
+
+
+-(void)searchLocationTapped {
+    
+    
+}
+
+
+-(void)searchButtonTickled {
+    
+    PFUser * user = [PFUser user];
+    
+    if (searchSegmentControl.selectedSegmentIndex==0)
+    {
+        user[@"userType"] = @"musician";
+    }
+    else {
+        
+        user[@"userType"] = @"bar";
+    }
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"userType" equalTo:@"musician"]; // find all the musicians
+    
+    NSArray * musicians = [query findObjects];
+    
+    NSLog(@"%@",musicians[0]);
+    
+    
+    for (NSDictionary * users in musicians) {
+        NSLog(@"%@",users[@"username"]);
+    }
+
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -61,6 +61,8 @@
     loginPasswordTextField.placeholder = @"Password";
     [loginPasswordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
+    loginPasswordTextField.secureTextEntry = YES;
+    
     UIView * paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     loginPasswordTextField.leftView = paddingView2;
     loginPasswordTextField.leftViewMode = UITextFieldViewModeAlways;
@@ -84,28 +86,29 @@
     [loginFinalButton addTarget:self action:@selector(loginFinalTouched) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:loginFinalButton];
-
+    
 
 }
 
 -(void)loginFinalTouched {
     
+    
     [PFUser logInWithUsernameInBackground:loginUsernameTextField.text password:loginPasswordTextField.text block:^(PFUser *user, NSError *error) {
         
         if (user) {
             // Do stuff after successful login.
-            
+//            
 //            ProfileViewController * profileView = [[ProfileViewController alloc] init];
 //            
 //           [self presentViewController:profileView animated:YES completion:nil];
-//
+
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
             
             ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
 
             [self presentViewController:profileView animated:YES completion:nil];
             
-            NSLog(@"Hey");
+                 NSLog(@"Hey");
             
         } else {
         // The login failed. Check error to see why.

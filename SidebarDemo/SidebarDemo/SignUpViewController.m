@@ -56,6 +56,10 @@
     passwordTextField.layer.cornerRadius = 5;
     passwordTextField.font = [UIFont systemFontOfSize:18];
     passwordTextField.placeholder = @"Password";
+    
+    passwordTextField.secureTextEntry = YES;
+
+    
     [passwordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
     UIView * paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
@@ -75,7 +79,8 @@
     UIView * paddingView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     verifyPasswordTextField.leftView = paddingView3;
     verifyPasswordTextField.leftViewMode = UITextFieldViewModeAlways;
-    
+    verifyPasswordTextField.secureTextEntry = YES;
+
     [self.view addSubview:verifyPasswordTextField];
     
     // USERTYPE
@@ -149,11 +154,13 @@
         }
     }];
     
-    ProfileViewController * profileView = [[ProfileViewController alloc] init];
+     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
+    
+    ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
     
     [self presentViewController:profileView animated:YES completion:nil];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 
 
     

@@ -7,6 +7,8 @@
 //
 
 #import "EditGenreTVC.h"
+#import "EditProfileViewController.h"
+#import <Parse/Parse.h>
 
 @interface EditGenreTVC ()
 
@@ -15,19 +17,71 @@
 @implementation EditGenreTVC {
     
     NSArray * editGenreList;
+    NSMutableArray  * availableGenres;
+    
+    int maxGenres;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    maxGenres =0;
+    
+    availableGenres=[@[@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @""] mutableCopy];
+    
+    
     editGenreList = @[@"Acoustic", @"Alternative Rock", @"Ambient", @"Americana", @"Blues", @"Bluegrass", @"Classical", @"Classic Rock", @"Country", @"Dance", @"Disco", @"Dubstep", @"Electro", @"Electronic", @"Folk", @"Gospel", @"Hip-Hop", @"House", @"Indie", @"Jazz", @"Latin", @"Metal", @"Oldies", @"Other", @"Piano", @"Pop", @"Pop/Country", @"Progressive House", @"Punk", @"R&B", @"Rap", @"Reggae", @"Rock", @"Singer-Songwriter", @"Soul", @"Southern Rock", @"Techno", @"Trance"];
 
+    
+    //RIGHT MENU BUTTON
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(saveButton)];
+    
+    self.navigationItem.rightBarButtonItem = saveButton;
+    
+    
+    //Left MENU BUTTON
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButton)];
+    
+    self.navigationItem.leftBarButtonItem = cancelButton;
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *thisCell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    
+    if (thisCell.accessoryType == UITableViewCellAccessoryNone) {
+        
+        if (maxGenres<=2){
+        
+        thisCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        
+        [availableGenres insertObject:[NSString stringWithFormat:@"%@/", editGenreList[indexPath.row]] atIndex:indexPath.row];
+            
+        }else{NSLog(@"no more than 3 genres");}
+        
+          maxGenres++;
+        
+    }else{
+        
+        maxGenres--;
+        
+        thisCell.accessoryType = UITableViewCellAccessoryNone;
+        [availableGenres removeObjectAtIndex: indexPath.row];
+        
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+    }
 }
 
 
@@ -54,8 +108,38 @@
     return cell;
 }
 
+-(void)saveButton {
+    
+    NSMutableString * stringOfGenres = [[NSMutableString alloc] init];
+    
+    //Getting each day and appending it to one string
+    
+    for (NSString * genres in availableGenres) {
+        
+        [stringOfGenres appendFormat:@"%@", genres];
+        
+    }
+
+    
+    NSLog(@"%@",[stringOfGenres substringToIndex:[stringOfGenres length]-1]);
+    
+    PFUser * user = [PFUser currentUser];
+    
+    user[@"genre"] = [stringOfGenres substringToIndex:[stringOfGenres length]-1];
+    
+    [[PFUser currentUser] saveInBackground];
+  
+    [self cancelButton];
 
 
+}
+
+
+- (void) cancelButton{
+
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 
 @end
