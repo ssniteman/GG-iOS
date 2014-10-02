@@ -127,11 +127,15 @@
     
     user[@"genre"] = [stringOfGenres substringToIndex:[stringOfGenres length]-1];
     
+    [availableGenres removeObject:@""];
+    
+    user[@"genreArray"] = availableGenres;
+    
     [[PFUser currentUser] saveInBackground];
   
     [self cancelButton];
 
-
+    
 }
 
 

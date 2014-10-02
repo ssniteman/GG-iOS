@@ -147,9 +147,13 @@
     
     [self.delegate setSavedSearchGenres:[availableGenres componentsJoinedByString:@"/"]];
     
+    [self.delegate setSearchArrayGenres:availableGenres];
+    
+    
 //    SearchViewController * selectedGenres = [[SearchViewController alloc] init];
 //    
 //    selectedGenres.savedSearchGenres = [availableGenres componentsJoinedByString:@"/"];
+    
     
     [self cancelButton];
     

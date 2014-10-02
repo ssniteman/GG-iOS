@@ -13,6 +13,9 @@
 @property (nonatomic,strong) NSString * savedSearchGenres;
 @property (nonatomic,strong) NSString * savedSearchAvailability;
 
+@property (nonatomic,strong) NSMutableArray * searchArrayGenres;
+@property (nonatomic,strong) NSMutableArray * searchArrayAvailability;
+
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height

@@ -36,6 +36,9 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     UIImage *image;
     
     NSDictionary * location;
+    
+    double latitude;
+    double longitude;
 }
 
 -(void)setRate:(NSString *)rate{
@@ -65,7 +68,7 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     PFUser * user = [PFUser currentUser];
    
     self.nameCell.text = user[@"bandName"];
-    self.emailTextField.text = user[@"musicianemail"];
+    self.emailTextField.text = user[@"email"];
 
     self.tableView.delegate = self;
     
@@ -144,6 +147,10 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
 
     NSLog(@"lat %@, long %@",location[@"lat"],location[@"lng"]);
     
+    latitude =[location[@"lat"]doubleValue];
+    
+    longitude = [location[@"lng"]doubleValue];
+    
 }
 
 
@@ -155,9 +162,9 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     user[@"bandName"] = self.nameCell.text;
     user[@"email"] = self.emailTextField.text;
     
-    PFGeoPoint * point = [PFGeoPoint geoPointWithLatitude:location[@"lat"] longitude:location[@"lng"]];
-    
-    placeObject[@"location"] = point;
+    PFGeoPoint * point = [PFGeoPoint geoPointWithLatitude:latitude longitude:longitude];
+
+    user[@"location"] = point;
     
     [[PFUser currentUser] saveInBackground];
     
@@ -238,57 +245,19 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                            self,
                                            @selector(image:finishedSavingWithError:contextInfo:),
                                            nil);
+        
+        
+        NSData *imageData = UIImagePNGRepresentation(image);
+        PFFile *imageFile = [PFFile fileWithData:imageData];
+        
+        PFUser * user = [PFUser currentUser];
+        user[@"image"] = imageFile;
+        [user saveInBackground];
     }
     else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
     {
         // Code here to support video if enabled
     }
-//    
-//    NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
-//    [self uploadImage:imageData];
-    
-//    
-//    PFFile *imageFile = [PFFile fileWithData:image contentType:image];
-//    
-//    //HUD creation here (see example for code)
-//    
-//    // Save PFFile
-//    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            // Hide old HUD, show completed HUD (see example for code)
-//            
-//            // Create a PFObject around a PFFile and associate it with the current user
-//            PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
-//            [userPhoto setObject:imageFile forKey:@"imageFile"];
-//            
-//            // Set the access control list to current user for security purposes
-//            userPhoto.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-//            
-//            PFUser *user = [PFUser currentUser];
-//            [userPhoto setObject:user forKey:@"user"];
-//            
-//            [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (!error) {
-//                    //                        [self refresh:nil];
-//                }
-//                else{
-//                    // Log details of the failure
-//                    NSLog(@"Error: %@ %@", error, [error userInfo]);
-//                }
-//            }];
-//        }
-//        else{
-//            //                [HUD hide:YES];
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    } progressBlock:^(int percentDone) {
-//        // Update your progress spinner here. percentDone will be between 0 and 100.
-//        
-//        
-//    }];
-    
-    
     
     
 }

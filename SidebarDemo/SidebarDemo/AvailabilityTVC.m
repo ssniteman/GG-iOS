@@ -76,6 +76,10 @@
     
     user[@"availability"] = stringOfDays;
     
+    [self.available removeObject:@""];
+    
+    user[@"availableArray"] = self.available;
+    
     [[PFUser currentUser] saveInBackground];
     
     NSLog(@"%@",user);

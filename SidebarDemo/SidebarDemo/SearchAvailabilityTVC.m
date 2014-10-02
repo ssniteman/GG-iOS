@@ -76,26 +76,8 @@
     }
     
     [self.delegate setSavedSearchAvailability:stringOfDays];
-
     
-//    PFUser * user = [PFUser currentUser];
-//    
-//    user[@"availability"] = stringOfDays;
-//    
-//    [[PFUser currentUser] saveInBackground];
-//    
-//    NSLog(@"%@",user);
-//    
-//    
-    
-//    
-//    EditProfileViewController * editProfile = [[EditProfileViewController alloc] init];
-//    
-//    editProfile.daysAvailable = stringOfDays;
-    
-    //    editProfile.daysAvailableLabel.text = string;
-    //
-    //    [editProfile.tableView reloadData];
+    [self.delegate setSearchArrayAvailability:self.available];
     
     [self cancelButton];
 }

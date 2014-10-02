@@ -30,18 +30,14 @@
     UIButton * rateSearchButton;
     UILabel * genreSearchs;
     UILabel * availabilitySearchs;
-
-
 }
 
-- (void)setSavedSearchGenres:(NSString *)savedSearchGenres {
-    
-    _savedSearchGenres = savedSearchGenres;
-    
-    NSLog(savedSearchGenres);
-    
-    genreSearchs.text = savedSearchGenres;
 
+// AVAILABILITY
+
+-(void)setSearchArrayAvailability:(NSMutableArray *)searchArrayAvailability{
+    _searchArrayAvailability = searchArrayAvailability;
+    
 }
 
 
@@ -54,6 +50,25 @@
     availabilitySearchs.text = savedSearchAvailability;
     
 }
+
+
+// GENRES
+
+
+- (void)setSearchArrayGenres:(NSMutableArray *)searchArrayGenres {
+    _searchArrayGenres = searchArrayGenres;
+}
+
+- (void)setSavedSearchGenres:(NSString *)savedSearchGenres {
+    
+    _savedSearchGenres = savedSearchGenres;
+        
+    genreSearchs.text = savedSearchGenres;
+
+}
+
+
+
 
 
 - (void)viewDidLoad {
@@ -216,7 +231,7 @@
     searchGenre.delegate = self;
     
     [self.navigationController pushViewController:searchGenre animated:YES];
-    NSLog(@"Hey");
+//    NSLog(@"Hey");
     
 }
 
@@ -258,14 +273,20 @@
     
     NSArray * musicians = [query findObjects];
     
-    NSLog(@"%@",musicians[0]);
+//    NSLog(@"%@",musicians[0]);
     
     
     for (NSDictionary * users in musicians) {
-        NSLog(@"%@",users[@"username"]);
+//        NSLog(@"%@",users[@"username"]);
     }
-
     
+//    [query whereKey:@"genreArray" containsAllObjectsInArray:self.searchArrayGenres];
+//    
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+//    
+//    [query getObjectInBackgroundWithId:user block:^(PFObject *object, NSError *error) {
+
     
 }
 

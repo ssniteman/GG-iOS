@@ -22,5 +22,7 @@
 @protocol SearchAvailabilityTVCDelegate <NSObject>
 
 - (void)setSavedSearchAvailability:(NSString *)savedSearchAvailability;
+-(void)setSearchArrayAvailability:(NSMutableArray *)searchArrayAvailability;
+
 
 @end
