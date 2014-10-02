@@ -31,15 +31,13 @@
                  @""]mutableCopy];
     
     daysOfTheWeek=[@[
-                     @"Sunday",
                      @"Monday",
                      @"Tuesday",
                      @"Wednesday",
                      @"Thursday",
                      @"Friday",
-                     @"Saturday"
-                     
-                     
+                     @"Saturday",
+                     @"Sunday",
                      ]mutableCopy];
     
     //RIGHT MENU BUTTON
@@ -62,6 +60,8 @@
 -(void) saveButton{
     
     
+    
+    
     NSMutableString *stringOfDays = [[NSMutableString alloc] init];
     
     //Getting each day and appending it to one string
@@ -71,6 +71,27 @@
         
         
     }
+    
+    
+    
+    
+//    if ([self.available containsObject: @"Monday"]&&[self.available containsObject: @"Tuesday"]&&[self.available containsObject: @"Wednesday"]&&[self.available containsObject: @"Thursday"]&& self.available.count <=3) {
+//        
+//        [self.delegate setDaysAvailable:@"Weekdays"];
+//        
+//        
+//    } else if ([self.available containsObject: @"Friday"]&&[self.available containsObject: @"Saturday"]&&[self.available containsObject: @"Sunday"]&& self.available.count <=2){
+//        
+//        [self.delegate setDaysAvailable:@"Weekends"];
+//        
+//    }else if () {
+//        [self.delegate setDaysAvailable:@"Weekdays"];
+//
+//    }
+    
+    
+    
+    
     
     PFUser * user = [PFUser currentUser];
     

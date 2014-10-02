@@ -68,7 +68,7 @@
         
         [availableGenres insertObject:[NSString stringWithFormat:@"%@/", editGenreList[indexPath.row]] atIndex:indexPath.row];
             
-        }else{NSLog(@"no more than 3 genres");}
+        }else{NSLog(@"no more than 1 genre");}
         
           maxGenres++;
         

@@ -270,24 +270,35 @@
     
     PFQuery *query = [PFUser query];
     [query whereKey:@"userType" equalTo:@"musician"]; // find all the musicians
+
+    if(self.searchArrayGenres.count > 0) {
+        [query whereKey:@"genreArray" containedIn:self.searchArrayGenres];
+    }
     
-    NSArray * musicians = [query findObjects];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        
+        NSLog(@"%@",objects);
+        
+        for (NSDictionary * object in objects) {
+            NSLog(@"%@",object[@"username"]);
+        }
+        
+    }];
     
 //    NSLog(@"%@",musicians[0]);
     
     
-    for (NSDictionary * users in musicians) {
-//        NSLog(@"%@",users[@"username"]);
-    }
     
-//    [query whereKey:@"genreArray" containsAllObjectsInArray:self.searchArrayGenres];
-//    
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"User"];
-//    
-//    [query getObjectInBackgroundWithId:user block:^(PFObject *object, NSError *error) {
 
-    
+//    PFQuery * userQuery = [PFUser query];
+//    
+//    [userQuery getObjectInBackgroundWithId:user.objectId block:^(PFObject *object, NSError *error) {
+//
+//        
+//        
+//    }];
+//    
 }
 
 

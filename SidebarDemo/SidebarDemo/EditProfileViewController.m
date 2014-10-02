@@ -141,7 +141,6 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
     NSDictionary * address =resultsInfo[@"results"][0];
     
-    NSLog(@"address: %@",address[@"formatted_address"]);
 
     location = resultsInfo[@"results"][0][@"geometry"][@"location"];
 
@@ -150,6 +149,8 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     latitude =[location[@"lat"]doubleValue];
     
     longitude = [location[@"lng"]doubleValue];
+    
+    self.zipTextBox.text =address[@"formatted_address"];
     
 }
 

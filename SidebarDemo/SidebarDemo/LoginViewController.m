@@ -10,6 +10,9 @@
 #import "ProfileViewController.h"
 #import <Parse/Parse.h>
 
+#import "SWRevealViewController.h"
+#import "MainViewController.h"
+
 @interface LoginViewController () <UITextFieldDelegate>
 
 @end
@@ -100,16 +103,25 @@
         
         if (user) {
             // Do stuff after successful login.
-//            
+            
 //            ProfileViewController * profileView = [[ProfileViewController alloc] init];
-//            
+//           
 //           [self presentViewController:profileView animated:YES completion:nil];
 
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
             
-            ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+            SWRevealViewController * revealVC = [storyboard instantiateViewControllerWithIdentifier:@"revealVC"];
 
-            [self presentViewController:profileView animated:YES completion:nil];
+//            UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:profileView];
+            
+            
+            ((UINavigationController *)self.presentingViewController).viewControllers = @[revealVC];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+//            [((UINavigationController *)self.presentingViewController) pushViewController:revealVC animated:NO];
+            
+            
             
                  NSLog(@"Hey");
             
