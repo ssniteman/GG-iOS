@@ -66,7 +66,7 @@
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         
-        [availableGenres insertObject:[NSString stringWithFormat:@"%@/", editGenreList[indexPath.row]] atIndex:indexPath.row];
+        [availableGenres insertObject:[NSString stringWithFormat:@"%@", editGenreList[indexPath.row]] atIndex:indexPath.row];
             
         }else{NSLog(@"no more than 1 genre");}
         
@@ -115,8 +115,10 @@
     //Getting each day and appending it to one string
     
     for (NSString * genres in availableGenres) {
-        
-        [stringOfGenres appendFormat:@"%@", genres];
+        if ([genres length]!=0) {
+            [stringOfGenres appendFormat:@"%@/", genres];
+
+        }
         
     }
 
@@ -125,7 +127,7 @@
     
     PFUser * user = [PFUser currentUser];
     
-    user[@"genre"] = [stringOfGenres substringToIndex:[stringOfGenres length]-1];
+    user[@"genre"] = stringOfGenres;
     
     [availableGenres removeObject:@""];
     
