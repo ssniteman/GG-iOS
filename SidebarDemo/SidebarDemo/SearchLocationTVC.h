@@ -20,5 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *currentLocationSwitchOutlet;
 
+@property (weak, nonatomic) IBOutlet UIPickerView *radiusPicker;
 
 @end

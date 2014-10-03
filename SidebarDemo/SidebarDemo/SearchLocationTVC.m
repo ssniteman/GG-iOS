@@ -15,7 +15,7 @@
 
 
 
-@interface SearchLocationTVC ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate>
+@interface SearchLocationTVC ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @end
 
@@ -29,9 +29,36 @@
     double longitude;
     
     GMSMapView *mapView_;
-
+    NSMutableArray * radiusMiles;
 
 }
+
+
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return  1;
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
+{
+    return radiusMiles.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component
+{
+    
+    return [radiusMiles objectAtIndex:row];
+
+    
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
+{
+
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,14 +66,19 @@
     
     self.tableView.dataSource =self;
 
+    radiusMiles=[@[@"5",@"10",@"15",@"20",@"25",@"35",@"50",@"75",@"100",@"150",@"250",@"500"]mutableCopy];
     
+    self.radiusPicker.delegate = self;
+    
+    self.radiusPicker.dataSource =self;
+ 
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 /*
