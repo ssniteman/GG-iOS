@@ -41,6 +41,8 @@
     usernameTextField.layer.cornerRadius = 5;
     usernameTextField.font = [UIFont systemFontOfSize:18];
     usernameTextField.placeholder = @"Username";
+    usernameTextField.autocapitalizationType = FALSE;
+
     [usernameTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
     UIView * paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
@@ -57,6 +59,8 @@
     passwordTextField.layer.cornerRadius = 5;
     passwordTextField.font = [UIFont systemFontOfSize:18];
     passwordTextField.placeholder = @"Password";
+    passwordTextField.autocapitalizationType = FALSE;
+
     
     passwordTextField.secureTextEntry = YES;
     
@@ -77,6 +81,7 @@
     verifyPasswordTextField.layer.cornerRadius = 5;
     verifyPasswordTextField.font = [UIFont systemFontOfSize:18];
     verifyPasswordTextField.placeholder = @"Verify Password";
+    verifyPasswordTextField.autocapitalizationType = FALSE;
     [verifyPasswordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     UIView * paddingView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     verifyPasswordTextField.leftView = paddingView3;
@@ -170,12 +175,6 @@
      //    user.email = @"email@example.com";
     
 }
-
-
-
-
-
-
 
 
 

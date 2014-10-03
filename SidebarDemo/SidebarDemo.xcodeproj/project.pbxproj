@@ -194,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EECF70177FE9B400778578 /* CoreLocation.framework in Frameworks */,
 				60D7968619D107420009CDB2 /* MobileCoreServices.framework in Frameworks */,
 				60C3521E19D89A47008375AD /* Accounts.framework in Frameworks */,
 				60C3521519D897B7008375AD /* Social.framework in Frameworks */,
@@ -213,7 +214,6 @@
 				60D7968A19D1074F0009CDB2 /* Security.framework in Frameworks */,
 				60D7968819D1074A0009CDB2 /* QuartzCore.framework in Frameworks */,
 				60D7968419D1073C0009CDB2 /* libz.dylib in Frameworks */,
-				F4EECF70177FE9B400778578 /* CoreLocation.framework in Frameworks */,
 				F4EECF16177C99F400778578 /* CoreGraphics.framework in Frameworks */,
 				60D7968219D107260009CDB2 /* CFNetwork.framework in Frameworks */,
 				60D7968019D1070E0009CDB2 /* AudioToolbox.framework in Frameworks */,
@@ -648,6 +648,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -659,6 +660,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
@@ -669,6 +671,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -680,6 +683,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -11,4 +11,14 @@
 @interface SearchLocationTVC : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+
+@property (weak, nonatomic) IBOutlet UITextField *searchZip;
+
+- (IBAction)changeZip:(id)sender;
+
+- (IBAction)currentLocationSwitch:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISwitch *currentLocationSwitchOutlet;
+
+
 @end

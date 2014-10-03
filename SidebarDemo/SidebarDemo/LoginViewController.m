@@ -47,6 +47,8 @@
     loginUsernameTextField.layer.cornerRadius = 5;
     loginUsernameTextField.font = [UIFont systemFontOfSize:18];
     loginUsernameTextField.placeholder = @"Username";
+    loginUsernameTextField.autocapitalizationType = FALSE;
+
     [loginUsernameTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
     UIView * paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
@@ -63,6 +65,7 @@
     loginPasswordTextField.layer.cornerRadius = 5;
     loginPasswordTextField.font = [UIFont systemFontOfSize:18];
     loginPasswordTextField.placeholder = @"Password";
+    loginPasswordTextField.autocapitalizationType = FALSE;
     [loginPasswordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
     loginPasswordTextField.secureTextEntry = YES;
