@@ -135,7 +135,7 @@
     user.username = usernameTextField.text;
     user.password = passwordTextField.text;
     
-    if (segmentControl.selectedSegmentIndex==0)
+    if (segmentControl.selectedSegmentIndex == 0)
     {
         user[@"userType"] = @"musician";
     }

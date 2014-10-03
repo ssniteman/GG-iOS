@@ -275,6 +275,11 @@
         [query whereKey:@"genreArray" containedIn:self.searchArrayGenres];
     }
     
+    if (self.searchArrayAvailability.count > 0) {
+        
+        [query whereKey:@"availabilityArray" containedIn:self.searchArrayAvailability];
+    }
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         
@@ -285,6 +290,7 @@
         }
         
     }];
+    
     
     
     

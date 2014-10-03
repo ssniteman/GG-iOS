@@ -80,12 +80,21 @@
     
     PFUser * user = [PFUser currentUser];
     
-    user[@"nightlyRate"] = rateTextField.text;
+    if (segmentControl.selectedSegmentIndex == 0) {
+        
+        user[@"nightlyRate"] = [NSString stringWithFormat:@"%@/nightly", rateTextField.text];
+         [self.delegate setRate:[NSString stringWithFormat:@"%@/nightly", rateTextField.text]];
+        
+    } else {
+    
+        user[@"hourlyRate"] = [NSString stringWithFormat:@"%@/hourly", rateTextField.text];
+        [self.delegate setRate:[NSString stringWithFormat:@"%@/hourly", rateTextField.text]];
+
+        
+    }
     
     [[PFUser currentUser] saveInBackground];
     
-    [self.delegate setRate:rateTextField.text];
-
     [self cancelButton];
     
 }

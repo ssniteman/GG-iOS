@@ -99,7 +99,7 @@
     
     [self.available removeObject:@""];
     
-    user[@"availableArray"] = self.available;
+    user[@"availabilityArray"] = self.available;
     
     [[PFUser currentUser] saveInBackground];
     
