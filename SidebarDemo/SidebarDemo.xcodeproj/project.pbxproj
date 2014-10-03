@@ -15,6 +15,8 @@
 		6027C5A719CF896D00CDD988 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6027C5A619CF896D00CDD988 /* SignUpViewController.m */; };
 		6044CD0519D9A5B100B72FD5 /* SearchAvailabilityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6044CD0419D9A5B100B72FD5 /* SearchAvailabilityTVC.m */; };
 		6077825C19D35A3400AE62C1 /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6077825B19D35A3400AE62C1 /* getagiglanding.jpg */; };
+		6090941519DE310A00E8A856 /* SearchRateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6090941419DE310A00E8A856 /* SearchRateVC.m */; };
+		6090941B19DE359C00E8A856 /* SearchLocationTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6090941A19DE359C00E8A856 /* SearchLocationTVC.m */; };
 		60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */; };
 		60ACC17F19DB2EEB0008E69F /* EditRateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ACC17E19DB2EEB0008E69F /* EditRateVC.m */; };
 		60C351F719D723B7008375AD /* AvailabilityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C351F619D723B7008375AD /* AvailabilityTVC.m */; };
@@ -99,6 +101,10 @@
 		6044CD0319D9A5B100B72FD5 /* SearchAvailabilityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAvailabilityTVC.h; sourceTree = "<group>"; };
 		6044CD0419D9A5B100B72FD5 /* SearchAvailabilityTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAvailabilityTVC.m; sourceTree = "<group>"; };
 		6077825B19D35A3400AE62C1 /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = getagiglanding.jpg; sourceTree = "<group>"; };
+		6090941319DE310A00E8A856 /* SearchRateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchRateVC.h; sourceTree = "<group>"; };
+		6090941419DE310A00E8A856 /* SearchRateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchRateVC.m; sourceTree = "<group>"; };
+		6090941919DE359C00E8A856 /* SearchLocationTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchLocationTVC.h; sourceTree = "<group>"; };
+		6090941A19DE359C00E8A856 /* SearchLocationTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchLocationTVC.m; sourceTree = "<group>"; };
 		60A420DB19D2039C007738D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = SidebarDemo/en.lproj/MainStoryboardTwo.storyboard; sourceTree = "<group>"; };
 		60ACC17D19DB2EEB0008E69F /* EditRateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditRateVC.h; path = ../EditRateVC.h; sourceTree = "<group>"; };
 		60ACC17E19DB2EEB0008E69F /* EditRateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditRateVC.m; path = ../EditRateVC.m; sourceTree = "<group>"; };
@@ -228,10 +234,14 @@
 			children = (
 				601441A519BCF1E900BC3CC8 /* SearchViewController.h */,
 				601441A619BCF1E900BC3CC8 /* SearchViewController.m */,
+				6090941919DE359C00E8A856 /* SearchLocationTVC.h */,
+				6090941A19DE359C00E8A856 /* SearchLocationTVC.m */,
 				60F4243619D71356001D8B0E /* SearchGenreTVC.h */,
 				60F4243719D71356001D8B0E /* SearchGenreTVC.m */,
 				6044CD0319D9A5B100B72FD5 /* SearchAvailabilityTVC.h */,
 				6044CD0419D9A5B100B72FD5 /* SearchAvailabilityTVC.m */,
+				6090941319DE310A00E8A856 /* SearchRateVC.h */,
+				6090941419DE310A00E8A856 /* SearchRateVC.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -534,6 +544,7 @@
 			files = (
 				6044CD0519D9A5B100B72FD5 /* SearchAvailabilityTVC.m in Sources */,
 				F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */,
+				6090941B19DE359C00E8A856 /* SearchLocationTVC.m in Sources */,
 				F4EECF1E177C99F400778578 /* main.m in Sources */,
 				F4EECF22177C99F400778578 /* AppDelegate.m in Sources */,
 				60C351F719D723B7008375AD /* AvailabilityTVC.m in Sources */,
@@ -544,6 +555,7 @@
 				601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */,
 				8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */,
 				60F4243219D70A8E001D8B0E /* EditGenreTVC.m in Sources */,
+				6090941519DE310A00E8A856 /* SearchRateVC.m in Sources */,
 				60186EDD19D58DBC00AE331A /* LoginViewController.m in Sources */,
 				601441A719BCF1E900BC3CC8 /* SearchViewController.m in Sources */,
 				60F4243819D71356001D8B0E /* SearchGenreTVC.m in Sources */,

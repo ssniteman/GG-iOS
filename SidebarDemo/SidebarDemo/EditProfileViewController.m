@@ -169,13 +169,12 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
     [[PFUser currentUser] saveInBackground];
     
-    
-    
-    
-    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
-    //    ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
-    //    [self presentViewController:profileView animated:YES completion:nil];
-    
+    [self.navigationController popViewControllerAnimated:YES];
+
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
+//    ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+//    [self.navigationController pushViewController:profileView animated:YES];
+//    
     
 }
 

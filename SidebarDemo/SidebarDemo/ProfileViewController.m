@@ -10,6 +10,7 @@
 
 #import "ProfileViewController.h"
 #import "SWRevealViewController.h"
+#import "EditProfileViewController.h"
 #import <Parse/Parse.h>
 
 // WIDTH & HEIGHT
@@ -43,9 +44,9 @@
     
     //RIGHT MENU BUTTON
     
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
-    
-    self.navigationItem.rightBarButtonItem = editButton;
+//    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editProfileButtonTickled)];
+//    
+//    self.navigationItem.rightBarButtonItem = editButton;
     
     //Position for the Photos Button
     
@@ -121,6 +122,22 @@
     
     [topView addSubview:theProfilePicture];
 }
+
+
+//- (void)editProfileButtonTickled {
+//    
+//    EditProfileViewController * editProfileSegue = [[EditProfileViewController alloc] init];
+//    
+//    [self.navigationController pushViewController:editProfileSegue animated:YES];
+//    
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
+//    
+//    EditProfileViewController * editProfile = [storyboard instantiateViewControllerWithIdentifier:@"editProfileID"];
+//    
+//    [self presentViewController:editProfile animated:YES completion:nil];
+//    
+//}
 
 
 - (IBAction)soundcloudButton:(id)sender {
