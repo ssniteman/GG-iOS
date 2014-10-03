@@ -15,7 +15,7 @@
 
 
 
-@interface SearchLocationTVC ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+@interface SearchLocationTVC ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIActionSheetDelegate>
 
 @end
 
@@ -46,16 +46,24 @@
     return radiusMiles.count;
 }
 
+// tell the picker the width of each row for a given component
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    int sectionWidth = 120;
+    
+    return sectionWidth;
+}
+
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component
 {
     
-    return [radiusMiles objectAtIndex:row];
+    return [NSString stringWithFormat:@"%@ Miles",[radiusMiles objectAtIndex:row]];
 
     
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
 {
-
+    
+    NSLog(@"WIDTH: %f , HEIGHT:  %f",self.radiusPicker.bounds.size.width,self.radiusPicker.bounds.size.height);
 }
 
 
@@ -67,13 +75,26 @@
     self.tableView.dataSource =self;
 
     radiusMiles=[@[@"5",@"10",@"15",@"20",@"25",@"35",@"50",@"75",@"100",@"150",@"250",@"500"]mutableCopy];
+    CGSize pickerSize = [self.radiusPicker sizeThatFits:CGSizeZero];
+    
+    UIView * pickerTransformView= [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, pickerSize.width, pickerSize.height)];
+    
+    pickerTransformView.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
+    [pickerTransformView addSubview:self.radiusPicker];
     
     self.radiusPicker.delegate = self;
     
     self.radiusPicker.dataSource =self;
- 
+    
+    
+    NSLog(@"WIDTH: %f , HEIGHT:  %f",self.radiusPicker.bounds.size.width,self.radiusPicker.bounds.size.height);
+    
+    self.radiusPicker.showsSelectionIndicator = YES;
+    self.radiusPicker.transform = CGAffineTransformMakeScale(0.95f, 0.95f);
+    
+    [self.radiusCell addSubview:pickerTransformView];
+    
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -81,15 +102,6 @@
     return 3;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
 - (IBAction)changeZip:(id)sender {
     
@@ -229,4 +241,9 @@
 
 
 
+- (IBAction)changeRadiusButton:(id)sender {
+    
+    self.radiusCell.hidden = true;
+    [self.tableView reloadData];
+}
 @end

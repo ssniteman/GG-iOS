@@ -11,6 +11,7 @@
 @interface SearchLocationTVC : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+- (IBAction)changeRadiusButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *searchZip;
 
@@ -19,7 +20,8 @@
 - (IBAction)currentLocationSwitch:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISwitch *currentLocationSwitchOutlet;
-
 @property (weak, nonatomic) IBOutlet UIPickerView *radiusPicker;
+
+@property (weak, nonatomic) IBOutlet UIView *radiusCell;
 
 @end
