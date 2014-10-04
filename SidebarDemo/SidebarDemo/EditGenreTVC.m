@@ -127,7 +127,7 @@
     
     PFUser * user = [PFUser currentUser];
     
-    user[@"genre"] = stringOfGenres;
+    user[@"genre"] = [stringOfGenres substringToIndex:[stringOfGenres length]-1];
     
     [availableGenres removeObject:@""];
     

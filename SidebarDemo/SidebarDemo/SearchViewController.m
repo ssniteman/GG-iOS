@@ -35,7 +35,7 @@
 }
 
 
-// AVAILABILITY
+// AVAILABILITY SETTER
 
 -(void)setSearchArrayAvailability:(NSMutableArray *)searchArrayAvailability{
     _searchArrayAvailability = searchArrayAvailability;
@@ -54,7 +54,7 @@
 }
 
 
-// GENRES
+// GENRES SETTER
 
 
 - (void)setSearchArrayGenres:(NSMutableArray *)searchArrayGenres {
@@ -69,9 +69,7 @@
 
 }
 
-
-
-
+// VIEW DID LOAD
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -90,7 +88,7 @@
     
     searchSegmentControl = [[UISegmentedControl alloc]initWithItems:@[@"Musician / Band",@"Bar / Venue"]];
     [searchSegmentControl setSegmentedControlStyle:UISegmentedControlStyleBar];
-    searchSegmentControl.frame = CGRectMake(-10, 80, SCREEN_WIDTH + 30, 70);
+    searchSegmentControl.frame = CGRectMake(-10, 43, SCREEN_WIDTH + 30, 70);
     searchSegmentControl.layer.borderWidth = 0;
     UIColor *newTintColor = [UIColor whiteColor];
     searchSegmentControl.tintColor = newTintColor;
@@ -104,7 +102,7 @@
     //    [segmentControl release];
 
 
-    locationSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 150, SCREEN_WIDTH + 30, 100)];
+    locationSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 113, SCREEN_WIDTH + 30, 100)];
     locationSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     locationSearch.layer.borderWidth = 1;
     locationSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
@@ -121,23 +119,18 @@
     
     [self.view addSubview:locationSearch];
     
-    
-
-    
     // GENRE VIEW
     
-    genreSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 250, SCREEN_WIDTH + 30, 100)];
+    genreSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 213, SCREEN_WIDTH + 30, 100)];
     genreSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     genreSearch.layer.borderWidth = 1;
     genreSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
-    
+ 
     // LABEL
-    
-    
-    genreSearchs = [[UILabel alloc] initWithFrame:CGRectMake(60, 60, 200, 60)];
-    genreSearchs.backgroundColor = [UIColor greenColor];
-    genreSearchs.textColor = [UIColor blackColor];
-    
+
+    genreSearchs = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, SCREEN_WIDTH + 20, 60)];
+    [genreSearchs setTextAlignment: NSTextAlignmentCenter];
+    genreSearchs.backgroundColor = [UIColor whiteColor];
     
     // BUTTON
     
@@ -156,14 +149,12 @@
     [self.view addSubview:genreSearch];
     
     
-    availabilitySearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 350, SCREEN_WIDTH + 30, 100)];
+    availabilitySearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 313, SCREEN_WIDTH + 30, 100)];
     availabilitySearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     availabilitySearch.layer.borderWidth = 1;
     availabilitySearch.layer.borderColor = [[UIColor whiteColor]CGColor];
     
-    
     // LABEL
-    
     
     availabilitySearchs = [[UILabel alloc] initWithFrame:CGRectMake(60, 60, 200, 60)];
     availabilitySearchs.backgroundColor = [UIColor greenColor];
@@ -184,9 +175,9 @@
     
     [self.view addSubview:availabilitySearch];
     
-    ////
+    //// RATE
     
-    rateSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 450, SCREEN_WIDTH + 30, 100)];
+    rateSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 413, SCREEN_WIDTH + 30, 100)];
     rateSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     rateSearch.layer.borderWidth = 1;
     rateSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
@@ -203,12 +194,9 @@
     
     [self.view addSubview:rateSearch];
     
-
-    
     // SEARCH BUTTON BOTTOM
     
-    
-    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 100, SCREEN_WIDTH - 40, 50)];
+    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 40, SCREEN_WIDTH - 40, 50)];
     searchButton.backgroundColor = [UIColor whiteColor];
     searchButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [searchButton setTitle:@"Search" forState:UIControlStateNormal];
@@ -223,31 +211,7 @@
     
 }
 
--(void)rateSearchButtonTapped {
-    SearchRateVC * searchRate = [[SearchRateVC alloc] init];
-    
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:searchRate];
-    
-    
-    [self.navigationController pushViewController:navController animated:YES];
-
-}
-
 -(void)searchLocationTapped {
-    //    SearchLocationTVC * searchLocation = [[SearchLocationTVC alloc] init];
-    //
-    //    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:searchLocation];
-    //
-    //
-    //    [self.navigationController pushViewController:navController animated:YES];
-    
-//    
-//    SearchLocationTVC * locationTVC = [[SearchLocationTVC alloc] init];
-//    
-//    
-//    [self.navigationController pushViewController:locationTVC animated:YES];
-    
-    
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
     
@@ -255,10 +219,7 @@
     
     [self.navigationController pushViewController:searchLocation animated:YES];
 
-    
 }
-
-
 
 -(void)genreSearchButtonTapped {
     
@@ -269,7 +230,6 @@
     searchGenre.delegate = self;
     
     [self.navigationController pushViewController:searchGenre animated:YES];
-//    NSLog(@"Hey");
     
 }
 
@@ -287,6 +247,15 @@
 }
 
 
+-(void)rateSearchButtonTapped {
+    SearchRateVC * searchRate = [[SearchRateVC alloc] init];
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:searchRate];
+    
+    
+    [self.navigationController pushViewController:searchRate animated:YES];
+    
+}
 
 -(void)searchButtonTickled {
     
@@ -324,23 +293,6 @@
         
     }];
     
-    
-    
-    
-    
-//    NSLog(@"%@",musicians[0]);
-    
-    
-    
-
-//    PFQuery * userQuery = [PFUser query];
-//    
-//    [userQuery getObjectInBackgroundWithId:user.objectId block:^(PFObject *object, NSError *error) {
-//
-//        
-//        
-//    }];
-//    
 }
 
 

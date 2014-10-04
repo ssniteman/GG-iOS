@@ -39,7 +39,11 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
     double latitude;
     double longitude;
+    
+    NSDictionary * address;
 }
+
+// RATE SETTER
 
 -(void)setRate:(NSString *)rate{
     _rate = rate;
@@ -47,6 +51,8 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     self.rateLabel.text = self.rate;
 }
 
+
+// AVAILABILITY SETTER
 
 -(void)setDaysAvailable:(NSString *)daysAvailable {
     _daysAvailable = daysAvailable;
@@ -69,11 +75,14 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
    
     self.nameCell.text = user[@"bandName"];
     self.emailTextField.text = user[@"email"];
+    self.zipTextBox.text = address[@"formatted_address"];
 
     self.tableView.delegate = self;
     
     self.tableView.dataSource =self;
     
+    [self.changeZipButton setHidden:YES];
+
     
     SWRevealViewController *revealController = [self revealViewController];
     
@@ -124,6 +133,15 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
 }
 
 
+- (IBAction)changeZipButton:(id)sender {
+    
+    self.zipTextBox.text = @"";
+    self.changeZipButton.hidden = YES;
+    self.zipButton.hidden = NO;
+
+
+}
+
 - (IBAction)zipButton:(id)sender {
     
     NSString * urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",self.zipTextBox.text];
@@ -139,7 +157,7 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
     NSDictionary *resultsInfo = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
     
-    NSDictionary * address =resultsInfo[@"results"][0];
+    address =resultsInfo[@"results"][0];
     
 
     location = resultsInfo[@"results"][0][@"geometry"][@"location"];
@@ -150,11 +168,12 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
     longitude = [location[@"lng"]doubleValue];
     
-    self.zipTextBox.text =address[@"formatted_address"];
+    self.zipTextBox.text = address[@"formatted_address"];
+        
+    self.zipButton.hidden = YES;
+    self.changeZipButton.hidden = NO;
     
 }
-
-
 
 -(void)editSaveButton {
     
@@ -177,9 +196,6 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
 //    
     
 }
-
-
-
 
 - (IBAction)editPhotoButton:(id)sender {
     

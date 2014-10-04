@@ -23,10 +23,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *profileImageEdit;
 @property BOOL newMedia;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *changeZipButton;
+- (IBAction)changeZipButton:(id)sender;
 
 - (IBAction)zipButton:(id)sender;
 
 - (void)uploadImage:(NSData *)imageData;
 
+@property (weak, nonatomic) IBOutlet UIButton *zipButton;
 
 @end

@@ -71,7 +71,6 @@
     [super viewDidLoad];
     
     self.tableView.delegate = self;
-    
     self.tableView.dataSource =self;
 
     radiusMiles=[@[@"5",@"10",@"15",@"20",@"25",@"35",@"50",@"75",@"100",@"150",@"250",@"500"]mutableCopy];
@@ -94,6 +93,17 @@
     
     [self.radiusCell addSubview:pickerTransformView];
     
+    if ([self.searchZip.text isEqual:@""]) {
+        
+        [self.changeZip setHidden:YES];
+        [self.enterZipButton setHidden:NO];
+
+    } else {
+        self.changeZip.hidden = NO;
+        self.enterZipButton.hidden = YES;
+
+    }
+ 
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -103,7 +113,19 @@
 }
 
 
+
 - (IBAction)changeZip:(id)sender {
+   
+    
+    self.searchZip.text = @"";
+    
+}
+
+
+- (IBAction)enterZipButton:(id)sender {
+    
+    self.enterZipButton.hidden = YES;
+    self.changeZip.hidden = NO;
     
     NSString * urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",self.searchZip.text];
     
@@ -130,8 +152,13 @@
     longitude = [location[@"lng"]doubleValue];
     
     self.searchZip.text =address[@"formatted_address"];
-   
+    
+    if (self.searchZip.text == address[@"formatted_address"]) {
+        
+    }
+    
 }
+
 
 - (IBAction)currentLocationSwitch:(id)sender {
     
@@ -140,6 +167,8 @@
         
         NSLog(@"Hey");
         
+        [self.enterZipButton setHidden:YES];
+        self.changeZip.hidden = NO;
         
         [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
             
@@ -147,10 +176,7 @@
             
             NSLog(@"%@",geoPoint);
             
-            
-            
-            
-        
+    
             self.searchZip.text =[self getAddressFromLatLon:geoPoint.latitude withLongitude:geoPoint.longitude];
             if (!error) {
                 
@@ -159,7 +185,8 @@
 
     } else{
         self.searchZip.text =@"";
-
+        self.enterZipButton.hidden = NO;
+        self.changeZip.hidden = YES;
     }
 }
 
@@ -187,7 +214,11 @@
     return address[@"formatted_address"];
 }
 
-
+- (IBAction)changeRadiusButton:(id)sender {
+    
+    self.radiusCell.hidden = true;
+    [self.tableView reloadData];
+}
 
 
 
@@ -238,12 +269,4 @@
 
 
 
-
-
-
-- (IBAction)changeRadiusButton:(id)sender {
-    
-    self.radiusCell.hidden = true;
-    [self.tableView reloadData];
-}
 @end

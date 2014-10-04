@@ -8,31 +8,78 @@
 //
 
 #import "SearchRateVC.h"
+#import "SearchViewController.h"
+#import <Parse/Parse.h>
 
 @interface SearchRateVC ()
 
 @end
 
-@implementation SearchRateVC
+@implementation SearchRateVC {
+UISegmentedControl * segmentControl;
+UITextField * rateTextField;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    
+    //RIGHT MENU BUTTON
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(saveButton)];
+    
+    self.navigationItem.rightBarButtonItem = saveButton;
+    
+    
+    //LEFT MENU BUTTON
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButton)];
+    
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    
+    // SEGMENT CONTROL
+    
+    segmentControl = [[UISegmentedControl alloc]initWithItems:@[@"Nightly",@"Hourly"]];
+    [segmentControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+    segmentControl.frame = CGRectMake(20, 100, SCREEN_WIDTH - 40, 50);
+    
+    UIColor *newTintColor = [UIColor redColor];
+    segmentControl.tintColor = newTintColor;
+    
+    UIFont * font = [UIFont boldSystemFontOfSize:16.0f];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    [segmentControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    //    [segmentControl addTarget:self action:@selector(segmentedControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
+    [segmentControl setSelectedSegmentIndex:0];
+    [self.view addSubview:segmentControl];
+    
+    rateTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 360, SCREEN_WIDTH - 40, 50)];
+    rateTextField.backgroundColor = [UIColor whiteColor];
+    rateTextField.layer.cornerRadius = 5;
+    rateTextField.font = [UIFont systemFontOfSize:18];
+    rateTextField.placeholder = @"Rate";
+    [rateTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+    
+    UIView * paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    rateTextField.leftView = paddingView;
+    rateTextField.leftViewMode = UITextFieldViewModeAlways;
+    
+    [self.view addSubview:rateTextField];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) cancelButton{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)saveButton{
+    
+  
+    
 }
-*/
 
 @end

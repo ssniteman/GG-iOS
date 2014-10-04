@@ -23,5 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *radiusPicker;
 
 @property (weak, nonatomic) IBOutlet UIView *radiusCell;
+@property (weak, nonatomic) IBOutlet UIButton *changeZip;
+@property (weak, nonatomic) IBOutlet UIButton *enterZipButton;
+
+- (IBAction)enterZipButton:(id)sender;
 
 @end
