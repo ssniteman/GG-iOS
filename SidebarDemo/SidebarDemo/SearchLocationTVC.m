@@ -30,6 +30,8 @@
     
     GMSMapView *mapView_;
     NSMutableArray * radiusMiles;
+    
+    PFGeoPoint * currentGeoPoint;
 
 }
 
@@ -63,12 +65,26 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
 {
     
+    NSLog(@"%@",radiusMiles[row]);
+    
+    PFQuery * query = [PFUser query];
+    [query whereKey:@"location" nearGeoPoint:currentGeoPoint withinMiles:[radiusMiles[row] intValue]];
+    
+    
+    
     NSLog(@"WIDTH: %f , HEIGHT:  %f",self.radiusPicker.bounds.size.width,self.radiusPicker.bounds.size.height);
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    //RIGHT MENU BUTTON
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(saveButton)];
+    
+    self.navigationItem.rightBarButtonItem = saveButton;
     
     self.tableView.delegate = self;
     self.tableView.dataSource =self;
@@ -116,9 +132,7 @@
 
 - (IBAction)changeZip:(id)sender {
    
-    
     self.searchZip.text = @"";
-    
 }
 
 
@@ -143,13 +157,17 @@
     NSDictionary * address =resultsInfo[@"results"][0];
     
     
-    location = resultsInfo[@"results"][0][@"geometry"][@"location"];
+//    location = resultsInfo[@"results"][0][@"geometry"][@"location"];
     
-    NSLog(@"lat %@, long %@",location[@"lat"],location[@"lng"]);
-    
-    latitude =[location[@"lat"]doubleValue];
-    
-    longitude = [location[@"lng"]doubleValue];
+//    NSLog(@"lat %@, long %@",location[@"lat"],location[@"lng"]);
+//    
+//    latitude =[location[@"lat"]doubleValue];
+//    
+//    NSLog(@"Lat before is %f",latitude);
+//    
+//    longitude = [location[@"lng"]doubleValue];
+//    
+//    NSLog(@"Long before is %f",longitude);
     
     self.searchZip.text =address[@"formatted_address"];
     
@@ -158,7 +176,6 @@
     }
     
 }
-
 
 - (IBAction)currentLocationSwitch:(id)sender {
     
@@ -175,8 +192,11 @@
             NSLog(@"Hello");
             
             NSLog(@"%@",geoPoint);
+            currentGeoPoint = geoPoint;
             
-    
+            [self.delegate setLatitudeSetter:geoPoint.latitude];
+            [self.delegate setLongitudeSetter:geoPoint.longitude];
+
             self.searchZip.text =[self getAddressFromLatLon:geoPoint.latitude withLongitude:geoPoint.longitude];
             if (!error) {
                 
@@ -195,6 +215,8 @@
 {
     NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f",currentLatitude, currentLongitude];
     
+    currentGeoPoint = [PFGeoPoint geoPointWithLatitude:currentLatitude longitude:currentLongitude];
+    
     NSLog(@"%@",urlString);
     
     NSURL *url = [NSURL URLWithString:urlString];
@@ -208,6 +230,8 @@
     
     NSDictionary * resultsInfo = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
     
+    NSLog(@"%@",resultsInfo);
+    
     NSDictionary * address = resultsInfo[@"results"][0];
     NSLog(@"%@",address);
     
@@ -220,53 +244,11 @@
     [self.tableView reloadData];
 }
 
-
-
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
+- (void)saveButton {
+    
+    [self.delegate setSavedFormatAddress:self.searchZip.text];
+    
+}
 
 
 @end

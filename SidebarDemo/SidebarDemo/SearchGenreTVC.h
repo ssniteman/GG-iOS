@@ -21,5 +21,4 @@
 - (void)setSavedSearchGenres:(NSString *)savedSearchGenres;
 - (void)setSearchArrayGenres:(NSMutableArray *)searchArrayGenres;
 
--(void) anotherMethod;
 @end

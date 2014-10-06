@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SearchLocationTVCDelegate;
+
 @interface SearchLocationTVC : UITableViewController
+
+@property (nonatomic,assign) id<SearchLocationTVCDelegate> delegate;
+
+// AFTER DELEGATE
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)changeRadiusButton:(id)sender;
@@ -27,5 +34,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *enterZipButton;
 
 - (IBAction)enterZipButton:(id)sender;
+
+@end
+
+@protocol SearchLocationTVCDelegate <NSObject>
+
+-(void)setSavedFormatAddress:(NSString *)savedFormatAddress;
+-(void)setLatitudeSetter:(double)latitudeSetter;
+-(void)setLongitudeSetter:(double)longitudeSetter;
 
 @end

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *zipTextBox;
 @property (weak, nonatomic) IBOutlet UIButton *profileImageEdit;
+@property (weak, nonatomic) IBOutlet UIImageView *editImageView;
 @property BOOL newMedia;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *changeZipButton;

@@ -79,6 +79,8 @@
     
     theProfilePicture = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-70, 90, 140, 140)];
     UIImage *profileImage = [UIImage imageNamed:@"avatarcopy.jpg"];
+    [theProfilePicture setBackgroundImage:profileImage forState:UIControlStateNormal];
+
 //    UIImage *profileImage = [UIImage imageNamed:user[@"image".jpg]];
     
     
@@ -95,23 +97,19 @@
     
     
     
-//    PFFile *imageFile = [[PFObject user[@"image"]];
-//    PFImageView *imageView = [[PFImageView alloc] init];
-//    imageView.file = imageFile;
-//    [imageView loadInBackground];
+    PFFile *imageFile = user[@"image"];
     
-//     [PFObject loadParseImage:profileImage forImageColumn:@"image" andCompletionBlock:^(UIImage *imageFile, NSError *error)
-//      {
-//          if (!error)
-//          {
-//              self.profileImage.image = imageFile;
-//          }
-//          else
-//          {
-//              // Image file did not load correctly. Handle the error as you see fit.
-//    
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        
+        NSLog(@"data loaded");
+        
+        UIImage * image = [UIImage imageWithData:data];
+        [theProfilePicture setBackgroundImage:image forState:UIControlStateNormal];
+
+        
+    }];
     
-    [theProfilePicture setBackgroundImage:profileImage forState:UIControlStateNormal];
+    
     theProfilePicture.layer.cornerRadius = 70;
     theProfilePicture.userInteractionEnabled = false;
     theProfilePicture.clipsToBounds = YES;

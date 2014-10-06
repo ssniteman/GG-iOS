@@ -14,7 +14,7 @@
 #import "SearchRateVC.h"
 #import <Parse/Parse.h>
 
-@interface SearchViewController () <SearchGenreTVCDelegate, SearchAvailabilityTVCDelegate>
+@interface SearchViewController () <SearchGenreTVCDelegate, SearchAvailabilityTVCDelegate, SearchLocationTVCDelegate, SearchRateVCDelegate>
 
 @end
 
@@ -31,9 +31,47 @@
     UIView * rateSearch;
     UIButton * rateSearchButton;
     UILabel * genreSearchs;
+    UILabel * rateSearchs;
     UILabel * availabilitySearchs;
 }
 
+// LOCATION SETTER
+
+-(void)setSavedFormatAddress:(NSString *)savedFormatAddress {
+    
+    _savedFormatAddress = savedFormatAddress;
+    
+    NSLog(@"this %@",self.savedFormatAddress);
+    
+}
+
+-(void)setLatitudeSetter:(double)latitudeSetter {
+    
+    _latitudeSetter = latitudeSetter;
+    NSLog(@"Lat is %f",self.latitudeSetter);
+}
+
+-(void)setLongitudeSetter:(double)longitudeSetter {
+    
+    _longitudeSetter = longitudeSetter;
+    NSLog(@"Long is %f",self.longitudeSetter);
+    
+}
+
+// GENRES SETTER
+
+
+- (void)setSearchArrayGenres:(NSMutableArray *)searchArrayGenres {
+    _searchArrayGenres = searchArrayGenres;
+}
+
+- (void)setSavedSearchGenres:(NSString *)savedSearchGenres {
+    
+    _savedSearchGenres = savedSearchGenres;
+        
+    genreSearchs.text = savedSearchGenres;
+
+}
 
 // AVAILABILITY SETTER
 
@@ -53,21 +91,15 @@
     
 }
 
+// RATE SETTER
 
-// GENRES SETTER
-
-
-- (void)setSearchArrayGenres:(NSMutableArray *)searchArrayGenres {
-    _searchArrayGenres = searchArrayGenres;
-}
-
-- (void)setSavedSearchGenres:(NSString *)savedSearchGenres {
+- (void)setSavedRateSetter:(NSString *)savedRateSetter {
     
-    _savedSearchGenres = savedSearchGenres;
-        
-    genreSearchs.text = savedSearchGenres;
-
+    _savedRateSetter = savedRateSetter;
+    
+    NSLog(@"%@",self.savedRateSetter);
 }
+
 
 // VIEW DID LOAD
 
@@ -190,7 +222,13 @@
     [rateSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [rateSearch addSubview:rateSearchButton];
     
+    rateSearchs = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, SCREEN_WIDTH + 20, 40)];
+    [rateSearchs setTextAlignment: NSTextAlignmentCenter];
+    rateSearchs.backgroundColor = [UIColor whiteColor];
+    
     [rateSearchButton addTarget:self action:@selector(rateSearchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    [rateSearch addSubview:rateSearchs];
     
     [self.view addSubview:rateSearch];
     
@@ -216,6 +254,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
     
     SearchLocationTVC * searchLocation = [storyboard instantiateViewControllerWithIdentifier:@"searchLocationID"];
+    
+    searchLocation.delegate = self;
     
     [self.navigationController pushViewController:searchLocation animated:YES];
 
@@ -252,6 +292,7 @@
     
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:searchRate];
     
+    searchRate.delegate = self;
     
     [self.navigationController pushViewController:searchRate animated:YES];
     
@@ -292,6 +333,10 @@
         }
         
     }];
+    
+//    PFQuery * query = [PFUser query];
+//    [query whereKey:@"location" nearGeoPoint:currentGeoPoint withinMiles:[radiusMiles[row] intValue]];
+//    
     
 }
 

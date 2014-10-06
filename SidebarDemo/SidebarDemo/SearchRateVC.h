@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol SearchRateVCDelegate;
+
 @interface SearchRateVC : UIViewController
+
+@property (nonatomic,assign) id<SearchRateVCDelegate> delegate;
+
+@end
+
+@protocol SearchRateVCDelegate <NSObject>
+
+- (void)setSavedRateSetter:(NSString *)savedRateSetter;
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height

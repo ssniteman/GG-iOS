@@ -16,6 +16,10 @@
 @property (nonatomic,strong) NSMutableArray * searchArrayGenres;
 @property (nonatomic,strong) NSMutableArray * searchArrayAvailability;
 
+@property (nonatomic, strong) NSString * savedFormatAddress;
+@property (nonatomic) double latitudeSetter;
+@property (nonatomic) double longitudeSetter;
+@property (nonatomic, strong) NSString * savedRateSetter;
 
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width

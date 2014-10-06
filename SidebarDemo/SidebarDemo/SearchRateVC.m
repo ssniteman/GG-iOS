@@ -78,7 +78,7 @@ UITextField * rateTextField;
 
 -(void)saveButton{
     
-  
+    [self.delegate setSavedRateSetter:rateTextField.text];
     
 }
 

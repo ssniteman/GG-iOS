@@ -77,6 +77,20 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     self.emailTextField.text = user[@"email"];
     self.zipTextBox.text = address[@"formatted_address"];
 
+    
+    PFFile *imageFile = user[@"image"];
+    
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        
+        NSLog(@"data loaded");
+        
+        UIImage * image = [UIImage imageWithData:data];
+        self.editImageView.image = image;
+        
+        
+    }];
+
+    
     self.tableView.delegate = self;
     
     self.tableView.dataSource =self;
@@ -254,7 +268,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         image = info[UIImagePickerControllerOriginalImage];
         
-        [self.profileImageEdit setBackgroundImage:image forState:UIControlStateNormal];
+        self.editImageView.image = image;
         
         if (_newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
