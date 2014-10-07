@@ -15,6 +15,8 @@
 #import "QueryResultsTVC.h" 
 #import <Parse/Parse.h>
 
+
+
 @interface SearchViewController () <SearchGenreTVCDelegate, SearchAvailabilityTVCDelegate, SearchLocationTVCDelegate, SearchRateVCDelegate>
 
 @end
@@ -36,6 +38,7 @@
     UILabel * availabilitySearchs;
     
     PFGeoPoint * currentGeoPoint;
+    
 }
 
 
@@ -337,7 +340,6 @@
         user[@"userType"] = @"musician";
     }
     else {
-        
         user[@"userType"] = @"bar";
     }
     
@@ -384,22 +386,26 @@
             NSLog(@"%@",objects);
             
             for (NSDictionary * object in objects) {
-                NSLog(@"%@",object[@"bandName"]);
+                
+                
+                [self.searchResults addObject:object[@"objectId"]];
+                NSLog(@"%@",object[@"objectId"]);
             }
             
         } else {
             
             for (NSDictionary * object in objects) {
-                NSLog(@"%@",object[@"barName"]);
+                
+                [self.searchResults addObject:object[@"objectId"]];
+                NSLog(@"%@",object[@"objectId"]);
             }
         }
         
-       
-        
     }];
     
+    QueryResultsTVC * tableView = [[QueryResultsTVC alloc]init];
     
-    
+    tableView.searchResults = self.searchResults;
     
 }
 

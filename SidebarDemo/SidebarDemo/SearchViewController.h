@@ -25,6 +25,12 @@
 
 @property (nonatomic ,assign) BOOL nightlyOrHourly;
 
+
+// Passing array to the QUERY RESULTS TVC
+
+@property (nonatomic, assign) NSMutableArray * searchResults;
+
+
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 

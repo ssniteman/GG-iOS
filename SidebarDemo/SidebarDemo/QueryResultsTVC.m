@@ -45,7 +45,6 @@
     }
     // Configure the cell...
     
-    
     return cell;
 }
 
