@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *changeZip;
 @property (weak, nonatomic) IBOutlet UIButton *enterZipButton;
 
+
 - (IBAction)enterZipButton:(id)sender;
 
 @end
@@ -42,5 +43,6 @@
 -(void)setSavedFormatAddress:(NSString *)savedFormatAddress;
 -(void)setLatitudeSetter:(double)latitudeSetter;
 -(void)setLongitudeSetter:(double)longitudeSetter;
+-(void)setSavedRadius:(NSNumber *)savedRadius;
 
 @end

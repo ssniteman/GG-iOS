@@ -7,9 +7,10 @@
 //
 
 #import "QueryResultsTVC.h"
-#import "QueryResultsCellTableViewCell.h"
+#import "QueryResultsCell.h"
 
-@interface QueryResultsTVC ()
+
+@interface QueryResultsTVC () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -18,32 +19,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
-    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 5;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"profilesCell" forIndexPath:indexPath];
     
+    
+    QueryResultsCell * cell = [tableView dequeueReusableCellWithIdentifier:@"profilesCell"];
+    
+    if (cell == nil) {
+        cell = [[QueryResultsCell alloc]init];
+    }
     // Configure the cell...
+    
     
     return cell;
 }
+
+
+
+
+
+
+
 
 
 

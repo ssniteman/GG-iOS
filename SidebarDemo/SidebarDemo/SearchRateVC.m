@@ -78,7 +78,27 @@ UITextField * rateTextField;
 
 -(void)saveButton{
     
-    [self.delegate setSavedRateSetter:rateTextField.text];
+//    [self.delegate setSavedRateSetter:rateTextField.text];
+    
+    
+    
+    if (segmentControl.selectedSegmentIndex == 0) {
+        
+        [self.delegate  setNightlyOrHourly:TRUE];
+        
+//        [self.delegate setSavedRateSetter:[NSString stringWithFormat:@"%@/nightly", rateTextField.text]];
+
+    } else {
+        
+//        [self.delegate setSavedRateSetter:[NSString stringWithFormat:@"%@/hourly", rateTextField.text]];
+        
+        [self.delegate setNightlyOrHourly:FALSE];
+
+    }
+    
+    [self.delegate setSavedRateSetter:@([rateTextField.text intValue])];
+
+    [self cancelButton];
     
 }
 

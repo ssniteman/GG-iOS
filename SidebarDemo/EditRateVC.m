@@ -84,13 +84,25 @@
         
         user[@"nightlyRate"] = [NSString stringWithFormat:@"%@/nightly", rateTextField.text];
          [self.delegate setRate:[NSString stringWithFormat:@"%@/nightly", rateTextField.text]];
+    
+        // Saving Rate as number in Parse
         
+        int rateIntNightly = [rateTextField.text intValue];
+
+        
+        user[@"nightlyRateNumber"] = @(rateIntNightly);
+
     } else {
     
         user[@"hourlyRate"] = [NSString stringWithFormat:@"%@/hourly", rateTextField.text];
         [self.delegate setRate:[NSString stringWithFormat:@"%@/hourly", rateTextField.text]];
-
         
+        // Saving Rate as number in Parse
+        
+        int rateIntHourly = [rateTextField.text intValue];
+        
+        user[@"hourlyRateNumber"] = @(rateIntHourly);
+
     }
     
     [[PFUser currentUser] saveInBackground];

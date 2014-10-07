@@ -18,8 +18,8 @@
 @end
 
 @protocol SearchRateVCDelegate <NSObject>
-
-- (void)setSavedRateSetter:(NSString *)savedRateSetter;
+- (void)setNightlyOrHourly:(BOOL)nightlyOrHourly;
+- (void)setSavedRateSetter:(NSNumber *)savedRateSetter;
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height

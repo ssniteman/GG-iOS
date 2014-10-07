@@ -157,35 +157,37 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
 }
 
 - (IBAction)zipButton:(id)sender {
-    
-    NSString * urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",self.zipTextBox.text];
-    
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    NSURLResponse * response = nil;
-    
-    NSError * error = nil;
-    NSData * responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    NSDictionary *resultsInfo = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
-    
-    address =resultsInfo[@"results"][0];
-    
-
-    location = resultsInfo[@"results"][0][@"geometry"][@"location"];
-
-    NSLog(@"lat %@, long %@",location[@"lat"],location[@"lng"]);
-    
-    latitude =[location[@"lat"]doubleValue];
-    
-    longitude = [location[@"lng"]doubleValue];
-    
-    self.zipTextBox.text = address[@"formatted_address"];
+    if ([self.zipTextBox.text length]>0) {
+        NSString * urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",self.zipTextBox.text];
         
-    self.zipButton.hidden = YES;
-    self.changeZipButton.hidden = NO;
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        NSURLResponse * response = nil;
+        
+        NSError * error = nil;
+        NSData * responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSDictionary *resultsInfo = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+        
+        address =resultsInfo[@"results"][0];
+        
+        
+        location = resultsInfo[@"results"][0][@"geometry"][@"location"];
+        
+        NSLog(@"lat %@, long %@",location[@"lat"],location[@"lng"]);
+        
+        latitude =[location[@"lat"]doubleValue];
+        
+        longitude = [location[@"lng"]doubleValue];
+        
+        self.zipTextBox.text = address[@"formatted_address"];
+        
+        self.zipButton.hidden = YES;
+        self.changeZipButton.hidden = NO;
+    }
+    
     
 }
 

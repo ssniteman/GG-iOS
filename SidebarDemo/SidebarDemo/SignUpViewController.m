@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "ProfileViewController.h"
+#import "SWRevealViewController.h"
 
 @interface SignUpViewController () <UITextFieldDelegate>
 
@@ -161,16 +162,24 @@
             // Show the errorString somewhere and let the user try again.
         }
     }];
-    
-     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
-    
-    ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
-    
-    [self presentViewController:profileView animated:YES completion:nil];
+//    
+//     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
+//    
+//    ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+//    
+//    [self presentViewController:profileView animated:YES completion:nil];
     
 //    [self dismissViewControllerAnimated:YES completion:nil];
 
-
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
+    
+    SWRevealViewController * revealVC = [storyboard instantiateViewControllerWithIdentifier:@"revealVC"];
+    
+    ((UINavigationController *)self.presentingViewController).viewControllers = @[revealVC];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
     
      //    user.email = @"email@example.com";
     

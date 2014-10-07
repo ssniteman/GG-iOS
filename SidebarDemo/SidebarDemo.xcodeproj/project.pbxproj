@@ -16,7 +16,7 @@
 		6044CD0519D9A5B100B72FD5 /* SearchAvailabilityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6044CD0419D9A5B100B72FD5 /* SearchAvailabilityTVC.m */; };
 		6048255C19E0C44700FDE2FC /* searchQueryResults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6048255B19E0C44700FDE2FC /* searchQueryResults.storyboard */; };
 		6048255F19E0C51C00FDE2FC /* QueryResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6048255E19E0C51C00FDE2FC /* QueryResultsTVC.m */; };
-		6048256219E0C5BA00FDE2FC /* QueryResultsCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6048256119E0C5BA00FDE2FC /* QueryResultsCellTableViewCell.m */; };
+		6071A63219E2EB0F002EBD88 /* QueryResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6071A63119E2EB0F002EBD88 /* QueryResultsCell.m */; };
 		6077825C19D35A3400AE62C1 /* getagiglanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6077825B19D35A3400AE62C1 /* getagiglanding.jpg */; };
 		6090941519DE310A00E8A856 /* SearchRateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6090941419DE310A00E8A856 /* SearchRateVC.m */; };
 		6090941B19DE359C00E8A856 /* SearchLocationTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6090941A19DE359C00E8A856 /* SearchLocationTVC.m */; };
@@ -106,8 +106,8 @@
 		6048255B19E0C44700FDE2FC /* searchQueryResults.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = searchQueryResults.storyboard; sourceTree = "<group>"; };
 		6048255D19E0C51C00FDE2FC /* QueryResultsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResultsTVC.h; sourceTree = "<group>"; };
 		6048255E19E0C51C00FDE2FC /* QueryResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResultsTVC.m; sourceTree = "<group>"; };
-		6048256019E0C5BA00FDE2FC /* QueryResultsCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResultsCellTableViewCell.h; sourceTree = "<group>"; };
-		6048256119E0C5BA00FDE2FC /* QueryResultsCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResultsCellTableViewCell.m; sourceTree = "<group>"; };
+		6071A63019E2EB0F002EBD88 /* QueryResultsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResultsCell.h; sourceTree = "<group>"; };
+		6071A63119E2EB0F002EBD88 /* QueryResultsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResultsCell.m; sourceTree = "<group>"; };
 		6077825B19D35A3400AE62C1 /* getagiglanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = getagiglanding.jpg; sourceTree = "<group>"; };
 		6090941319DE310A00E8A856 /* SearchRateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchRateVC.h; sourceTree = "<group>"; };
 		6090941419DE310A00E8A856 /* SearchRateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchRateVC.m; sourceTree = "<group>"; };
@@ -252,8 +252,8 @@
 				6090941419DE310A00E8A856 /* SearchRateVC.m */,
 				6048255D19E0C51C00FDE2FC /* QueryResultsTVC.h */,
 				6048255E19E0C51C00FDE2FC /* QueryResultsTVC.m */,
-				6048256019E0C5BA00FDE2FC /* QueryResultsCellTableViewCell.h */,
-				6048256119E0C5BA00FDE2FC /* QueryResultsCellTableViewCell.m */,
+				6071A63019E2EB0F002EBD88 /* QueryResultsCell.h */,
+				6071A63119E2EB0F002EBD88 /* QueryResultsCell.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -556,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6071A63219E2EB0F002EBD88 /* QueryResultsCell.m in Sources */,
 				6044CD0519D9A5B100B72FD5 /* SearchAvailabilityTVC.m in Sources */,
 				F4D9AD1F1871725500E2D912 /* SWRevealViewController.m in Sources */,
 				6090941B19DE359C00E8A856 /* SearchLocationTVC.m in Sources */,
@@ -566,7 +567,6 @@
 				60ACC17F19DB2EEB0008E69F /* EditRateVC.m in Sources */,
 				601441A419BCF14000BC3CC8 /* ProfileViewController.m in Sources */,
 				F4EECF4A177DF87700778578 /* SidebarViewController.m in Sources */,
-				6048256219E0C5BA00FDE2FC /* QueryResultsCellTableViewCell.m in Sources */,
 				601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */,
 				8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */,
 				60F4243219D70A8E001D8B0E /* EditGenreTVC.m in Sources */,

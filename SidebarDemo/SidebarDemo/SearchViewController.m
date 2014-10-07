@@ -12,6 +12,7 @@
 #import "SearchAvailabilityTVC.h"
 #import "SearchLocationTVC.h"
 #import "SearchRateVC.h"
+#import "QueryResultsTVC.h" 
 #import <Parse/Parse.h>
 
 @interface SearchViewController () <SearchGenreTVCDelegate, SearchAvailabilityTVCDelegate, SearchLocationTVCDelegate, SearchRateVCDelegate>
@@ -33,6 +34,23 @@
     UILabel * genreSearchs;
     UILabel * rateSearchs;
     UILabel * availabilitySearchs;
+    
+    PFGeoPoint * currentGeoPoint;
+}
+
+
+// NIGHTLY OR HOURLY
+
+-(void)setNightlyOrHourly:(BOOL)nightlyOrHourly {
+    _nightlyOrHourly = nightlyOrHourly;
+    
+
+    if (self.nightlyOrHourly==TRUE) {
+        NSLog(@"Nightly");
+    } else {
+        NSLog(@"Hourly");
+
+    }
 }
 
 // LOCATION SETTER
@@ -58,6 +76,11 @@
     
 }
 
+-(void)setSavedRadius:(NSNumber *)savedRadius {
+    
+    _savedRadius = savedRadius;
+}
+
 // GENRES SETTER
 
 
@@ -80,7 +103,6 @@
     
 }
 
-
 - (void)setSavedSearchAvailability:(NSString *)savedSearchAvailability {
     
     _savedSearchAvailability = savedSearchAvailability;
@@ -93,11 +115,19 @@
 
 // RATE SETTER
 
-- (void)setSavedRateSetter:(NSString *)savedRateSetter {
+- (void)setSavedRateSetter:(NSNumber *)savedRateSetter {
     
     _savedRateSetter = savedRateSetter;
     
-    NSLog(@"%@",self.savedRateSetter);
+    if (self.nightlyOrHourly==TRUE) {
+       
+        NSLog(@"< %@/Nightly",self.savedRateSetter);
+
+    } else {
+        
+        NSLog(@"< %@/Hourly",self.savedRateSetter);
+        
+    }
 }
 
 
@@ -323,20 +353,53 @@
         [query whereKey:@"availabilityArray" containedIn:self.searchArrayAvailability];
     }
     
+    // WE NEED THE RATE TO BE FILLED -- NEED IF ELSE STATEMENT
+    
+    if (self.nightlyOrHourly==TRUE) {
+        
+        [query whereKey:@"nightlyRateNumber" lessThanOrEqualTo:self.savedRateSetter];
+        
+        NSLog(@"Querying Nightly Rate");
+   
+    } else {
+        
+        [query whereKey:@"hourlyRateNumber" lessThanOrEqualTo:self.savedRateSetter];
+
+        NSLog(@"Querying Hourly Rate");
+    }
+    
+    currentGeoPoint = [PFGeoPoint geoPointWithLatitude:self.latitudeSetter longitude:self.longitudeSetter];
+    
+    NSLog(@"Search lat and long %@", currentGeoPoint);
+    
+    [query whereKey:@"location" nearGeoPoint:currentGeoPoint withinMiles:[self.savedRadius intValue]];
+
+    
+//    [query orderByAscending:@"rate"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
-        
-        NSLog(@"%@",objects);
-        
-        for (NSDictionary * object in objects) {
-            NSLog(@"%@",object[@"username"]);
+        if (searchSegmentControl.selectedSegmentIndex == 0) {
+            
+            NSLog(@"%@",objects);
+            
+            for (NSDictionary * object in objects) {
+                NSLog(@"%@",object[@"bandName"]);
+            }
+            
+        } else {
+            
+            for (NSDictionary * object in objects) {
+                NSLog(@"%@",object[@"barName"]);
+            }
         }
+        
+       
         
     }];
     
-//    PFQuery * query = [PFUser query];
-//    [query whereKey:@"location" nearGeoPoint:currentGeoPoint withinMiles:[radiusMiles[row] intValue]];
-//    
+    
+    
     
 }
 

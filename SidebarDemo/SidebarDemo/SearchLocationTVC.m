@@ -32,7 +32,9 @@
     NSMutableArray * radiusMiles;
     
     PFGeoPoint * currentGeoPoint;
-
+    
+    NSString * radius;
+    
 }
 
 
@@ -66,11 +68,8 @@
 {
     
     NSLog(@"%@",radiusMiles[row]);
-    
-    PFQuery * query = [PFUser query];
-    [query whereKey:@"location" nearGeoPoint:currentGeoPoint withinMiles:[radiusMiles[row] intValue]];
-    
-    
+    radius = radiusMiles[row];
+
     
     NSLog(@"WIDTH: %f , HEIGHT:  %f",self.radiusPicker.bounds.size.width,self.radiusPicker.bounds.size.height);
 }
@@ -156,24 +155,21 @@
     
     NSDictionary * address =resultsInfo[@"results"][0];
     
-    
-//    location = resultsInfo[@"results"][0][@"geometry"][@"location"];
-    
-//    NSLog(@"lat %@, long %@",location[@"lat"],location[@"lng"]);
-//    
-//    latitude =[location[@"lat"]doubleValue];
-//    
-//    NSLog(@"Lat before is %f",latitude);
-//    
-//    longitude = [location[@"lng"]doubleValue];
-//    
-//    NSLog(@"Long before is %f",longitude);
-    
     self.searchZip.text =address[@"formatted_address"];
     
-    if (self.searchZip.text == address[@"formatted_address"]) {
-        
-    }
+    NSDictionary * LatAndLong =resultsInfo[@"results"][0][@"geometry"][@"location"];
+    
+    NSLog(@"lat %@, long %@",LatAndLong[@"lat"],LatAndLong[@"lng"]);
+    
+    
+    
+    [self.delegate setLatitudeSetter:[LatAndLong[@"lat"]doubleValue]];
+    [self.delegate setLongitudeSetter:[LatAndLong[@"lng"]doubleValue]];
+    
+//    if (self.searchZip.text == address[@"formatted_address"]) {
+//        
+//       
+//    }
     
 }
 
@@ -247,6 +243,10 @@
 - (void)saveButton {
     
     [self.delegate setSavedFormatAddress:self.searchZip.text];
+    
+    // set saved radius is a nsnumber, radius WAS a string until now bitch
+    
+    [self.delegate setSavedRadius:@([radius intValue])];
     
 }
 
