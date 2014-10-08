@@ -26,4 +26,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
+
+@property(nonatomic) NSDictionary * usersContent;
+
+
 @end

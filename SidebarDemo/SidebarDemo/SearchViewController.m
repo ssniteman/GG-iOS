@@ -138,6 +138,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.searchResults = [@[]mutableCopy];
     // Do any additional "setup after loading the view.
     
     SWRevealViewController *revealController = [self revealViewController];
@@ -357,55 +359,69 @@
     
     // WE NEED THE RATE TO BE FILLED -- NEED IF ELSE STATEMENT
     
-    if (self.nightlyOrHourly==TRUE) {
+    if (self.savedRateSetter) {
+    
+    }
+    
+    if (self.nightlyOrHourly) {
         
         [query whereKey:@"nightlyRateNumber" lessThanOrEqualTo:self.savedRateSetter];
-        
+        [query orderByAscending:@"nightlyRateNumber"];
+
         NSLog(@"Querying Nightly Rate");
    
     } else {
         
         [query whereKey:@"hourlyRateNumber" lessThanOrEqualTo:self.savedRateSetter];
-
+        [query orderByAscending:@"hourlyRateNumber"];
+        
         NSLog(@"Querying Hourly Rate");
     }
     
-    currentGeoPoint = [PFGeoPoint geoPointWithLatitude:self.latitudeSetter longitude:self.longitudeSetter];
     
-    NSLog(@"Search lat and long %@", currentGeoPoint);
-    
-    [query whereKey:@"location" nearGeoPoint:currentGeoPoint withinMiles:[self.savedRadius intValue]];
+//    currentGeoPoint = [PFGeoPoint geoPointWithLatitude:self.latitudeSetter longitude:self.longitudeSetter];
+//    
+//    NSLog(@"Search lat and long %@", currentGeoPoint);
+//    
+//    [query whereKey:@"location" nearGeoPoint:currentGeoPoint withinMiles:[self.savedRadius intValue]];
 
     
-//    [query orderByAscending:@"rate"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (searchSegmentControl.selectedSegmentIndex == 0) {
             
-            NSLog(@"%@",objects);
+//            NSLog(@"%@",objects);
             
-            for (NSDictionary * object in objects) {
+            for (PFObject * object in objects) {
                 
                 
-                [self.searchResults addObject:object[@"objectId"]];
-                NSLog(@"%@",object[@"objectId"]);
+                [self.searchResults addObject:object];
+//                NSLog(@"object id is %@",object);
             }
             
         } else {
             
-            for (NSDictionary * object in objects) {
+            for (PFObject * object in objects) {
                 
-                [self.searchResults addObject:object[@"objectId"]];
-                NSLog(@"%@",object[@"objectId"]);
+                [self.searchResults addObject:object];
+//                NSLog(@"object id is %@",object);
             }
+
         }
         
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"searchQueryResults" bundle: nil];
+        
+        QueryResultsTVC * queryResults = [storyboard instantiateViewControllerWithIdentifier:@"queryResultsId"];
+        
+        queryResults.searchResults = self.searchResults;
+        
+        [self.navigationController pushViewController:queryResults animated:YES];
+        
+//        NSLog(@"Before the passing %@",self.searchResults);
+        
     }];
-    
-    QueryResultsTVC * tableView = [[QueryResultsTVC alloc]init];
-    
-    tableView.searchResults = self.searchResults;
     
 }
 

@@ -20,13 +20,16 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
+//    [PFUser logOut]; and  then send back to login page
 
 @interface ProfileViewController ()
 
 
 @end
 
-@implementation ProfileViewController{
+@implementation ProfileViewController {
+    
+    
     UIButton * theProfilePicture;
     
 }
@@ -81,21 +84,7 @@
     UIImage *profileImage = [UIImage imageNamed:@"avatarcopy.jpg"];
     [theProfilePicture setBackgroundImage:profileImage forState:UIControlStateNormal];
 
-//    UIImage *profileImage = [UIImage imageNamed:user[@"image".jpg]];
-    
-    
-    
-//    NSData *imageData = UIImagePNGRepresentation(image);
-//    PFFile *imageFile = [PFFile fileWithData:imageData];
-    
-//    user[@"image"] = imageFile;
-    
-//    UIImage *profileImage = [UIImage imageNamed:imageFile];
-
-    
-//    [user saveInBackground];
-    
-    
+    // Image coming back from Parse
     
     PFFile *imageFile = user[@"image"];
     
@@ -109,12 +98,12 @@
         
     }];
     
-    
     theProfilePicture.layer.cornerRadius = 70;
     theProfilePicture.userInteractionEnabled = false;
     theProfilePicture.clipsToBounds = YES;
+    
 
-//BAND NAME LABEL
+// BAND NAME LABEL
     
     UILabel * nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-100, 200, 21)];
     [nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];

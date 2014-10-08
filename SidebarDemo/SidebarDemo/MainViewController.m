@@ -11,7 +11,7 @@
 #import "SignUpViewController.h"
 #import "LoginViewController.h"
 
-
+#import <Parse/Parse.h>
 
 @interface MainViewController ()
 
@@ -73,6 +73,19 @@
     [self.view addSubview:loginButton];
     
        [loginButton addTarget:self action:@selector(loginTouched) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    if ([PFUser currentUser].username != nil) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
+        
+        SWRevealViewController * revealVC = [storyboard instantiateViewControllerWithIdentifier:@"revealVC"];
+        
+        //            UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:profileView];
+        
+        [self.navigationController setViewControllers:@[revealVC] animated:NO];
+        
+    }
 
 }
 

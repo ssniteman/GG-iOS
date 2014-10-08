@@ -132,8 +132,7 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
         EditGenreTVC * editGenre = [storyboard instantiateViewControllerWithIdentifier:@"editGenreID"];
         
         [self.navigationController pushViewController:editGenre animated:YES];
-        NSLog(@"Hey");
-        
+
     } else if (theCellClicked == self.rateCell) {
         
         EditRateVC * editRate = [[EditRateVC alloc] init];

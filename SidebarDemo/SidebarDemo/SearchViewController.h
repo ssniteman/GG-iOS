@@ -28,7 +28,7 @@
 
 // Passing array to the QUERY RESULTS TVC
 
-@property (nonatomic, assign) NSMutableArray * searchResults;
+@property (nonatomic, strong) NSMutableArray * searchResults;
 
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width

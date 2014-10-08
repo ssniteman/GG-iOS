@@ -8,7 +8,7 @@
 
 #import "QueryResultsCell.h"
 #import "QueryResultsTVC.h"
-
+#import <Parse/Parse.h>
 @implementation QueryResultsCell
 
 - (void)awakeFromNib {
@@ -19,6 +19,26 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+
+-(void)setUsersContent:(NSDictionary *)usersContent{
+    _usersContent  = usersContent;
+//    @property (weak, nonatomic) IBOutlet UILabel *resultBandName;
+//    
+//    
+//    @property (weak, nonatomic) IBOutlet UILabel *resultCityLabel;
+//    
+//    @property (weak, nonatomic) IBOutlet UILabel *resultGenreLabel;
+//    
+//    @property (weak, nonatomic) IBOutlet UILabel *resultAvailabilityLabel;
+//    
+//    @property (weak, nonatomic) IBOutlet UILabel *resultRateLabel;
+//       PFObject * user = self.usersContent;
+
+    self.resultBandName.text = self.usersContent[@"bandName"];
+    
+//    NSLog(@"%@",usersContent);
 }
 
 @end

@@ -11,6 +11,6 @@
 
 @interface QueryResultsTVC : UITableViewController
 
-@property (nonatomic, assign) NSMutableArray * searchResults;
+@property (nonatomic, strong) NSMutableArray * searchResults;
 
 @end

@@ -73,8 +73,6 @@
     }
     
     
-    
-    
 //    if ([self.available containsObject: @"Monday"]&&[self.available containsObject: @"Tuesday"]&&[self.available containsObject: @"Wednesday"]&&[self.available containsObject: @"Thursday"]&& self.available.count <=3) {
 //        
 //        [self.delegate setDaysAvailable:@"Weekdays"];
@@ -88,9 +86,6 @@
 //        [self.delegate setDaysAvailable:@"Weekdays"];
 //
 //    }
-    
-    
-    
     
     
     PFUser * user = [PFUser currentUser];
