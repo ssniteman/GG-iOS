@@ -23,22 +23,21 @@
 
 
 -(void)setUsersContent:(NSDictionary *)usersContent{
+   
     _usersContent  = usersContent;
-//    @property (weak, nonatomic) IBOutlet UILabel *resultBandName;
-//    
-//    
-//    @property (weak, nonatomic) IBOutlet UILabel *resultCityLabel;
-//    
-//    @property (weak, nonatomic) IBOutlet UILabel *resultGenreLabel;
-//    
-//    @property (weak, nonatomic) IBOutlet UILabel *resultAvailabilityLabel;
-//    
-//    @property (weak, nonatomic) IBOutlet UILabel *resultRateLabel;
-//       PFObject * user = self.usersContent;
 
+    // SETTING LABELS
+    
+//    resultPhoto
+    
     self.resultBandName.text = self.usersContent[@"bandName"];
+    self.resultGenreLabel.text = self.usersContent[@"genre"];
+//    self.resultCityLabel.text = delegate shit
+    self.resultAvailabilityLabel.text = self.usersContent[@"availability"];
+//    self.resultRateLabel.text = rate stuff
     
 //    NSLog(@"%@",usersContent);
+    
 }
 
 @end

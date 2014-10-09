@@ -11,6 +11,8 @@
 #import "SignUpViewController.h"
 #import "LoginViewController.h"
 
+#import "ProfileViewController.h"
+
 #import <Parse/Parse.h>
 
 @interface MainViewController ()
@@ -76,6 +78,12 @@
     
     
     if ([PFUser currentUser].username != nil) {
+        
+        
+        ProfileViewController * profileView = [[ProfileViewController alloc] init];
+        
+        profileView.whatProfileToLoad = @"userProfile";
+
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
         

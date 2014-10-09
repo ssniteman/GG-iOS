@@ -1,21 +1,17 @@
-//
 
 //  ProfileViewController.m
 
 //  SidebarDemo
 
-
-//
-
+//Things to fix EDIT
 
 #import "ProfileViewController.h"
 #import "SWRevealViewController.h"
 #import "EditProfileViewController.h"
+#import "QueryResultsTVC.h"
 #import <Parse/Parse.h>
 
 // WIDTH & HEIGHT
-
-
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -24,20 +20,69 @@
 
 @interface ProfileViewController ()
 
-
 @end
 
 @implementation ProfileViewController {
     
-    
     UIButton * theProfilePicture;
+    UILabel * nameLabel ;
+    UILabel * genreLabel;
+    UIImage *profileImage;
+    UILabel * stateLabel;
+    
+    PFUser * user;
+}
+
+
+-(void)setSearchResultsForProfile:(NSMutableArray *)searchResultsForProfile {
+    
+    _searchResultsForProfile = searchResultsForProfile;
+    
+    NSLog(@"Other Users Content%@",self.searchResultsForProfile);
+    
+}
+
+
+-(void)setWhatProfileToLoad:(NSString *)whatProfileToLoad {
+
+    _whatProfileToLoad = whatProfileToLoad;
+    
+    NSLog(@"%@", self.whatProfileToLoad);
+    
+//    if ([self.whatProfileToLoad isEqualToString:@"userProfile"]) {
+//    
+//        messageButton.hidden = true;
+//        
+//        NSLog(@"%@", self.whatProfileToLoad);
+//
+//    } else {
+// 
+//   }
+//
+//    }else if(self.whatProfileToLoad == YES){
+//       // nameLabel.text = user[@"bandName"];
+//       messageButton.hidden = FALSE;
+//
+//    }
     
 }
 
 - (void)viewDidLoad {
     
-    PFUser * user = [PFUser currentUser];
- 
+    user = [PFUser currentUser];
+//    NSLog(self.whatProfileToLoad ? @"VIEW DID LOAD Yes" : @" VIEW DID LOAD No");
+//    self.whatProfileToLoad = YES;
+    
+//    self.messageButton.hidden = TRUE;
+
+//    if (self.whatProfileToLoad==FALSE) {
+//        // nameLabel.text = user[@"bandName"];
+//    }else{
+//        // nameLabel.text = user[@"bandName"];
+//        self.messageButton.hidden = FALSE;
+//    }
+
+    
     [super viewDidLoad];
     //LEFT MENU BUTTON
     SWRevealViewController *revealController = [self revealViewController];
@@ -45,11 +90,19 @@
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
-    //RIGHT MENU BUTTON
+    
+    //***************************************************** FIX
+    
+    
+    //RIGHT MENU BUTTON   SLIDER INFO
     
 //    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editProfileButtonTickled)];
 //    
 //    self.navigationItem.rightBarButtonItem = editButton;
+    
+    
+    //***************************************************** FIX
+
     
     //Position for the Photos Button
     
@@ -81,7 +134,7 @@
  //Setting the profile picture to be round
     
     theProfilePicture = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-70, 90, 140, 140)];
-    UIImage *profileImage = [UIImage imageNamed:@"avatarcopy.jpg"];
+    profileImage = [UIImage imageNamed:@"avatarcopy.jpg"];
     [theProfilePicture setBackgroundImage:profileImage forState:UIControlStateNormal];
 
     // Image coming back from Parse
@@ -89,8 +142,6 @@
     PFFile *imageFile = user[@"image"];
     
     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        
-        NSLog(@"data loaded");
         
         UIImage * image = [UIImage imageWithData:data];
         [theProfilePicture setBackgroundImage:image forState:UIControlStateNormal];
@@ -105,7 +156,7 @@
 
 // BAND NAME LABEL
     
-    UILabel * nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-100, 200, 21)];
+    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-100, 200, 21)];
     [nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20]];
     nameLabel.textColor = [UIColor whiteColor];
     nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -114,7 +165,7 @@
     
 // Genre LABEL
     
-    UILabel * genreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-75, 200, 21)];
+    genreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-75, 200, 21)];
     [genreLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:20]];
     
     genreLabel.textColor = [UIColor whiteColor];
@@ -124,7 +175,7 @@
     
  //City & State LABEL
     
-    UILabel * stateLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-50, 200, 21)];
+    stateLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-100, topView.bounds.size.height-50, 200, 21)];
     [stateLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:20]];
     
     stateLabel.textColor = [UIColor whiteColor];
@@ -137,6 +188,8 @@
     [topView addSubview:stateLabel];
     
     [topView addSubview:theProfilePicture];
+    
+ 
 }
 
 
@@ -145,7 +198,7 @@
 //    EditProfileViewController * editProfileSegue = [[EditProfileViewController alloc] init];
 //    
 //    [self.navigationController pushViewController:editProfileSegue animated:YES];
-//    
+//
 //    
 //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
 //    
@@ -172,4 +225,6 @@
     
 }
 
+- (IBAction)messageButton:(id)sender {
+}
 @end

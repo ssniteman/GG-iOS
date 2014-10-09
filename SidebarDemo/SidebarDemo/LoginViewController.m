@@ -108,7 +108,9 @@
             // Do stuff after successful login.
             
 //            ProfileViewController * profileView = [[ProfileViewController alloc] init];
-//           
+//            
+//            profileView.whatProfileToLoad = TRUE;
+//
 //           [self presentViewController:profileView animated:YES completion:nil];
 
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
