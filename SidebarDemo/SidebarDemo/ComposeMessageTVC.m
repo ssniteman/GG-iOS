@@ -54,7 +54,11 @@
     
     PFUser * user = [PFUser currentUser];
     
-    NSMutableArray * peopleSpokenTo = user[@"peopleSpoken"];
+    NSMutableArray * peopleSpokenTo = [user[@"peopleSpoken"] mutableCopy];
+    
+    if (peopleSpokenTo == nil) {
+        peopleSpokenTo = [@[] mutableCopy];
+    }
     
     if (![peopleSpokenTo containsObject:self.toUser])
     {
@@ -64,6 +68,8 @@
     user[@"peopleSpoken"] = peopleSpokenTo;
     
     [user saveInBackground];
+    
+    // run push
     
     
     NSLog(@"message is working");
