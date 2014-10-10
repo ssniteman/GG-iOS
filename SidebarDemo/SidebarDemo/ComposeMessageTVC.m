@@ -14,7 +14,6 @@
 @end
 
 @implementation ComposeMessageTVC {
-    
 
 }
 
@@ -38,7 +37,7 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
 }
 
--(void)sendButton{
+-(void)sendButton {
     
     // Send Message to user
     
@@ -47,10 +46,29 @@
     message[@"sender"] = [PFUser currentUser];
     message[@"reciever"] = self.toUser;
     message[@"messageContent"] = self.sendMessageText.text;
+    message[@"S_R"] = @[self.toUser, [PFUser currentUser]];
     
     [message saveInBackground];
     
+    // add reciever to people spoken to
+    
+    PFUser * user = [PFUser currentUser];
+    
+    NSMutableArray * peopleSpokenTo = user[@"peopleSpoken"];
+    
+    if (![peopleSpokenTo containsObject:self.toUser])
+    {
+        [peopleSpokenTo addObject:self.toUser];
+    }
+    
+    user[@"peopleSpoken"] = peopleSpokenTo;
+    
+    [user saveInBackground];
+    
+    
     NSLog(@"message is working");
+    NSLog(@"this is the array of conversation %@", message[@"S_R"]);
+
     
     [self cancelButton];
     

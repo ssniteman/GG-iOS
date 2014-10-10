@@ -75,6 +75,9 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // add sender to my people spoken to
+    
     [PFPush handlePush:userInfo];
 }
 							

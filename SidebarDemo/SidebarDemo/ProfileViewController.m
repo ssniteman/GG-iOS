@@ -67,7 +67,10 @@
     
 }
 
-- (void)viewDidLoad {
+// Added view will appear... because the view did load would set the view once on the reveal button... view will appear runs again once the view is called
+
+
+- (void)viewWillAppear:(BOOL)animated {
     
     user = [PFUser currentUser];
     

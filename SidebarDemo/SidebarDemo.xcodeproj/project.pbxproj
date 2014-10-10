@@ -24,6 +24,8 @@
 		60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */; };
 		60ACC17F19DB2EEB0008E69F /* EditRateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ACC17E19DB2EEB0008E69F /* EditRateVC.m */; };
 		60B10FCD19E815D6001E270D /* InboxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B10FCC19E815D6001E270D /* InboxCustomCell.m */; };
+		60B10FD019E85697001E270D /* ConversationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B10FCF19E85697001E270D /* ConversationsVC.m */; };
+		60B10FD319E8576D001E270D /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B10FD219E8576D001E270D /* ConversationCell.m */; };
 		60C351F719D723B7008375AD /* AvailabilityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C351F619D723B7008375AD /* AvailabilityTVC.m */; };
 		60C351F919D8901B008375AD /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C351F819D8901B008375AD /* GoogleMaps.framework */; };
 		60C351FD19D8917F008375AD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C351FC19D8917F008375AD /* OpenGLES.framework */; };
@@ -124,6 +126,10 @@
 		60ACC17E19DB2EEB0008E69F /* EditRateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditRateVC.m; path = ../EditRateVC.m; sourceTree = "<group>"; };
 		60B10FCB19E815D6001E270D /* InboxCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxCustomCell.h; sourceTree = "<group>"; };
 		60B10FCC19E815D6001E270D /* InboxCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxCustomCell.m; sourceTree = "<group>"; };
+		60B10FCE19E85697001E270D /* ConversationsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationsVC.h; sourceTree = "<group>"; };
+		60B10FCF19E85697001E270D /* ConversationsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationsVC.m; sourceTree = "<group>"; };
+		60B10FD119E8576D001E270D /* ConversationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
+		60B10FD219E8576D001E270D /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
 		60C351F519D723B7008375AD /* AvailabilityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailabilityTVC.h; sourceTree = "<group>"; };
 		60C351F619D723B7008375AD /* AvailabilityTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailabilityTVC.m; sourceTree = "<group>"; };
 		60C351F819D8901B008375AD /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -333,6 +339,10 @@
 				60B10FCC19E815D6001E270D /* InboxCustomCell.m */,
 				60CE5A7A19E6D35400263FCD /* ComposeMessageTVC.h */,
 				60CE5A7B19E6D35400263FCD /* ComposeMessageTVC.m */,
+				60B10FCE19E85697001E270D /* ConversationsVC.h */,
+				60B10FCF19E85697001E270D /* ConversationsVC.m */,
+				60B10FD119E8576D001E270D /* ConversationCell.h */,
+				60B10FD219E8576D001E270D /* ConversationCell.m */,
 			);
 			name = Messaging;
 			sourceTree = "<group>";
@@ -596,6 +606,8 @@
 				601441A419BCF14000BC3CC8 /* ProfileViewController.m in Sources */,
 				F4EECF4A177DF87700778578 /* SidebarViewController.m in Sources */,
 				60CE5A7C19E6D35400263FCD /* ComposeMessageTVC.m in Sources */,
+				60B10FD319E8576D001E270D /* ConversationCell.m in Sources */,
+				60B10FD019E85697001E270D /* ConversationsVC.m in Sources */,
 				601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */,
 				8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */,
 				60F4243219D70A8E001D8B0E /* EditGenreTVC.m in Sources */,

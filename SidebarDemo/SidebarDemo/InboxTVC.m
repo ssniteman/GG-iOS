@@ -17,7 +17,7 @@
 
 @implementation InboxTVC {
  
-    NSMutableArray * myMessages;
+    NSMutableArray * myConversations;
     PFUser * friends;
 }
 
@@ -25,7 +25,7 @@
     [super viewDidLoad];
 
     
-    myMessages = [@[] mutableCopy];
+    myConversations = [@[] mutableCopy];
     
     
     SWRevealViewController *revealController = [self revealViewController];
@@ -36,21 +36,56 @@
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
-    
     // QUERYING FOR PEOPLE YOU'RE CHATTING WITH
     
     PFQuery * inboxQuery = [PFQuery queryWithClassName:@"Messages"];
     
-    [inboxQuery whereKey:@"reciever" equalTo:[PFUser currentUser]]; // find all the recievers
+//    [inboxQuery whereKey:@"reciever" equalTo:[PFUser currentUser]]; // find all the recievers
 
+    [inboxQuery whereKey:@"S_R" containsAllObjectsInArray:@[[PFUser currentUser]]];
+    
+    [inboxQuery includeKey:@"sender"];
+    
     [inboxQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
-        myMessages = [objects mutableCopy];
+        NSArray * people = [PFUser currentUser][@"peopleSpoken"];
+        
+        
+        for (PFUser * user in people)
+        {
+            NSMutableDictionary * conversation = [@{
+                                                    
+                                                    @"user": user,
+                                                    @"messages":[@[] mutableCopy]
+                                                    
+                                                    } mutableCopy];
+            
+            for (PFObject * message in objects)
+            {
+                
+                if (message[@"sender"] == user || message[@"reciever"] == user) {
+                    
+                    [conversation[@"messages"] addObject:message];
+                    
+                }
+                
+            }
+            
+            
+            [myConversations addObject:conversation];
+            
+            
+            
+        }
+        
         [self.tableView reloadData];
         
-        NSLog(@"my messages are %@", myMessages);
+        NSLog(@"my messages are %@", myConversations);
         
     }];
+    
+    
+
     
     
 }
@@ -65,7 +100,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return myMessages.count;
+    return myConversations.count;
 }
 
 
@@ -73,7 +108,7 @@
     InboxCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messagePeople" forIndexPath:indexPath];
     
     
-    cell.myMessagesCell = myMessages[indexPath.row];
+    cell.myMessagesCell = myConversations[indexPath.row];
     
 
     if (cell == nil) {
