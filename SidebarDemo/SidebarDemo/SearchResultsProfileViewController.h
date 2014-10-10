@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface SearchResultsProfileViewController : UIViewController
 
@@ -32,6 +33,6 @@
 
 
 //Array for other profiles
-@property (nonatomic, strong) NSMutableDictionary * searchResultsForProfile;
+@property (nonatomic, strong) PFUser * searchResultsForProfile;
 
 @end

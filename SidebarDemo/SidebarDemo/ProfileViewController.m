@@ -70,6 +70,11 @@
 - (void)viewDidLoad {
     
     user = [PFUser currentUser];
+    
+    PFInstallation * installation = [PFInstallation currentInstallation];
+    installation[@"user"] = user;
+    [installation saveInBackground];
+    
 //    NSLog(self.whatProfileToLoad ? @"VIEW DID LOAD Yes" : @" VIEW DID LOAD No");
 //    self.whatProfileToLoad = YES;
     

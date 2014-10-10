@@ -23,6 +23,7 @@
 		6090941B19DE359C00E8A856 /* SearchLocationTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6090941A19DE359C00E8A856 /* SearchLocationTVC.m */; };
 		60A420DC19D2039C007738D4 /* MainStoryboardTwo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A420DA19D2039C007738D4 /* MainStoryboardTwo.storyboard */; };
 		60ACC17F19DB2EEB0008E69F /* EditRateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ACC17E19DB2EEB0008E69F /* EditRateVC.m */; };
+		60B10FCD19E815D6001E270D /* InboxCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B10FCC19E815D6001E270D /* InboxCustomCell.m */; };
 		60C351F719D723B7008375AD /* AvailabilityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C351F619D723B7008375AD /* AvailabilityTVC.m */; };
 		60C351F919D8901B008375AD /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C351F819D8901B008375AD /* GoogleMaps.framework */; };
 		60C351FD19D8917F008375AD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C351FC19D8917F008375AD /* OpenGLES.framework */; };
@@ -121,6 +122,8 @@
 		60A420DB19D2039C007738D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = SidebarDemo/en.lproj/MainStoryboardTwo.storyboard; sourceTree = "<group>"; };
 		60ACC17D19DB2EEB0008E69F /* EditRateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditRateVC.h; path = ../EditRateVC.h; sourceTree = "<group>"; };
 		60ACC17E19DB2EEB0008E69F /* EditRateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditRateVC.m; path = ../EditRateVC.m; sourceTree = "<group>"; };
+		60B10FCB19E815D6001E270D /* InboxCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxCustomCell.h; sourceTree = "<group>"; };
+		60B10FCC19E815D6001E270D /* InboxCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxCustomCell.m; sourceTree = "<group>"; };
 		60C351F519D723B7008375AD /* AvailabilityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailabilityTVC.h; sourceTree = "<group>"; };
 		60C351F619D723B7008375AD /* AvailabilityTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailabilityTVC.m; sourceTree = "<group>"; };
 		60C351F819D8901B008375AD /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 			children = (
 				60CE5A7D19E6D3F200263FCD /* InboxTVC.h */,
 				60CE5A7E19E6D3F200263FCD /* InboxTVC.m */,
+				60B10FCB19E815D6001E270D /* InboxCustomCell.h */,
+				60B10FCC19E815D6001E270D /* InboxCustomCell.m */,
 				60CE5A7A19E6D35400263FCD /* ComposeMessageTVC.h */,
 				60CE5A7B19E6D35400263FCD /* ComposeMessageTVC.m */,
 			);
@@ -508,6 +513,11 @@
 				TargetAttributes = {
 					F4EECF0D177C99F400778578 = {
 						DevelopmentTeam = 9FNV24W8TX;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -589,6 +599,7 @@
 				601441AD19BCF21F00BC3CC8 /* SettingsViewController.m in Sources */,
 				8A40C58D19D36B6700A50D85 /* EditProfileViewController.m in Sources */,
 				60F4243219D70A8E001D8B0E /* EditGenreTVC.m in Sources */,
+				60B10FCD19E815D6001E270D /* InboxCustomCell.m in Sources */,
 				6090941519DE310A00E8A856 /* SearchRateVC.m in Sources */,
 				60CE5A7F19E6D3F200263FCD /* InboxTVC.m in Sources */,
 				60186EDD19D58DBC00AE331A /* LoginViewController.m in Sources */,
@@ -635,6 +646,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.getagig.app";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -666,6 +678,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.getagig.app";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

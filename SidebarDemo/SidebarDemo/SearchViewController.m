@@ -393,7 +393,7 @@
             
 //            NSLog(@"%@",objects);
             
-            for (PFObject * object in objects) {
+            for (PFUser * object in objects) {
                 
                 
                 [self.searchResults addObject:object];
@@ -402,7 +402,7 @@
             
         } else {
             
-            for (PFObject * object in objects) {
+            for (PFUser * object in objects) {
                 
                 [self.searchResults addObject:object];
 //                NSLog(@"object id is %@",object);

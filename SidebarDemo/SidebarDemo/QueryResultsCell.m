@@ -22,7 +22,7 @@
 }
 
 
--(void)setUsersContent:(NSDictionary *)usersContent{
+-(void)setUsersContent:(PFUser *)usersContent{
    
     _usersContent  = usersContent;
 

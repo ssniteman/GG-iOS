@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import <Parse/Parse.h>
+
 @interface QueryResultsCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *resultPhoto;
@@ -27,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 
-@property(nonatomic) NSDictionary * usersContent;
+@property(nonatomic) PFUser * usersContent;
 
 
 @end

@@ -9,6 +9,7 @@
 #import "SearchResultsProfileViewController.h"
 #import "QueryResultsTVC.h"
 #import "SearchResultsProfileViewController.h"
+#import "ComposeMessageTVC.h"
 #import <Parse/Parse.h>
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -28,7 +29,7 @@ UIImage *profileImage;
 UILabel * stateLabel;
 
 UIButton * messageButton;
-PFUser * user;
+//PFUser * user;
     
     NSDictionary * address;
     
@@ -127,22 +128,16 @@ PFUser * user;
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"composeMessage" bundle: nil];
     
-    SearchResultsProfileViewController * composeTVC = [storyboard instantiateViewControllerWithIdentifier:@"composeNew"];
+    ComposeMessageTVC * composeTVC = [storyboard instantiateViewControllerWithIdentifier:@"composeNew"];
     
+    composeTVC.toUser = self.searchResultsForProfile;
     
     UINavigationController *navigationController =
     [[UINavigationController alloc] initWithRootViewController:composeTVC];
     
     //now present this navigation controller modally
-    [self presentViewController:navigationController
-                       animated:YES
-                     completion:^{
-                         
-                     }];
+    [self presentViewController:navigationController animated:YES completion:nil];
     
-    
-
-   // [self.navigationController pushViewController:composeTVC animated:YES];
 }
 
 

@@ -8,15 +8,25 @@
 
 #import "InboxTVC.h"
 #import "SWRevealViewController.h"
+#import "InboxCustomCell.h"
+#import <Parse/Parse.h>
 
 @interface InboxTVC ()
 
 @end
 
-@implementation InboxTVC
+@implementation InboxTVC {
+ 
+    NSMutableArray * myMessages;
+    PFUser * friends;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
+    myMessages = [@[] mutableCopy];
+    
     
     SWRevealViewController *revealController = [self revealViewController];
     
@@ -26,28 +36,55 @@
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
+    
+    // QUERYING FOR PEOPLE YOU'RE CHATTING WITH
+    
+    PFQuery * inboxQuery = [PFQuery queryWithClassName:@"Messages"];
+    
+    [inboxQuery whereKey:@"reciever" equalTo:[PFUser currentUser]]; // find all the recievers
 
+    [inboxQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        myMessages = [objects mutableCopy];
+        [self.tableView reloadData];
+        
+        NSLog(@"my messages are %@", myMessages);
+        
+    }];
+    
+    
 }
 
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    // Return the number of sections.
+//    return 1;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 1;
+    return myMessages.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messagePeople" forIndexPath:indexPath];
+    InboxCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messagePeople" forIndexPath:indexPath];
     
-    // Configure the cell...
     
+    cell.myMessagesCell = myMessages[indexPath.row];
+    
+
+    if (cell == nil) {
+        
+        cell = [[InboxCustomCell alloc]init];
+    }
+ 
+    
+    
+//     Configure the cell...
+   
     return cell;
 }
 
