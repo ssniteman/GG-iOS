@@ -16,7 +16,6 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-//    [PFUser logOut]; and  then send back to login page
 
 @interface ProfileViewController ()
 
@@ -29,6 +28,11 @@
     UILabel * genreLabel;
     UIImage *profileImage;
     UILabel * stateLabel;
+    
+    UILabel * rateLabelParse;
+    
+    UILabel * availabilityLabelParse;
+
     
     PFUser * user;
 }
@@ -102,12 +106,12 @@
     //***************************************************** FIX
     
     
-    //RIGHT MENU BUTTON   SLIDER INFO
-    
+//    RIGHT MENU BUTTON   SLIDER INFO
+//    
 //    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editProfileButtonTickled)];
 //    
 //    self.navigationItem.rightBarButtonItem = editButton;
-    
+//    
     
     //***************************************************** FIX
 
@@ -197,7 +201,28 @@
     
     [topView addSubview:theProfilePicture];
     
- 
+    // Rate Label Parse
+    
+    rateLabelParse = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 100, 50)];
+    [rateLabelParse setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14]];
+    rateLabelParse.textColor = [UIColor whiteColor];
+    rateLabelParse.textAlignment = NSTextAlignmentCenter;
+    
+    rateLabelParse.text = user[@"nightlyRate"];
+    
+    [topView addSubview:rateLabelParse];
+    
+    
+    // Availability Label Parse
+    
+    availabilityLabelParse = [[UILabel alloc] initWithFrame:CGRectMake(0, 250, 200, 50)];
+    [availabilityLabelParse setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14]];
+    availabilityLabelParse.textColor = [UIColor whiteColor];
+    availabilityLabelParse.textAlignment = NSTextAlignmentCenter;
+    
+    availabilityLabelParse.text = user[@"availability"];
+    
+    [topView addSubview:availabilityLabelParse];
 }
 
 

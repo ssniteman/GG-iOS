@@ -18,7 +18,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface EditProfileViewController ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AvailableTVCDelegate,RateDelegate>
+UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AvailableTVCDelegate, RateDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *availabilityCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *editGenreCell;
@@ -205,10 +205,10 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     
     [self.navigationController popViewControllerAnimated:YES];
 
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
-//    ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
-//    [self.navigationController pushViewController:profileView animated:YES];
-//    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboardTwo" bundle: nil];
+    ProfileViewController * profileView = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+    [self.navigationController pushViewController:profileView animated:YES];
+    
     
 }
 
@@ -318,6 +318,13 @@ finishedSavingWithError:(NSError *)error
     //    }
     
     [self presentModalViewController:picker animated:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 

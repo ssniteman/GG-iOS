@@ -15,7 +15,7 @@
 
 
 
-@interface SearchLocationTVC ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIActionSheetDelegate>
+@interface SearchLocationTVC ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIActionSheetDelegate, UITextFieldDelegate>
 
 @end
 
@@ -132,6 +132,8 @@
 - (IBAction)changeZip:(id)sender {
    
     self.searchZip.text = @"";
+    self.enterZipButton.hidden = NO;
+    self.changeZip.hidden = YES;
 }
 
 
@@ -165,11 +167,7 @@
     
     [self.delegate setLatitudeSetter:[LatAndLong[@"lat"]doubleValue]];
     [self.delegate setLongitudeSetter:[LatAndLong[@"lng"]doubleValue]];
-    
-//    if (self.searchZip.text == address[@"formatted_address"]) {
-//        
-//       
-//    }
+
     
 }
 
@@ -248,7 +246,17 @@
     
     [self.delegate setSavedRadius:@([radius intValue])];
     
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
 
 
 @end

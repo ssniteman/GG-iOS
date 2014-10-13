@@ -9,7 +9,7 @@
 #import "ComposeMessageTVC.h"
 #import <Parse/Parse.h>
 
-@interface ComposeMessageTVC ()
+@interface ComposeMessageTVC () <UITextFieldDelegate>
 
 @end
 
@@ -111,6 +111,13 @@
 }
 */
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 
 

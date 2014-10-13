@@ -320,12 +320,12 @@
 				60C3520A19D89343008375AD /* GoogleMaps.bundle */,
 				601441AB19BCF21F00BC3CC8 /* SettingsViewController.h */,
 				601441AC19BCF21F00BC3CC8 /* SettingsViewController.m */,
-				F4EECF20177C99F400778578 /* AppDelegate.h */,
-				F4EECF21177C99F400778578 /* AppDelegate.m */,
 				F4EECF2C177C99F400778578 /* MainViewController.h */,
 				F4EECF2D177C99F400778578 /* MainViewController.m */,
 				F4EECF48177DF87700778578 /* SidebarViewController.h */,
 				F4EECF49177DF87700778578 /* SidebarViewController.m */,
+				F4EECF20177C99F400778578 /* AppDelegate.h */,
+				F4EECF21177C99F400778578 /* AppDelegate.m */,
 			);
 			name = Main/Other;
 			sourceTree = "<group>";

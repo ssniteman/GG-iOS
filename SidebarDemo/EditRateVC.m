@@ -10,7 +10,7 @@
 #import "EditProfileViewController.h"
 #import <Parse/Parse.h>
 
-@interface EditRateVC ()
+@interface EditRateVC () <UITextFieldDelegate>
 
 @end
 
@@ -109,6 +109,13 @@
     
     [self cancelButton];
     
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 @end

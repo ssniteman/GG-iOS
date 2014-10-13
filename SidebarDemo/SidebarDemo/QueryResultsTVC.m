@@ -19,7 +19,7 @@
 
 @implementation QueryResultsTVC {
     
-    UIButton * resultPhoto;
+    UIButton * resuzltPhoto;
 
 }
 
@@ -118,8 +118,6 @@
     
     
 }
-
-
 
 
 

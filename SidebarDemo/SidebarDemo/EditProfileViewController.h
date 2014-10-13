@@ -15,15 +15,20 @@
 @interface EditProfileViewController : UITableViewController
 
 - (IBAction)editPhotoButton:(id)sender;
+
 @property (nonatomic, strong) NSString * rate;
 @property (weak, nonatomic) IBOutlet UILabel *daysAvailableLabel;
 @property (nonatomic, strong) NSString * daysAvailable;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *zipTextBox;
+
 @property (weak, nonatomic) IBOutlet UIButton *profileImageEdit;
 @property (weak, nonatomic) IBOutlet UIImageView *editImageView;
 @property BOOL newMedia;
+
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *changeZipButton;
 - (IBAction)changeZipButton:(id)sender;
 

@@ -11,7 +11,7 @@
 #import "SearchViewController.h"
 #import <Parse/Parse.h>
 
-@interface SearchRateVC ()
+@interface SearchRateVC () <UITextFieldDelegate>
 
 @end
 
@@ -100,6 +100,13 @@ UITextField * rateTextField;
 
     [self cancelButton];
     
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 @end

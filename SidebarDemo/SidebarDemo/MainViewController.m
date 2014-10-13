@@ -78,7 +78,7 @@
     
     
     if ([PFUser currentUser].username != nil) {
-        
+    
         
         ProfileViewController * profileView = [[ProfileViewController alloc] init];
         

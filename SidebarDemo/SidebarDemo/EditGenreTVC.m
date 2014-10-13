@@ -30,7 +30,7 @@
     availableGenres=[@[@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @""] mutableCopy];
     
     
-    editGenreList = @[@"Acoustic", @"Alternative Rock", @"Ambient", @"Americana", @"Blues", @"Bluegrass", @"Classical", @"Classic Rock", @"Country", @"Dance", @"Disco", @"Dubstep", @"Electro", @"Electronic", @"Folk", @"Gospel", @"Hip-Hop", @"House", @"Indie", @"Jazz", @"Latin", @"Metal", @"Oldies", @"Other", @"Piano", @"Pop", @"Pop/Country", @"Progressive House", @"Punk", @"R&B", @"Rap", @"Reggae", @"Rock", @"Singer-Songwriter", @"Soul", @"Southern Rock", @"Techno", @"Trance"];
+    editGenreList = @[@"Acoustic", @"Alternative Rock", @"Ambient", @"Americana", @"Blues", @"Bluegrass", @"Classical", @"Classic Rock", @"Country", @"Dance", @"DJ", @"Disco", @"Dubstep", @"Electro", @"Electronic", @"Folk", @"Gospel", @"Hip-Hop", @"House", @"Indie", @"Jazz", @"Latin", @"Metal", @"Oldies", @"Other", @"Piano", @"Pop", @"Pop/Country", @"Progressive House", @"Punk", @"R&B", @"Rap", @"Reggae", @"Rock", @"Singer-Songwriter", @"Soul", @"Southern Rock", @"Techno", @"Trance"];
 
     
     //RIGHT MENU BUTTON
@@ -103,10 +103,27 @@
     
     // Configure the cell...
     
+    if ([availableGenres containsObject:editGenreList[indexPath.row]]) {
+        
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+    } else {
+        
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        
+    }
+    
+    
     cell.textLabel.text = editGenreList[indexPath.row];
     
     return cell;
 }
+
+
+
+
+
+
 
 -(void)saveButton {
     
@@ -142,9 +159,7 @@
 
 
 - (void) cancelButton{
-
     [self.navigationController popViewControllerAnimated:YES];
-
 }
 
 
