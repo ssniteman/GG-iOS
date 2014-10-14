@@ -51,9 +51,9 @@
     UIButton * signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 80, SCREEN_WIDTH - 40, 50)];
     
     signUpButton.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
-    [signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
+    [signUpButton setTitle:@"SIGN UP" forState:UIControlStateNormal];
+    [signUpButton setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:24]];
     [signUpButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
-    signUpButton.titleLabel.font = [UIFont systemFontOfSize:18];
     signUpButton.layer.cornerRadius = 5;
     
     [self.view addSubview:signUpButton];
@@ -64,17 +64,17 @@
     
     UIButton * loginButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 150, SCREEN_WIDTH - 40, 50)];
     
-    loginButton.backgroundColor = [UIColor clearColor];
-    [loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    loginButton.backgroundColor = [UIColor whiteColor];
+    [loginButton setTitle:@"LOGIN" forState:UIControlStateNormal];
+    [loginButton setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:24]];
     [loginButton setTitleColor: [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forState:UIControlStateNormal];
     loginButton.layer.cornerRadius = 5;
-    [loginButton.layer setBorderColor:[[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] CGColor]];
-    loginButton.titleLabel.font = [UIFont systemFontOfSize:18];
-    [loginButton.layer setBorderWidth:1];
+//    [loginButton.layer setBorderColor:[[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] CGColor]];
+//    [loginButton.layer setBorderWidth:1];
     
     [self.view addSubview:loginButton];
     
-       [loginButton addTarget:self action:@selector(loginTouched) forControlEvents:UIControlEventTouchUpInside];
+    [loginButton addTarget:self action:@selector(loginTouched) forControlEvents:UIControlEventTouchUpInside];
     
     
     if ([PFUser currentUser].username != nil) {

@@ -34,20 +34,24 @@
     
     UIImageView *gLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 80.0f, 140.0f)];
     [gLogo setImage:[UIImage imageNamed:@"bigG.png"]];
-    gLogo.center = CGPointMake(self.view.center.x, 110);
-    
+    gLogo.center = CGPointMake(self.view.center.x, 150);
+
     [self.view addSubview:gLogo];
     
     
     
     // USERNAME TEXT FIELD
     
-    loginUsernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 360, SCREEN_WIDTH - 40, 50)];
+    loginUsernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 220, SCREEN_WIDTH - 40, 50)];
     loginUsernameTextField.backgroundColor = [UIColor whiteColor];
     loginUsernameTextField.layer.cornerRadius = 5;
     loginUsernameTextField.font = [UIFont systemFontOfSize:18];
-    loginUsernameTextField.placeholder = @"Username";
+    loginUsernameTextField.placeholder = @"USERNAME";
     loginUsernameTextField.autocapitalizationType = FALSE;
+    [loginUsernameTextField setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size: 24]];
+
+    [loginUsernameTextField setValue:[UIFont fontWithName: @"HelveticaNeue-UltraLight" size: 24] forKeyPath:@"_placeholderLabel.font"];
+    [loginUsernameTextField setTextColor:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f]];
 
     [loginUsernameTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
@@ -60,13 +64,18 @@
     
     // PASSWORD TEXT FIELD
     
-    loginPasswordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 290, SCREEN_WIDTH - 40, 50)];
+    loginPasswordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 160, SCREEN_WIDTH - 40, 50)];
     loginPasswordTextField.backgroundColor = [UIColor whiteColor];
     loginPasswordTextField.layer.cornerRadius = 5;
     loginPasswordTextField.font = [UIFont systemFontOfSize:18];
-    loginPasswordTextField.placeholder = @"Password";
+    loginPasswordTextField.placeholder = @"PASSWORD";
     loginPasswordTextField.autocapitalizationType = FALSE;
     [loginPasswordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+    [loginPasswordTextField setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size: 24]];
+    [loginPasswordTextField setTextColor:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f]];
+
+    [loginPasswordTextField setValue:[UIFont fontWithName: @"HelveticaNeue-UltraLight" size: 24] forKeyPath:@"_placeholderLabel.font"];
+
     
     loginPasswordTextField.secureTextEntry = YES;
     loginPasswordTextField.delegate = self;
@@ -81,16 +90,18 @@
     // LOGIN BUTTON
     
     
-    loginFinalButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 80, SCREEN_WIDTH - 40, 50)];
+    loginFinalButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 100, SCREEN_WIDTH - 40, 50)];
     
     loginFinalButton.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     loginFinalButton.titleLabel.font = [UIFont systemFontOfSize:18];
-    [loginFinalButton setTitle:@"Login" forState:UIControlStateNormal];
+    [loginFinalButton setTitle:@"LOGIN" forState:UIControlStateNormal];
     [loginFinalButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
     loginFinalButton.layer.cornerRadius = 5;
     loginFinalButton.layer.borderWidth = 1;
     loginFinalButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     
+    [loginFinalButton setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:24]];
+
     
     [loginFinalButton addTarget:self action:@selector(loginFinalTouched) forControlEvents:UIControlEventTouchUpInside];
     

@@ -17,7 +17,7 @@
 @implementation SignUpViewController {
     UITextField * usernameTextField;
     UITextField * passwordTextField;
-    UITextField * verifyPasswordTextField;
+    UITextField * emailField;
     UISegmentedControl * segmentControl;
     NSString * usernameText;
 }
@@ -31,9 +31,38 @@
     
     UIImageView *gLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 80.0f, 140.0f)];
     [gLogo setImage:[UIImage imageNamed:@"bigG.png"]];
-    gLogo.center = CGPointMake(self.view.center.x, 110);
+    gLogo.center = CGPointMake(self.view.center.x, 100);
     
     [self.view addSubview:gLogo];
+    
+    
+   
+    
+    
+//    // SIGN UP FINAL BUTTON
+//    
+//    UIButton * musicianButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 80, SCREEN_WIDTH - 40, 50)];
+//    
+//    signUpFinalButton.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
+//    signUpFinalButton.titleLabel.font = [UIFont systemFontOfSize:18];
+//    [signUpFinalButton setTitle:@"SIGN UP" forState:UIControlStateNormal];
+//    [signUpFinalButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
+//    signUpFinalButton.layer.cornerRadius = 5;
+//    signUpFinalButton.layer.borderWidth = 1;
+//    signUpFinalButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+//    
+//    [signUpFinalButton addTarget:self action:@selector(signUpFinalTouched) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    [signUpFinalButton setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:24]];
+//    
+//    
+//    [self.view addSubview:signUpFinalButton];
+//    
+//    
+//    
+//    
+//    
+    
     
     // USERNAME TEXT FIELD
     
@@ -45,12 +74,18 @@
     usernameTextField.autocapitalizationType = FALSE;
 
     [usernameTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+    [usernameTextField setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size: 24]];
+    [usernameTextField setTextColor:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f]];
+
     
     UIView * paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     usernameTextField.leftView = paddingView;
     usernameTextField.leftViewMode = UITextFieldViewModeAlways;
     usernameTextField.delegate = self;
 
+    [usernameTextField setValue:[UIFont fontWithName: @"HelveticaNeue-UltraLight" size: 24] forKeyPath:@"_placeholderLabel.font"];
+
+    
     [self.view addSubview:usernameTextField];
         
     // PASSWORD TEXT FIELD
@@ -59,12 +94,16 @@
     passwordTextField.backgroundColor = [UIColor whiteColor];
     passwordTextField.layer.cornerRadius = 5;
     passwordTextField.font = [UIFont systemFontOfSize:18];
-    passwordTextField.placeholder = @"Password";
+    passwordTextField.placeholder = @"PASSWORD";
     passwordTextField.autocapitalizationType = FALSE;
 
-    
+    [passwordTextField setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size: 24]];
+    [passwordTextField setTextColor:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f]];
+
     passwordTextField.secureTextEntry = YES;
     
+    [passwordTextField setValue:[UIFont fontWithName: @"HelveticaNeue-UltraLight" size: 24] forKeyPath:@"_placeholderLabel.font"];
+
     
     [passwordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     
@@ -77,20 +116,24 @@
     
     // VERIFY PASSWORD TEXT FIELD
     
-    verifyPasswordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 220, SCREEN_WIDTH - 40, 50)];
-    verifyPasswordTextField.backgroundColor = [UIColor whiteColor];
-    verifyPasswordTextField.layer.cornerRadius = 5;
-    verifyPasswordTextField.font = [UIFont systemFontOfSize:18];
-    verifyPasswordTextField.placeholder = @"Verify Password";
-    verifyPasswordTextField.autocapitalizationType = FALSE;
-    [verifyPasswordTextField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+    emailField = [[UITextField alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 220, SCREEN_WIDTH - 40, 50)];
+    emailField.backgroundColor = [UIColor whiteColor];
+    emailField.layer.cornerRadius = 5;
+    emailField.font = [UIFont systemFontOfSize:18];
+    emailField.placeholder = @"EMAIL";
+    emailField.autocapitalizationType = FALSE;
+    [emailField setValue:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
     UIView * paddingView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
-    verifyPasswordTextField.leftView = paddingView3;
-    verifyPasswordTextField.leftViewMode = UITextFieldViewModeAlways;
-    verifyPasswordTextField.secureTextEntry = YES;
-    verifyPasswordTextField.delegate = self;
+    emailField.leftView = paddingView3;
+    emailField.leftViewMode = UITextFieldViewModeAlways;
+    emailField.delegate = self;
+    [emailField setTextColor:[UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f]];
+    [emailField setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size: 24]];
 
-    [self.view addSubview:verifyPasswordTextField];
+    [emailField setValue:[UIFont fontWithName: @"HelveticaNeue-UltraLight" size: 24] forKeyPath:@"_placeholderLabel.font"];
+
+    
+    [self.view addSubview:emailField];
     
     // USERTYPE
     
@@ -98,12 +141,14 @@
     [segmentControl setSegmentedControlStyle:UISegmentedControlStyleBar];
     segmentControl.frame = CGRectMake(20, SCREEN_HEIGHT - 150, SCREEN_WIDTH - 40, 50);
     
-    UIColor *newTintColor = [UIColor whiteColor];
-    segmentControl.tintColor = newTintColor;
+//    UIColor *newTintColor = [UIColor whiteColor];
+    segmentControl.tintColor = [UIColor whiteColor];
     
     UIFont * font = [UIFont boldSystemFontOfSize:16.0f];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     [segmentControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    segmentControl.layer.borderWidth = 0;
     
 //    [segmentControl addTarget:self action:@selector(segmentedControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
     [segmentControl setSelectedSegmentIndex:0];
@@ -118,13 +163,16 @@
     
     signUpFinalButton.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     signUpFinalButton.titleLabel.font = [UIFont systemFontOfSize:18];
-    [signUpFinalButton setTitle:@"Sign Up" forState:UIControlStateNormal];
+    [signUpFinalButton setTitle:@"SIGN UP" forState:UIControlStateNormal];
     [signUpFinalButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
     signUpFinalButton.layer.cornerRadius = 5;
     signUpFinalButton.layer.borderWidth = 1;
     signUpFinalButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     
     [signUpFinalButton addTarget:self action:@selector(signUpFinalTouched) forControlEvents:UIControlEventTouchUpInside];
+    
+    [signUpFinalButton setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:24]];
+
     
     [self.view addSubview:signUpFinalButton];
 
