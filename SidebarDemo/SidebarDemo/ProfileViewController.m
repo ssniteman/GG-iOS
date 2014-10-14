@@ -192,8 +192,8 @@
     
     stateLabel.textColor = [UIColor whiteColor];
     stateLabel.textAlignment = NSTextAlignmentCenter;
-    stateLabel.text = @"City, State";
-//    stateLabel.text = user
+//    stateLabel.text = @"City, State";
+    stateLabel.text = [NSString stringWithFormat:@"%@, %@",user[@"city"],user[@"state"]];
     
     [topView addSubview:nameLabel];
     [topView addSubview:genreLabel];

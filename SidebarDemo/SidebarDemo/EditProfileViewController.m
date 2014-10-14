@@ -18,7 +18,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface EditProfileViewController ()<UITableViewDataSource,UITableViewDelegate, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AvailableTVCDelegate, RateDelegate, UITextFieldDelegate>
+UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AvailableTVCDelegate, RateDelegate, GenreTVCDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *availabilityCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *editGenreCell;
@@ -41,6 +41,12 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     double longitude;
     
     NSDictionary * address;
+    
+    NSDictionary * city;
+    
+    NSDictionary * state;
+
+
 }
 
 // RATE SETTER
@@ -59,6 +65,17 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
   
     self.daysAvailableLabel.text = daysAvailable;
     
+}
+
+
+
+
+-(void)setGenreString:(NSString *)genreString{
+    _genreString = genreString;
+    
+    self.genreLabel.text = genreString;
+    
+    NSLog(@"this is %@", genreString);
 }
     
 
@@ -131,6 +148,8 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
         
         EditGenreTVC * editGenre = [storyboard instantiateViewControllerWithIdentifier:@"editGenreID"];
         
+        editGenre.delegate = self;
+        
         [self.navigationController pushViewController:editGenre animated:YES];
 
     } else if (theCellClicked == self.rateCell) {
@@ -172,6 +191,13 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
         
         address =resultsInfo[@"results"][0];
         
+        city = resultsInfo[@"results"][0][@"address_components"][1][@"long_name"];
+        
+        NSLog(@"the city is %@",city);
+        
+        state = resultsInfo[@"results"][0][@"address_components"][3][@"short_name"];
+        
+        NSLog(@"state is %@",state);
         
         location = resultsInfo[@"results"][0][@"geometry"][@"location"];
         
@@ -200,6 +226,8 @@ UINavigationControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDe
     PFGeoPoint * point = [PFGeoPoint geoPointWithLatitude:latitude longitude:longitude];
 
     user[@"location"] = point;
+    user[@"city"] = city;
+    user[@"state"] = state;
     
     [[PFUser currentUser] saveInBackground];
     

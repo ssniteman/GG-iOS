@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *daysAvailableLabel;
 @property (nonatomic, strong) NSString * daysAvailable;
 
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *zipTextBox;
 
@@ -28,6 +29,11 @@
 @property BOOL newMedia;
 
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+
+//GENRE INFO
+@property (weak, nonatomic) IBOutlet UILabel *genreLabel;
+
+@property (nonatomic, strong) NSString * genreString;
 
 @property (weak, nonatomic) IBOutlet UIButton *changeZipButton;
 - (IBAction)changeZipButton:(id)sender;

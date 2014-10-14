@@ -138,6 +138,7 @@
         }
         
     }
+    [self.delegate setGenreString:[stringOfGenres substringToIndex:[stringOfGenres length]-1]];
 
     
     NSLog(@"%@",[stringOfGenres substringToIndex:[stringOfGenres length]-1]);
@@ -151,6 +152,8 @@
     user[@"genreArray"] = availableGenres;
     
     [[PFUser currentUser] saveInBackground];
+    
+
   
     [self cancelButton];
 
