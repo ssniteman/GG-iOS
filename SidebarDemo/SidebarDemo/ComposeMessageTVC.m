@@ -7,6 +7,7 @@
 //
 
 #import "ComposeMessageTVC.h"
+#import "SearchResultsProfileViewController.h"
 #import <Parse/Parse.h>
 
 @interface ComposeMessageTVC () <UITextFieldDelegate>
@@ -17,6 +18,15 @@
 
 }
 
+-(void)setToWhomWeSendString:(NSString *)toWhomWeSendString {
+    
+    _toWhomWeSendString = toWhomWeSendString;
+    NSLog(@"listen here %@",toWhomWeSendString);
+    self.sendMessageText.text = toWhomWeSendString;
+    
+    [self.tableView reloadData];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +45,14 @@
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButton)];
     
     self.navigationItem.leftBarButtonItem = cancelButton;
+    
+    SearchResultsProfileViewController * searchResultProfile = [[SearchResultsProfileViewController alloc] init];
+    
+    
 }
+
+
+
 
 -(void)sendButton {
     

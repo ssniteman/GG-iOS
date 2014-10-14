@@ -24,6 +24,9 @@
     // Location
     
     NSDictionary * location;
+    NSDictionary * city;
+    NSDictionary * state;
+
     
     double latitude;
     double longitude;
@@ -89,15 +92,17 @@
     self.tableView.dataSource =self;
 
     radiusMiles=[@[@"5",@"10",@"15",@"20",@"25",@"35",@"50",@"75",@"100",@"150",@"250",@"500"]mutableCopy];
+    
+    
+    
     CGSize pickerSize = [self.radiusPicker sizeThatFits:CGSizeZero];
     
     UIView * pickerTransformView= [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, pickerSize.width, pickerSize.height)];
     
     pickerTransformView.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     [pickerTransformView addSubview:self.radiusPicker];
-    
+ 
     self.radiusPicker.delegate = self;
-    
     self.radiusPicker.dataSource =self;
     
     
@@ -126,7 +131,6 @@
     // Return the number of sections.
     return 3;
 }
-
 
 
 - (IBAction)changeZip:(id)sender {
@@ -163,12 +167,18 @@
     
     NSLog(@"lat %@, long %@",LatAndLong[@"lat"],LatAndLong[@"lng"]);
     
+    city = resultsInfo[@"results"][0][@"address_components"][1][@"long_name"];
+    
+    NSLog(@"the city is %@",city);
+    
+    state = resultsInfo[@"results"][0][@"address_components"][2][@"short_name"];
+    
+    NSLog(@"state is %@",state);
     
     
     [self.delegate setLatitudeSetter:[LatAndLong[@"lat"]doubleValue]];
     [self.delegate setLongitudeSetter:[LatAndLong[@"lng"]doubleValue]];
 
-    
 }
 
 - (IBAction)currentLocationSwitch:(id)sender {

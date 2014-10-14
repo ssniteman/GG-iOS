@@ -23,7 +23,7 @@
 @implementation SearchResultsProfileViewController {
 
 UIButton * theProfilePicture;
-UILabel * nameLabel ;
+UILabel * nameLabel;
 UILabel * genreLabel;
 UIImage *profileImage;
 UILabel * stateLabel;
@@ -126,11 +126,19 @@ UIButton * messageButton;
 
 -(void)sendMessageTapped {
     
+    ComposeMessageTVC * newMessage = [[ComposeMessageTVC alloc]init];
+    
+    newMessage.toWhomWeSendString = self.searchResultsForProfile[@"bandName"];
+    
+    NSLog(@"%@", self.searchResultsForProfile[@"bandName"]);
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"composeMessage" bundle: nil];
     
     ComposeMessageTVC * composeTVC = [storyboard instantiateViewControllerWithIdentifier:@"composeNew"];
     
     composeTVC.toUser = self.searchResultsForProfile;
+    
+    
     
     UINavigationController *navigationController =
     [[UINavigationController alloc] initWithRootViewController:composeTVC];

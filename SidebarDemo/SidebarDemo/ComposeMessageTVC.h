@@ -18,7 +18,10 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *sendMessageText;
 
+@property (weak, nonatomic) IBOutlet UILabel *toWhomWeSend;
 
 
+
+@property (weak, nonatomic) NSString * toWhomWeSendString;
 
 @end
