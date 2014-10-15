@@ -35,7 +35,10 @@
     UIButton * rateSearchButton;
     UILabel * genreSearchs;
     UILabel * rateSearchs;
+    UILabel * locationSearchs;
     UILabel * availabilitySearchs;
+    
+    UIView * line;
     
     PFGeoPoint * currentGeoPoint;
     
@@ -139,6 +142,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    self.view.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     self.searchResults = [@[]mutableCopy];
     // Do any additional "setup after loading the view.
     
@@ -153,9 +160,14 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     
+    
+  
+    
+    
+    
     searchSegmentControl = [[UISegmentedControl alloc]initWithItems:@[@"Musician / Band",@"Bar / Venue"]];
     [searchSegmentControl setSegmentedControlStyle:UISegmentedControlStyleBar];
-    searchSegmentControl.frame = CGRectMake(-10, 43, SCREEN_WIDTH + 30, 70);
+    searchSegmentControl.frame = CGRectMake(20, 60, SCREEN_WIDTH -40, 70);
     searchSegmentControl.layer.borderWidth = 0;
     UIColor *newTintColor = [UIColor whiteColor];
     searchSegmentControl.tintColor = newTintColor;
@@ -169,110 +181,140 @@
     //    [segmentControl release];
 
 
-    locationSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 113, SCREEN_WIDTH + 30, 100)];
+    locationSearch = [[UIView alloc] initWithFrame:CGRectMake(20, 140, SCREEN_WIDTH - 40, 80)];
     locationSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     locationSearch.layer.borderWidth = 1;
+    locationSearch.layer.cornerRadius = 5;
     locationSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
     
-    searchLocationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, locationSearch.bounds.size.width, locationSearch.bounds.size.height)];
-
-    [searchLocationButton setTitle:@"Location" forState:UIControlStateNormal];
-    [searchLocationButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
-    [searchLocationButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
-    [searchLocationButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [locationSearch addSubview:searchLocationButton];
+    locationSearchs = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, SCREEN_WIDTH - 60, 40)];
+    [locationSearchs setTextAlignment: NSTextAlignmentCenter];
+    locationSearchs.backgroundColor = [UIColor whiteColor];
     
+    UILabel * locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, locationSearch.bounds.size.width, 20)];
+    locationLabel.text = @"Location";
+    locationLabel.textAlignment = NSTextAlignmentCenter;
+    locationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
+    locationLabel.textColor = [UIColor whiteColor];
+    
+    line = [[UIView alloc] initWithFrame:CGRectMake(0, 40, locationLabel.bounds.size.width, 1)];
+    line.backgroundColor = [UIColor whiteColor];
+    
+    searchLocationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, locationSearch.bounds.size.width, locationSearch.bounds.size.height)];
+    [locationSearch addSubview:searchLocationButton];
     [searchLocationButton addTarget:self action:@selector(searchLocationTapped) forControlEvents:UIControlEventTouchUpInside];
     
+    [locationSearch addSubview:locationLabel];
     [self.view addSubview:locationSearch];
+    [locationSearch addSubview:locationSearchs];
+    [locationSearch addSubview:line];
     
     // GENRE VIEW
     
-    genreSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 213, SCREEN_WIDTH + 30, 100)];
+    genreSearch = [[UIView alloc] initWithFrame:CGRectMake(20, 230, SCREEN_WIDTH - 40, 80)];
     genreSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     genreSearch.layer.borderWidth = 1;
     genreSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
- 
+    genreSearch.layer.cornerRadius = 5;
+
+    
+    UILabel * genreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, genreSearch.bounds.size.width, 20)];
+    genreLabel.text = @"Genre";
+    genreLabel.textAlignment = NSTextAlignmentCenter;
+    genreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
+    genreLabel.textColor = [UIColor whiteColor];
+    
+    line = [[UIView alloc] initWithFrame:CGRectMake(0, 40, genreLabel.bounds.size.width, 1)];
+    line.backgroundColor = [UIColor whiteColor];
+
     // LABEL
 
-    genreSearchs = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, SCREEN_WIDTH + 20, 60)];
+    genreSearchs = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, SCREEN_WIDTH - 60, 40)];
     [genreSearchs setTextAlignment: NSTextAlignmentCenter];
     genreSearchs.backgroundColor = [UIColor whiteColor];
     
     // BUTTON
     
     genreSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, genreSearch.bounds.size.width, genreSearch.bounds.size.height)];
-    [genreSearchButton setTitle:@"Genre" forState:UIControlStateNormal];
-    [genreSearchButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
-    [genreSearchButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
-    [genreSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
     [genreSearch addSubview:genreSearchButton];
     
     [genreSearchButton addTarget:self action:@selector(genreSearchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     
     [genreSearch addSubview:genreSearchs];
-    
+    [genreSearch addSubview:genreLabel];
+
     [self.view addSubview:genreSearch];
+    [genreSearch addSubview:line];
     
-    
-    availabilitySearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 313, SCREEN_WIDTH + 30, 100)];
+    availabilitySearch = [[UIView alloc] initWithFrame:CGRectMake(20, 320, SCREEN_WIDTH - 40, 80)];
     availabilitySearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     availabilitySearch.layer.borderWidth = 1;
     availabilitySearch.layer.borderColor = [[UIColor whiteColor]CGColor];
+    availabilitySearch.layer.cornerRadius = 5;
+
+    
+    UILabel * availabilityLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, availabilitySearch.bounds.size.width, 20)];
+    availabilityLabel.text = @"Availability";
+    availabilityLabel.textAlignment = NSTextAlignmentCenter;
+    availabilityLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
+    availabilityLabel.textColor = [UIColor whiteColor];
+    
+    line = [[UIView alloc] initWithFrame:CGRectMake(0, 40, availabilityLabel.bounds.size.width, 1)];
+    line.backgroundColor = [UIColor whiteColor];
     
     // LABEL
     
-    availabilitySearchs = [[UILabel alloc] initWithFrame:CGRectMake(60, 60, 200, 60)];
+    availabilitySearchs = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, SCREEN_WIDTH - 60, 40)];
     availabilitySearchs.backgroundColor = [UIColor greenColor];
     availabilitySearchs.textColor = [UIColor blackColor];
-    
+    [availabilitySearchs setTextAlignment: NSTextAlignmentCenter];
     availabilitySearchButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, availabilitySearch.bounds.size.width, availabilitySearch.bounds.size.height)];
-    
-    [availabilitySearchButton setTitle:@"Availability" forState:UIControlStateNormal];
-    [availabilitySearchButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
-    [availabilitySearchButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
-    [availabilitySearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [availabilitySearch addSubview:availabilitySearchButton];
-    
     [availabilitySearchButton addTarget:self action:@selector(availabilitySearchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    
+    [availabilitySearch addSubview:availabilityLabel];
     [availabilitySearch addSubview:availabilitySearchs];
 
-    
     [self.view addSubview:availabilitySearch];
+    [availabilitySearch addSubview:availabilityLabel];
     
     //// RATE
     
-    rateSearch = [[UIView alloc] initWithFrame:CGRectMake(-10, 413, SCREEN_WIDTH + 30, 100)];
+    rateSearch = [[UIView alloc] initWithFrame:CGRectMake(20, 410, SCREEN_WIDTH - 40, 80)];
     rateSearch.backgroundColor = [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f];
     rateSearch.layer.borderWidth = 1;
     rateSearch.layer.borderColor = [[UIColor whiteColor]CGColor];
-    
+    rateSearch.layer.cornerRadius = 5;
     rateSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, rateSearch.bounds.size.width, rateSearch.bounds.size.height)];
-    
-    [rateSearchButton setTitle:@"Rate" forState:UIControlStateNormal];
-    [rateSearchButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
-    [rateSearchButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:20.0]];
-    [rateSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [rateSearch addSubview:rateSearchButton];
     
-    rateSearchs = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, SCREEN_WIDTH + 20, 40)];
+    rateSearchs = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, SCREEN_WIDTH - 60, 40)];
     [rateSearchs setTextAlignment: NSTextAlignmentCenter];
     rateSearchs.backgroundColor = [UIColor whiteColor];
+    
+    UILabel * rateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, rateSearch.bounds.size.width, 20)];
+    rateLabel.text = @"Rate";
+    rateLabel.textAlignment = NSTextAlignmentCenter;
+    rateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
+    rateLabel.textColor = [UIColor whiteColor];
+    
+    line = [[UIView alloc] initWithFrame:CGRectMake(0, 40, rateLabel.bounds.size.width, 1)];
+    line.backgroundColor = [UIColor whiteColor];
+    
     
     [rateSearchButton addTarget:self action:@selector(rateSearchButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     
     [rateSearch addSubview:rateSearchs];
-    
     [self.view addSubview:rateSearch];
+    [rateSearch addSubview:rateLabel];
+    [rateSearch addSubview:line];
     
     // SEARCH BUTTON BOTTOM
     
-    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 40, SCREEN_WIDTH - 40, 50)];
+    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 500, SCREEN_WIDTH - 40, 50)];
     searchButton.backgroundColor = [UIColor whiteColor];
-    searchButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [searchButton setTitle:@"Search" forState:UIControlStateNormal];
+    [searchButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0]];
+
     [searchButton setTitleColor: [UIColor colorWithRed:0.859f green:0.282f blue:0.255f alpha:1.0f] forState:UIControlStateNormal];
     searchButton.layer.cornerRadius = 5;
     searchButton.layer.borderWidth = 1;
